@@ -1,0 +1,1197 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCP無料オンライン教育 お申し込み</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #12203d;
+  --navy-mid: #1a2d50;
+  --red: #c23a22;
+  --red-dark: #a13019;
+  --red-light: #d94f38;
+  --gold: #c6993a;
+  --gold-light: #dbb35c;
+  --gold-pale: #f5e6c4;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5a6070;
+  --border: #dde1ea;
+  --input-bg: #f9fafb;
+  --focus: rgba(198,153,58,0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #060e1c;
+    --surface: #0e1c32;
+    --text: #e8eaf0;
+    --text-muted: #8a96aa;
+    --border: #1e3050;
+    --input-bg: #0a1628;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #060e1c;
+  --surface: #0e1c32;
+  --text: #e8eaf0;
+  --text-muted: #8a96aa;
+  --border: #1e3050;
+  --input-bg: #0a1628;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ─── ヘッダー ─── */
+.site-header {
+  background: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.site-header .logo-badge {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+.site-header .logo-name {
+  color: white;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.75);
+  font-size: 13px;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.back-btn:hover {
+  color: white;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+}
+
+/* ─── ページトップバナー ─── */
+.page-banner {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 36px 24px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 120%, rgba(198,153,58,0.15) 0%, transparent 70%);
+}
+.page-banner .badge-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.badge-free { background: var(--red); color: white; }
+.badge-online { background: rgba(198,153,58,0.2); color: var(--gold-light); border: 1px solid rgba(198,153,58,0.4); }
+.badge-2026 { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.2); }
+
+.page-banner h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(16px, 3vw, 22px);
+  color: white;
+  font-weight: 700;
+  line-height: 1.45;
+  position: relative;
+  margin-bottom: 8px;
+}
+.page-banner h1 em {
+  color: var(--gold-light);
+  font-style: normal;
+}
+.page-banner .sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  position: relative;
+}
+
+/* ─── メインコンテンツ ─── */
+.main-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .main-wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 16px 48px;
+  }
+}
+
+/* ─── セミナー詳細カード ─── */
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: sticky;
+  top: 24px;
+}
+.info-card-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 20px;
+  border-bottom: 2px solid var(--gold);
+}
+.info-card-header h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.info-card-header .caption {
+  font-size: 11px;
+  color: var(--gold-light);
+  margin-top: 4px;
+}
+
+.info-body {
+  padding: 20px;
+}
+
+.info-row {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.info-row:last-child { border-bottom: none; }
+
+.info-row .icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(198,153,58,0.12);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.info-row .content {}
+.info-row .label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.info-row .value {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+.info-row .value strong {
+  color: var(--red);
+}
+
+.note-box {
+  margin-top: 16px;
+  background: rgba(198,153,58,0.08);
+  border: 1px solid rgba(198,153,58,0.25);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.note-box p {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.note-box p + p { margin-top: 4px; }
+
+/* ─── 申し込みフォーム ─── */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.form-card-header {
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.form-card-header .step-badge {
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--gold);
+}
+.form-card-header h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.form-body {
+  padding: 28px;
+}
+
+.form-section {
+  margin-bottom: 28px;
+}
+.form-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-section-title::before {
+  content: '';
+  width: 3px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) {
+  .field-row { grid-template-columns: 1fr; }
+}
+.field-full { margin-bottom: 16px; }
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.field label .req {
+  color: var(--red);
+  font-size: 11px;
+  margin-left: 4px;
+}
+.field label .opt {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6070' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+  cursor: pointer;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* チェックボックス */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  cursor: pointer;
+  transition: all 0.18s;
+  user-select: none;
+}
+.check-item:hover {
+  border-color: var(--gold);
+  background: rgba(198,153,58,0.06);
+}
+.check-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--gold);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.check-item span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+.check-item:has(input:checked) {
+  border-color: var(--gold);
+  background: rgba(198,153,58,0.1);
+}
+
+/* 月別日程ピッカー */
+.month-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+.month-block {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--input-bg);
+  transition: border-color 0.18s;
+}
+.month-block.active { border-color: var(--gold); }
+.month-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.18s;
+}
+.month-toggle:hover { background: rgba(198,153,58,0.06); }
+.month-toggle input[type="checkbox"] {
+  width: 18px; height: 18px;
+  accent-color: var(--gold);
+  cursor: pointer; flex-shrink: 0;
+}
+.month-toggle .month-name {
+  font-size: 16px; font-weight: 700; color: var(--text);
+}
+.month-dates {
+  border-top: 1px solid var(--border);
+  padding: 10px 14px 12px;
+  background: rgba(198,153,58,0.04);
+}
+.month-dates .dates-label {
+  font-size: 10px; font-weight: 700;
+  color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 8px;
+}
+.date-choice-group { display: flex; flex-direction: column; gap: 6px; }
+.date-choice {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface); cursor: pointer;
+  transition: all 0.15s; user-select: none;
+}
+.date-choice:hover { border-color: var(--gold); background: rgba(198,153,58,0.06); }
+.date-choice input[type="checkbox"] {
+  width: 14px; height: 14px;
+  accent-color: var(--gold); cursor: pointer; flex-shrink: 0;
+}
+.date-choice span { font-size: 13px; color: var(--text); }
+.date-choice:has(input:checked) { border-color: var(--gold); background: rgba(198,153,58,0.12); }
+
+/* セッション別日程選択 */
+.session-group { margin-bottom: 14px; }
+.session-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px 8px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.session-dates {
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+.date-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.date-card:last-child { border-bottom: none; }
+.date-card.sold-out { opacity: 0.55; cursor: not-allowed; background: rgba(0,0,0,0.015); }
+.date-card:not(.sold-out) { cursor: pointer; }
+.date-card:not(.sold-out):hover { background: rgba(198,153,58,0.06); }
+.date-card:not(.sold-out):has(input:checked) { background: rgba(198,153,58,0.1); border-left: 3px solid var(--gold); }
+.date-card input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); flex-shrink: 0; }
+.date-card .date-info { flex: 1; }
+.date-card .date-main { font-size: 14px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.date-card .date-time { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.date-add-tag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 3px; }
+.tag-added { background: rgba(100,100,100,0.12); color: var(--text-muted); }
+.tag-readded { background: rgba(194,58,34,0.12); color: var(--red); }
+.date-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+.badge-full { background: #e5e7eb; color: #9ca3af; }
+.badge-open { background: rgba(22,163,74,0.12); color: #15803d; border: 1px solid rgba(22,163,74,0.3); }
+
+/* ラジオ */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  cursor: pointer;
+  transition: all 0.18s;
+  user-select: none;
+}
+.radio-item:hover {
+  border-color: var(--gold);
+  background: rgba(198,153,58,0.06);
+}
+.radio-item input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.18s;
+  margin: 0;
+}
+.radio-item input[type="radio"]:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.radio-item input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-left: none;
+  border-top: none;
+  transform: rotate(45deg);
+}
+.radio-item span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.radio-item:has(input:checked) {
+  border-color: var(--gold);
+  background: rgba(198,153,58,0.1);
+}
+
+/* 同意チェック */
+.agree-block {
+  background: rgba(10,22,40,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 24px;
+}
+:root[data-theme="dark"] .agree-block,
+@media (prefers-color-scheme: dark) { .agree-block { background: rgba(198,153,58,0.05); } }
+.agree-block p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.agree-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.agree-label input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--navy);
+  flex-shrink: 0;
+}
+.agree-label span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* 送信ボタン */
+.submit-area {
+  text-align: center;
+}
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--red);
+  color: white;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 48px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(194,58,34,0.35);
+  letter-spacing: 0.04em;
+}
+.submit-btn:hover:not(:disabled) {
+  background: var(--red-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(194,58,34,0.45);
+}
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.submit-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* 送信完了 */
+.done-panel {
+  display: none;
+  text-align: center;
+  padding: 40px 28px;
+}
+.done-panel.visible { display: block; }
+.done-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 20px;
+}
+.done-panel h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.done-panel p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.done-panel .home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--navy);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: all 0.2s;
+}
+.done-panel .home-btn:hover {
+  background: var(--navy-mid);
+}
+
+/* エラーメッセージ */
+.field-error {
+  font-size: 11px;
+  color: var(--red);
+  margin-top: 4px;
+  display: none;
+}
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea {
+  border-color: var(--red);
+}
+.field.has-error .field-error { display: block; }
+
+/* ─── フッター ─── */
+.site-footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(198,153,58,0.3);
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="site-header">
+  <a class="logo" href="jdrs-ko-do-v3.html">
+    <span class="logo-badge">JDRS</span>
+    <span class="logo-name">一般社団法人　日本災害救助支援機構</span>
+  </a>
+  <a class="back-btn" href="jdrs-ko-do-v3.html">← トップページに戻る</a>
+</header>
+
+<!-- ページバナー -->
+<div class="page-banner">
+  <div class="badge-row">
+    <span class="badge badge-free">無料</span>
+    <span class="badge badge-online">オンライン（Zoom）</span>
+    <span class="badge badge-2026">２０２６年　下半期</span>
+  </div>
+  <h1>ＢＣＰ無料オンライン教育<br><em>お申し込みフォーム</em></h1>
+  <p class="sub">保育・幼稚園・認定こども園・行政・協議会向け　｜　９月〜１２月開催</p>
+</div>
+
+<!-- メインコンテンツ -->
+<div class="main-wrap">
+
+  <!-- 左：セミナー詳細 -->
+  <aside class="info-card">
+    <div class="info-card-header">
+      <h2>２０２６下半期<br>ＢＣＰ無料オンライン教育<br>（保育・幼稚園・認定こども園・行政・協議会向け）</h2>
+      <p class="caption">年間約8,000人が受講</p>
+    </div>
+    <div class="info-body">
+      <div class="info-row">
+        <div class="icon">📅</div>
+        <div class="content">
+          <p class="label">開催月</p>
+          <p class="value">９月・１０月・１１月・１２月</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="icon">🕐</div>
+        <div class="content">
+          <p class="label" style="display:flex;align-items:center;gap:10px;">開催時間<span style="font-size:11px;font-weight:500;color:#c23a22;background:rgba(194,58,34,0.08);border:1px solid rgba(194,58,34,0.25);padding:2px 8px;border-radius:10px;white-space:nowrap;">受付は開始の30分前から</span></p>
+          <p class="value">13:30〜15:00（約90分）</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="icon">💻</div>
+        <div class="content">
+          <p class="label">開催形式</p>
+          <p class="value">オンライン（Zoom）</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="icon">👥</div>
+        <div class="content">
+          <p class="label">定員</p>
+          <p class="value">各回 <strong>100端末</strong> まで</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="icon">💴</div>
+        <div class="content">
+          <p class="label">受講料</p>
+          <p class="value"><strong>無料</strong></p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="icon">🎯</div>
+        <div class="content">
+          <p class="label">対象</p>
+          <p class="value">保育園・幼稚園・認定こども園・行政・協議会　関係者</p>
+        </div>
+      </div>
+      <div class="note-box">
+        <p>・お申し込み後、担当者よりZoom URLを含む詳細をメールにてご案内いたします。</p>
+        <p>・定員に達した場合はご希望に添えない場合があります。</p>
+        <p>・複数月のご参加も歓迎いたします。</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 右：申し込みフォーム -->
+  <div class="form-card">
+    <div class="form-card-header">
+      <span class="step-badge">STEP 1 / 1</span>
+      <h2>お申し込み情報の入力</h2>
+    </div>
+
+    <!-- 入力フォーム -->
+    <div class="form-body" id="formPanel">
+      <form id="applyForm" novalidate>
+
+        <!-- ご担当者情報 -->
+        <div class="form-section">
+          <p class="form-section-title">ご担当者情報</p>
+
+          <div class="field-row">
+            <div class="field" id="field-name">
+              <label for="name">お名前<span class="req">必須</span></label>
+              <input type="text" id="name" name="name" placeholder="山田 太郎" autocomplete="name">
+              <p class="field-error">お名前を入力してください</p>
+            </div>
+            <div class="field" id="field-kana">
+              <label for="kana">フリガナ<span class="opt">任意</span></label>
+              <input type="text" id="kana" name="kana" placeholder="ヤマダ タロウ">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field" id="field-email">
+              <label for="email">メールアドレス<span class="req">必須</span></label>
+              <input type="email" id="email" name="email" placeholder="example@mail.com" autocomplete="email">
+              <p class="field-error">正しいメールアドレスを入力してください</p>
+            </div>
+            <div class="field" id="field-tel">
+              <label for="tel">電話番号<span class="opt">任意</span></label>
+              <input type="tel" id="tel" name="tel" placeholder="03-0000-0000" autocomplete="tel">
+            </div>
+          </div>
+        </div>
+
+        <!-- 所属先情報 -->
+        <div class="form-section">
+          <p class="form-section-title">所属先情報</p>
+
+          <div class="field-full field" id="field-facility">
+            <label for="facility">施設名・団体名・会社名<span class="req">必須</span></label>
+            <input type="text" id="facility" name="facility" placeholder="○○保育園" autocomplete="organization">
+            <p class="field-error">施設名・団体名を入力してください</p>
+          </div>
+
+          <div class="field-row">
+            <div class="field" id="field-type">
+              <label for="type">業種<span class="req">必須</span></label>
+              <select id="type" name="type">
+                <option value="">選択してください</option>
+                <option value="保育園">保育園</option>
+                <option value="幼稚園">幼稚園</option>
+                <option value="認定こども園">認定こども園</option>
+                <option value="行政">行政</option>
+                <option value="協議会">協議会</option>
+                <option value="その他">その他</option>
+              </select>
+              <p class="field-error">業種を選択してください</p>
+            </div>
+            <div class="field" id="field-dept">
+              <label for="dept">部署・役職<span class="opt">任意</span></label>
+              <input type="text" id="dept" name="dept" placeholder="園長 / 主任 等">
+            </div>
+          </div>
+
+          <div class="field-full field">
+            <label for="address">所在地（都道府県）<span class="opt">任意</span></label>
+            <select id="address" name="address">
+              <option value="">選択してください</option>
+              <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+              <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
+              <option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option><option>岐阜県</option>
+              <option>静岡県</option><option>愛知県</option><option>三重県</option><option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option>
+              <option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+              <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option><option>佐賀県</option><option>長崎県</option>
+              <option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 参加希望 -->
+        <div class="form-section">
+          <p class="form-section-title">参加希望</p>
+
+          <div class="field-full" id="field-months">
+            <label style="display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;">
+              参加希望日程<span class="req" style="color:var(--red);font-size:11px;margin-left:4px;">必須</span>
+              <span style="font-size:11px;font-weight:400;color:var(--text-muted);margin-left:6px;">（複数選択可・満席は選択不可）</span>
+            </label>
+
+            <!-- テーマ①「園が必要な備蓄とは」 -->
+            <div class="session-group">
+              <div class="session-header">テーマ①「園が必要な備蓄とは」</div>
+              <div class="session-dates">
+                <div class="date-card sold-out">
+                  <input type="checkbox" disabled>
+                  <div class="date-info">
+                    <p class="date-main">９月１１日（金）</p>
+                    <p class="date-time">13:30〜15:00　当初開催</p>
+                  </div>
+                  <span class="date-badge badge-full">満席</span>
+                </div>
+                <div class="date-card sold-out">
+                  <input type="checkbox" disabled>
+                  <div class="date-info">
+                    <p class="date-main">１１月１８日（水）</p>
+                    <p class="date-time">13:30〜15:00　当初開催</p>
+                  </div>
+                  <span class="date-badge badge-full">満席</span>
+                </div>
+                <div class="date-card sold-out">
+                  <input type="checkbox" disabled>
+                  <div class="date-info">
+                    <p class="date-main">１１月　９日（月）<span class="date-add-tag tag-added">追加開催</span></p>
+                    <p class="date-time">13:30〜15:00</p>
+                  </div>
+                  <span class="date-badge badge-full">満席</span>
+                </div>
+                <label class="date-card">
+                  <input type="checkbox" name="session-dates" value="１１月５日（木）13:30〜 テーマ①「園が必要な備蓄とは」">
+                  <div class="date-info">
+                    <p class="date-main">１１月　５日（木）<span class="date-add-tag tag-readded">再追加開催</span></p>
+                    <p class="date-time">13:30〜15:00</p>
+                  </div>
+                  <span class="date-badge badge-open">受付中</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- テーマ②「発災直後のリスクを知るための情報収集とは」 -->
+            <div class="session-group">
+              <div class="session-header">テーマ②「発災直後のリスクを知るための情報収集とは」</div>
+              <div class="session-dates">
+                <div class="date-card sold-out">
+                  <input type="checkbox" disabled>
+                  <div class="date-info">
+                    <p class="date-main">１０月１４日（水）</p>
+                    <p class="date-time">13:30〜15:00　当初開催</p>
+                  </div>
+                  <span class="date-badge badge-full">満席</span>
+                </div>
+                <div class="date-card sold-out">
+                  <input type="checkbox" disabled>
+                  <div class="date-info">
+                    <p class="date-main">１２月　９日（水）</p>
+                    <p class="date-time">13:30〜15:00　当初開催</p>
+                  </div>
+                  <span class="date-badge badge-full">満席</span>
+                </div>
+                <div class="date-card sold-out">
+                  <input type="checkbox" disabled>
+                  <div class="date-info">
+                    <p class="date-main">１２月　１日（火）<span class="date-add-tag tag-added">追加開催</span></p>
+                    <p class="date-time">13:30〜15:00</p>
+                  </div>
+                  <span class="date-badge badge-full">満席</span>
+                </div>
+                <label class="date-card">
+                  <input type="checkbox" name="session-dates" value="１２月２２日（火）13:30〜 テーマ②「発災直後のリスクを知るための情報収集とは」">
+                  <div class="date-info">
+                    <p class="date-main">１２月２２日（火）<span class="date-add-tag tag-readded">再追加開催</span></p>
+                    <p class="date-time">13:30〜15:00</p>
+                  </div>
+                  <span class="date-badge badge-open">受付中</span>
+                </label>
+              </div>
+            </div>
+
+            <p class="field-error" id="months-error">参加希望日程を選択してください</p>
+          </div>
+
+          <div class="field-row" style="margin-top:16px;">
+            <div class="field" id="field-terminals">
+              <label for="terminals">接続端末数<span class="req">必須</span></label>
+              <input type="number" id="terminals" name="terminals" min="1" max="100" placeholder="例：5">
+              <p class="field-error">接続端末数を入力してください</p>
+            </div>
+            <div class="field" id="field-attendance">
+              <label>参加形式<span class="opt">任意</span></label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="attendance" value="個別参加"> <span>個別参加</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="attendance" value="集合参加"> <span>集合参加</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 備考 -->
+        <div class="form-section">
+          <p class="form-section-title">その他</p>
+          <div class="field-full field">
+            <label for="note">ご質問・備考<span class="opt">任意</span></label>
+            <textarea id="note" name="note" placeholder="ご不明な点や特記事項がございましたらご記入ください"></textarea>
+          </div>
+          <div style="margin-top:14px;padding:12px 16px;background:rgba(198,153,58,0.08);border-left:3px solid var(--gold);border-radius:6px;font-size:13px;color:#444;line-height:1.7;">
+            お申し込みでお困りの場合はこちらまで：<a href="mailto:info@jdrs21.jp" style="color:var(--red);font-weight:700;text-decoration:none;">info@jdrs21.jp</a>
+          </div>
+        </div>
+
+        <!-- 同意 -->
+        <div class="agree-block">
+          <p>お申し込みいただいた個人情報は、セミナーの運営・ご案内のみに使用し、第三者への提供は行いません。また、JDRS（一般社団法人　日本災害救助支援機構）からの関連情報をメールでお送りする場合があります。</p>
+          <label class="agree-label">
+            <input type="checkbox" id="agree" name="agree">
+            <span>個人情報の取り扱いに同意します</span>
+          </label>
+        </div>
+
+        <!-- 送信ボタン -->
+        <div class="submit-area">
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span>申し込みを送信する</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <div style="margin-top:14px;background:rgba(194,58,34,0.06);border:1px solid rgba(194,58,34,0.25);border-left:4px solid var(--red);border-radius:6px;padding:12px 16px;text-align:left;">
+            <p style="font-size:13px;color:var(--red);font-weight:700;margin:0 0 6px;">⚠ ご注意</p>
+            <p style="font-size:12px;color:var(--red);line-height:1.75;margin:0;">送信後、各開催１週間前および３日前にメール（info@jdrs21.jp）より「Zoom URL」・「教育資料」等の詳細をご案内いたします。<br>お申込みタイミングによってはすでに満席になっている場合がございますのであらかじめご了承ください。定員になり次第、受付を終了します。</p>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- 送信完了パネル -->
+    <div class="done-panel" id="donePanel">
+      <div class="done-icon">✓</div>
+      <h3>お申し込みを受け付けました</h3>
+      <p>ご入力のメールアドレスに確認メールをお送りします。<br>Zoom URLなどの詳細は、担当者よりご案内いたします。<br><br>ご参加をお待ちしております。</p>
+      <a href="jdrs-ko-do-v3.html" class="home-btn">← トップページに戻る</a>
+    </div>
+  </div>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <p>© 2026 一般社団法人　日本災害救助支援機構（JDRS）　All Rights Reserved.</p>
+</footer>
+
+<script>
+(function(){
+
+  // 月チェックボックスで日程を展開/収納
+  window.toggleMonth = function(cb, blockId, datesId) {
+    var block = document.getElementById(blockId);
+    var dates = document.getElementById(datesId);
+    if (cb.checked) {
+      block.classList.add('active');
+      dates.hidden = false;
+    } else {
+      block.classList.remove('active');
+      dates.hidden = true;
+      dates.querySelectorAll('input[type="checkbox"]').forEach(function(c){ c.checked = false; });
+    }
+  };
+
+  const form = document.getElementById('applyForm');
+  const formPanel = document.getElementById('formPanel');
+  const donePanel = document.getElementById('donePanel');
+
+  function required(id, val){
+    const el = document.getElementById('field-'+id);
+    if(!el) return true;
+    const ok = val && val.trim() !== '' && val !== '選択してください';
+    el.classList.toggle('has-error', !ok);
+    return ok;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let ok = true;
+
+    if(!required('name',  document.getElementById('name').value))    ok = false;
+    if(!required('email', document.getElementById('email').value))   ok = false;
+    if(!required('facility', document.getElementById('facility').value)) ok = false;
+
+    const typeVal = document.getElementById('type').value;
+    if(!typeVal || typeVal === '選択してください'){
+      document.getElementById('field-type').classList.add('has-error'); ok = false;
+    } else {
+      document.getElementById('field-type').classList.remove('has-error');
+    }
+
+    const selectedDates = Array.from(document.querySelectorAll('input[name="session-dates"]:checked')).map(c=>c.value);
+    const monthErr = document.getElementById('months-error');
+    if(selectedDates.length === 0){
+      monthErr.style.display = 'block'; ok = false;
+    } else {
+      monthErr.style.display = 'none';
+    }
+
+    // 端末数バリデーション
+    const terminalsVal = document.getElementById('terminals').value;
+    if(!terminalsVal || parseInt(terminalsVal) < 1){
+      document.getElementById('field-terminals').classList.add('has-error'); ok = false;
+    } else {
+      document.getElementById('field-terminals').classList.remove('has-error');
+    }
+
+    const emailVal = document.getElementById('email').value;
+    if(emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){
+      document.getElementById('field-email').classList.add('has-error'); ok = false;
+    }
+
+    const agreed = document.getElementById('agree').checked;
+    if(!agreed){ alert('個人情報の取り扱いへの同意が必要です。'); ok = false; }
+
+    if(!ok) return;
+
+    // メール本文を構築して mailto: で送信
+    const name      = document.getElementById('name').value;
+    const kana      = document.getElementById('kana').value;
+    const email     = emailVal;
+    const tel       = document.getElementById('tel').value;
+    const facility  = document.getElementById('facility').value;
+    const type      = document.getElementById('type').value;
+    const dept      = document.getElementById('dept').value;
+    const pref      = document.getElementById('address').value;
+    const terminals = document.getElementById('terminals').value;
+    const attendance= document.querySelector('input[name="attendance"]:checked');
+    const note      = document.getElementById('note').value;
+
+    const body = [
+      '【２０２６下半期 BCP無料オンライン教育　お申し込み】',
+      '',
+      '■ ご担当者情報',
+      'お名前：' + name,
+      'フリガナ：' + (kana||'―'),
+      'メールアドレス：' + email,
+      '電話番号：' + (tel||'―'),
+      '',
+      '■ 所属先情報',
+      '施設名・団体名：' + facility,
+      '業種：' + type,
+      '部署・役職：' + (dept||'―'),
+      '所在地（都道府県）：' + (pref||'―'),
+      '',
+      '■ 参加希望日程',
+      selectedDates.length ? selectedDates.map(function(d){ return '・' + d; }).join('\n') : '（未選択）',
+      '',
+      '接続端末数：' + (terminals ? terminals+'台' : '―'),
+      '参加形式：' + (attendance ? attendance.value : '―'),
+      '',
+      '■ ご質問・備考',
+      note || '特になし',
+    ].join('\n');
+
+    const subject = encodeURIComponent('【お申し込み】２０２６下半期 BCP無料オンライン教育　' + name + '様');
+    const mailBody = encodeURIComponent(body);
+    window.location.href = 'mailto:takasuka@jdrs21.jp?subject=' + subject + '&body=' + mailBody;
+
+    // 完了画面に切り替え
+    setTimeout(function(){
+      formPanel.style.display = 'none';
+      donePanel.classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 600);
+  });
+})();
+</script>
+</body>
+</html>

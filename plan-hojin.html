@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>法人向け BCPプラン一覧｜JDRS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --navy:#0a1628;--navy-mid:#1a2d50;
+  --red:#c23a22;--red-light:#e04a2a;
+  --gold:#c6993a;--gold-light:#dbb35c;
+  --white:#fff;
+  /* category colors */
+  --hoiku-h:#e07a90;--hoiku-l:rgba(224,122,144,0.15);--hoiku-b:rgba(224,122,144,0.35);
+  --kaigo-h:#5bb8a0;--kaigo-l:rgba(91,184,160,0.12);--kaigo-b:rgba(91,184,160,0.35);
+  --iryo-h:#6ba3e0;--iryo-l:rgba(107,163,224,0.12);--iryo-b:rgba(107,163,224,0.35);
+  --corp-h:#c6993a;--corp-l:rgba(198,153,58,0.12);--corp-b:rgba(198,153,58,0.35);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--navy);color:var(--white);line-height:1.7;min-height:100vh;}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,153,58,0.25);padding:12px 20px;display:flex;align-items:center;gap:14px;}
+.back-link{color:var(--gold-light);text-decoration:none;font-size:13px;font-weight:700;}
+.back-link:hover{opacity:.75;}
+.header-title{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;}
+
+/* Hero */
+.hero{padding:52px 20px 44px;text-align:center;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-mid) 60%,rgba(198,153,58,0.08) 100%);border-bottom:2px solid rgba(198,153,58,0.2);}
+.hero-label{display:inline-block;background:rgba(194,58,34,0.15);border:1px solid rgba(194,58,34,0.4);color:#f07060;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:.08em;margin-bottom:18px;}
+.hero-title{font-family:'Noto Serif JP',serif;font-size:clamp(22px,5vw,36px);font-weight:900;line-height:1.3;margin-bottom:12px;}
+.hero-title em{color:var(--gold-light);font-style:normal;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.9;max-width:560px;margin:0 auto;}
+
+/* Category grid */
+.cat-section{padding:52px 20px 64px;max-width:1000px;margin:0 auto;}
+.cat-lead{text-align:center;font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:36px;line-height:1.8;}
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:620px){.cat-grid{grid-template-columns:1fr;}}
+
+/* Category card */
+.cat-card{border-radius:16px;overflow:hidden;border:2px solid var(--c-border);background:var(--c-bg);transition:transform .18s,border-color .18s,box-shadow .18s;cursor:pointer;text-decoration:none;display:block;color:inherit;}
+.cat-card:hover{transform:translateY(-4px);border-color:var(--c-hover);box-shadow:0 8px 32px rgba(0,0,0,0.35);}
+
+.cat-card-hoiku{--c-bg:rgba(224,122,144,0.07);--c-border:rgba(224,122,144,0.3);--c-hover:rgba(224,122,144,0.8);}
+.cat-card-kaigo{--c-bg:rgba(91,184,160,0.07);--c-border:rgba(91,184,160,0.3);--c-hover:rgba(91,184,160,0.8);}
+.cat-card-iryo {--c-bg:rgba(107,163,224,0.07);--c-border:rgba(107,163,224,0.3);--c-hover:rgba(107,163,224,0.8);}
+.cat-card-corp {--c-bg:rgba(198,153,58,0.07); --c-border:rgba(198,153,58,0.3); --c-hover:rgba(198,153,58,0.8);}
+
+.cat-card-edu {--c-bg:rgba(147,112,219,0.07);--c-border:rgba(147,112,219,0.3);--c-hover:rgba(147,112,219,0.6);--c-accent:rgba(147,112,219,1);}
+.cat-card-mfg {--c-bg:rgba(230,130,50,0.07); --c-border:rgba(230,130,50,0.3); --c-hover:rgba(230,130,50,0.6); --c-accent:rgba(230,130,50,1);}
+.cat-card-svc {--c-bg:rgba(70,160,130,0.07); --c-border:rgba(70,160,130,0.3); --c-hover:rgba(70,160,130,0.6); --c-accent:rgba(70,160,130,1);}
+.cat-card-con {--c-bg:rgba(160,110,50,0.07); --c-border:rgba(160,110,50,0.3); --c-hover:rgba(160,110,50,0.6); --c-accent:rgba(160,110,50,1);}
+.cat-card-gov {--c-bg:rgba(70,120,200,0.07); --c-border:rgba(70,120,200,0.3); --c-hover:rgba(70,120,200,0.6); --c-accent:rgba(70,120,200,1);}
+/* Card header bar */
+.cat-header{padding:20px 22px;display:flex;align-items:center;gap:14px;}
+.cat-header-hoiku{background:linear-gradient(135deg,rgba(224,122,144,0.3),rgba(224,122,144,0.15));border-bottom:1px solid rgba(224,122,144,0.25);}
+.cat-header-kaigo{background:linear-gradient(135deg,rgba(91,184,160,0.3),rgba(91,184,160,0.15));border-bottom:1px solid rgba(91,184,160,0.25);}
+.cat-header-iryo {background:linear-gradient(135deg,rgba(107,163,224,0.3),rgba(107,163,224,0.15));border-bottom:1px solid rgba(107,163,224,0.25);}
+.cat-header-corp {background:linear-gradient(135deg,rgba(198,153,58,0.3),rgba(198,153,58,0.15));border-bottom:1px solid rgba(198,153,58,0.25);}
+
+.cat-icon{font-size:36px;line-height:1;}
+.cat-name-wrap{}
+.cat-name{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:700;line-height:1.2;}
+.cat-name-en{font-size:11px;letter-spacing:.1em;opacity:.6;margin-top:2px;}
+.cat-name-hoiku{color:#f0a0b5;}
+.cat-name-kaigo{color:#7dd5be;}
+.cat-name-iryo {color:#8ec3f0;}
+.cat-name-corp {color:var(--gold-light);}
+
+/* Card body */
+.cat-body{padding:18px 22px 20px;}
+.cat-target{font-size:12px;font-weight:700;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:5px;}
+.cat-tag{padding:3px 9px;border-radius:10px;font-size:11px;}
+.cat-tag-hoiku{background:rgba(224,122,144,0.18);color:#f0a0b5;border:1px solid rgba(224,122,144,0.35);}
+.cat-tag-kaigo{background:rgba(91,184,160,0.18);color:#7dd5be;border:1px solid rgba(91,184,160,0.35);}
+.cat-tag-iryo {background:rgba(107,163,224,0.18);color:#8ec3f0;border:1px solid rgba(107,163,224,0.35);}
+.cat-tag-corp {background:rgba(198,153,58,0.18);color:var(--gold-light);border:1px solid rgba(198,153,58,0.35);}
+
+.cat-desc{font-size:13px;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;}
+.cat-points{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:18px;}
+.cat-points li{font-size:12px;color:rgba(255,255,255,0.65);padding-left:16px;position:relative;line-height:1.5;}
+.cat-points li::before{content:'▶';font-size:8px;position:absolute;left:0;top:4px;}
+.cat-points-hoiku li::before{color:var(--hoiku-h);}
+.cat-points-kaigo li::before{color:var(--kaigo-h);}
+.cat-points-iryo  li::before{color:var(--iryo-h);}
+.cat-points-corp  li::before{color:var(--corp-h);}
+
+.cat-btn{display:block;text-align:center;padding:11px 16px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.04em;transition:opacity .15s;}
+.cat-btn:hover{opacity:.85;}
+.cat-btn-hoiku{background:linear-gradient(135deg,#e07a90,#c85a70);color:var(--white);}
+.cat-btn-kaigo{background:linear-gradient(135deg,#5bb8a0,#3d9880);color:var(--white);}
+.cat-btn-iryo {background:linear-gradient(135deg,#6ba3e0,#4880c0);color:var(--white);}
+.cat-btn-corp {background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);}
+
+/* Ready/coming badge */
+.cat-ready{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;margin-bottom:10px;}
+.ready-dot{width:8px;height:8px;border-radius:50%;}
+.ready{color:#5de08a;}.ready .ready-dot{background:#5de08a;}
+.soon{color:rgba(255,255,255,0.4);}.soon .ready-dot{background:rgba(255,255,255,0.25);}
+
+/* CTA strip */
+.cta-strip{background:rgba(255,255,255,0.02);border-top:1px solid rgba(198,153,58,0.15);border-bottom:1px solid rgba(198,153,58,0.15);padding:32px 20px;text-align:center;}
+.cta-strip-title{font-family:'Noto Serif JP',serif;font-size:18px;color:var(--gold-light);margin-bottom:8px;}
+.cta-strip-sub{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:18px;}
+.cta-strip-btn{display:inline-block;background:linear-gradient(135deg,var(--red),var(--red-light));color:var(--white);font-size:14px;font-weight:700;padding:12px 36px;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(194,58,34,0.4);}
+
+footer{padding:24px 20px;text-align:center;border-top:1px solid rgba(198,153,58,0.12);}
+footer p{font-size:12px;color:rgba(255,255,255,0.3);}
+.cat-header-edu{background:linear-gradient(135deg,rgba(147,112,219,0.85),rgba(100,70,180,0.9));}
+.cat-header-mfg{background:linear-gradient(135deg,rgba(230,130,50,0.85),rgba(190,100,20,0.9));}
+.cat-header-svc{background:linear-gradient(135deg,rgba(70,160,130,0.85),rgba(40,130,100,0.9));}
+.cat-header-con{background:linear-gradient(135deg,rgba(160,110,50,0.85),rgba(120,80,20,0.9));}
+.cat-header-gov{background:linear-gradient(135deg,rgba(70,120,200,0.85),rgba(40,90,170,0.9));}
+.cat-name-edu,.cat-name-mfg,.cat-name-svc,.cat-name-con,.cat-name-gov{color:#fff;}
+.cat-name-en.cat-name-edu,.cat-name-en.cat-name-mfg,.cat-name-en.cat-name-svc,.cat-name-en.cat-name-con,.cat-name-en.cat-name-gov{color:rgba(255,255,255,0.7);}
+.cat-tag-edu{background:rgba(147,112,219,0.15);color:rgb(100,60,180);border:1px solid rgba(147,112,219,0.4);}
+.cat-tag-mfg{background:rgba(230,130,50,0.15);color:rgb(180,90,10);border:1px solid rgba(230,130,50,0.4);}
+.cat-tag-svc{background:rgba(70,160,130,0.15);color:rgb(20,120,90);border:1px solid rgba(70,160,130,0.4);}
+.cat-tag-con{background:rgba(160,110,50,0.15);color:rgb(120,70,10);border:1px solid rgba(160,110,50,0.4);}
+.cat-tag-gov{background:rgba(70,120,200,0.15);color:rgb(30,80,170);border:1px solid rgba(70,120,200,0.4);}
+.cat-points-edu li::before{color:rgba(147,112,219,0.8);}
+.cat-points-mfg li::before{color:rgba(230,130,50,0.8);}
+.cat-points-svc li::before{color:rgba(70,160,130,0.8);}
+.cat-points-con li::before{color:rgba(160,110,50,0.8);}
+.cat-points-gov li::before{color:rgba(70,120,200,0.8);}
+.cat-btn-edu{background:linear-gradient(135deg,rgba(147,112,219,0.9),rgba(100,70,180,0.95));}
+.cat-btn-mfg{background:linear-gradient(135deg,rgba(230,130,50,0.9),rgba(190,100,20,0.95));}
+.cat-btn-svc{background:linear-gradient(135deg,rgba(70,160,130,0.9),rgba(40,130,100,0.95));}
+.cat-btn-con{background:linear-gradient(135deg,rgba(160,110,50,0.9),rgba(120,80,20,0.95));}
+.cat-btn-gov{background:linear-gradient(135deg,rgba(70,120,200,0.9),rgba(40,90,170,0.95));}
+.cat-card-ccp{--c-bg:rgba(32,178,120,0.07);--c-border:rgba(32,178,120,0.3);--c-hover:rgba(32,178,120,0.6);--c-accent:rgba(32,178,120,1);}
+.cat-header-ccp{background:linear-gradient(135deg,rgba(32,178,120,0.85),rgba(10,140,90,0.9));}
+.cat-name-ccp{color:#fff;}
+.cat-name-en.cat-name-ccp{color:rgba(255,255,255,0.7);}
+.cat-tag-ccp{background:rgba(32,178,120,0.15);color:rgb(10,130,80);border:1px solid rgba(32,178,120,0.4);}
+.cat-points-ccp li::before{color:rgba(32,178,120,0.8);}
+.cat-btn-ccp{background:linear-gradient(135deg,rgba(32,178,120,0.9),rgba(10,140,90,0.95));color:#fff;}</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="back-link" href="jdrs-ko-do-v3.html">← トップページへ戻る</a>
+  <span class="header-title">法人向け BCPプラン</span>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-label">法人向け</div>
+  <h1 class="hero-title">「ＢＣＰ策定・訓練・診断・強化」<em>プラン</em></h1>
+  <p class="hero-sub">
+    業種・業態を選んでプランをご確認ください。<br>
+    危機管理専門家（元自衛官）が各業種の現場に特化した内容でサポートします。
+  </p>
+</section>
+
+<!-- Category selection -->
+<div class="cat-section">
+  <p class="cat-lead">下記の業種カテゴリーをクリックして、プラン詳細をご確認ください。</p>
+  <div class="cat-grid">
+
+    <!-- 保育系 -->
+    <a class="cat-card cat-card-hoiku" href="plan-hojin-hoiku.html">
+      <div class="cat-header cat-header-hoiku">
+        <div class="cat-icon">🏫</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-hoiku">保育系</div>
+          <div class="cat-name-en cat-name-hoiku">Childcare / Nursery</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-hoiku">保育園</span>
+          <span class="cat-tag cat-tag-hoiku">認定こども園</span>
+          <span class="cat-tag cat-tag-hoiku">幼稚園</span>
+        </div>
+        <div class="cat-ready ready"><div class="ready-dot"></div>プラン資料あり（全15ページ）</div>
+        <p class="cat-desc">保育現場に特化したＢＣＰ基盤確立強化プラン（5年）。全職員が能動的に動ける体制をつくります。</p>
+        <ul class="cat-points cat-points-hoiku">
+          <li>BCP策定・診断・修正支援</li>
+          <li>初動対応訓練（全国開催）</li>
+          <li>BCP策定オンライン講座</li>
+          <li>保育系義務化対応（努力義務）</li>
+        </ul>
+        <div class="cat-btn cat-btn-hoiku">プラン詳細・資料を見る →</div>
+      </div>
+    </a>
+
+    <!-- 福祉系 -->
+    <a class="cat-card cat-card-kaigo" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-kaigo">
+        <div class="cat-icon">🏥</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-kaigo">福祉系</div>
+          <div class="cat-name-en cat-name-kaigo">Long-term Care / Welfare</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-kaigo">介護施設</span>
+          <span class="cat-tag cat-tag-kaigo">障がい者施設</span>
+          <span class="cat-tag cat-tag-kaigo">デイサービス</span>
+        </div>
+        <div class="cat-ready ready"><div class="ready-dot"></div>BCP策定義務化（2024年3月）対応</div>
+        <p class="cat-desc">介護・障がい者施設向けの義務化対応BCP策定から、訓練・診断・強化まで専門家がトータル支援。</p>
+        <ul class="cat-points cat-points-kaigo">
+          <li>BCP策定義務化（2024年3月）完全対応</li>
+          <li>厚生労働省ガイドライン準拠の策定支援</li>
+          <li>リスク洗い出し・現場診断</li>
+          <li>職員向け教育・訓練プログラム</li>
+        </ul>
+        <div class="cat-btn cat-btn-kaigo">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <!-- 医療系 -->
+    <a class="cat-card cat-card-iryo" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-iryo">
+        <div class="cat-icon">🏨</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-iryo">医療系</div>
+          <div class="cat-name-en cat-name-iryo">Medical / Healthcare</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-iryo">病院・クリニック</span>
+          <span class="cat-tag cat-tag-iryo">診療所</span>
+          <span class="cat-tag cat-tag-iryo">薬局</span>
+        </div>
+        <div class="cat-ready ready"><div class="ready-dot"></div>感染防護専門家による対応</div>
+        <p class="cat-desc">医療機関向けのBCP策定・感染防護アドバイザリー・危機管理体制の強化を専門家がサポートします。</p>
+        <ul class="cat-points cat-points-iryo">
+          <li>医療機関特有のリスク分析</li>
+          <li>感染防護アドバイザリー</li>
+          <li>BCP策定・診断・訓練</li>
+          <li>原子力災害・複合災害対応</li>
+        </ul>
+        <div class="cat-btn cat-btn-iryo">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <!-- 一般企業系 -->
+    <a class="cat-card cat-card-corp" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-corp">
+        <div class="cat-icon">🏢</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-corp">一般企業系</div>
+          <div class="cat-name-en cat-name-corp">General Corporation</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-corp">中小企業</span>
+          <span class="cat-tag cat-tag-corp">製造業</span>
+          <span class="cat-tag cat-tag-corp">サービス業</span>
+          <span class="cat-tag cat-tag-corp">その他法人</span>
+        </div>
+        <div class="cat-ready ready"><div class="ready-dot"></div>業種・規模に合わせてカスタマイズ対応</div>
+        <p class="cat-desc">業種・規模を問わず対応。元自衛官の危機管理専門家がBCP策定から訓練・評価まで全面支援します。</p>
+        <ul class="cat-points cat-points-corp">
+          <li>BCP策定・診断・修正・評価</li>
+          <li>リアルな模擬訓練（全国対応）</li>
+          <li>危機管理アドバイザリー年間契約</li>
+          <li>社員教育・防災講話</li>
+        </ul>
+        <div class="cat-btn cat-btn-corp">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <a class="cat-card cat-card-edu" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-edu">
+        <div class="cat-icon">🏫</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-edu">教育・学校系</div>
+          <div class="cat-name-en cat-name-edu">Education / School</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-edu">小学校・中学校</span>
+          <span class="cat-tag cat-tag-edu">高校・大学</span>
+          <span class="cat-tag cat-tag-edu">専門学校</span>
+        </div>
+        <p class="cat-desc">児童生徒の安全確保から授業再開・保護者対応まで、学校現場に特化したBCP策定・訓練を支援します。</p>
+        <ul class="cat-points cat-points-edu">
+          <li>児童生徒の安全・授業再開対応</li>
+          <li>保護者への情報発信体制構築</li>
+          <li>教職員向けBCP訓練・教育</li>
+          <li>文部科学省ガイドライン準拠</li>
+        </ul>
+        <div class="cat-btn cat-btn-edu">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <a class="cat-card cat-card-mfg" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-mfg">
+        <div class="cat-icon">🏭</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-mfg">製造・物流系</div>
+          <div class="cat-name-en cat-name-mfg">Manufacturing / Logistics</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-mfg">工場・製造業</span>
+          <span class="cat-tag cat-tag-mfg">倉庫</span>
+          <span class="cat-tag cat-tag-mfg">運送会社</span>
+        </div>
+        <p class="cat-desc">生産設備の保全・物流維持・早期復旧を軸に、製造・物流現場に最適化したBCP体制を構築します。</p>
+        <ul class="cat-points cat-points-mfg">
+          <li>生産設備の保全・早期復旧計画</li>
+          <li>サプライチェーン継続対応</li>
+          <li>物流維持・代替ルート確保</li>
+          <li>従業員安全確保と事業継続</li>
+        </ul>
+        <div class="cat-btn cat-btn-mfg">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <a class="cat-card cat-card-svc" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-svc">
+        <div class="cat-icon">🏪</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-svc">商業・サービス系</div>
+          <div class="cat-name-en cat-name-svc">Commerce / Service</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-svc">小売店・飲食店</span>
+          <span class="cat-tag cat-tag-svc">宿泊施設</span>
+          <span class="cat-tag cat-tag-svc">商業施設</span>
+        </div>
+        <p class="cat-desc">顧客の安全確保・営業再開・取引先対応を重視した、商業・サービス業向けBCPを策定・支援します。</p>
+        <ul class="cat-points cat-points-svc">
+          <li>顧客安全確保と早期営業再開</li>
+          <li>取引先・仕入先との連携計画</li>
+          <li>スタッフ緊急連絡・シフト体制</li>
+          <li>店舗・施設の被害対応マニュアル</li>
+        </ul>
+        <div class="cat-btn cat-btn-svc">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <a class="cat-card cat-card-con" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-con">
+        <div class="cat-icon">🏗️</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-con">建設・インフラ系</div>
+          <div class="cat-name-en cat-name-con">Construction / Infrastructure</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-con">建設会社</span>
+          <span class="cat-tag cat-tag-con">設備工事</span>
+          <span class="cat-tag cat-tag-con">電気・水道・通信</span>
+        </div>
+        <p class="cat-desc">従業員の安全確保・応急復旧・事業継続を軸に、建設・インフラ企業の災害対応体制を整備します。</p>
+        <ul class="cat-points cat-points-con">
+          <li>従業員安全確保と応急復旧計画</li>
+          <li>重要ライフライン維持対応</li>
+          <li>工事現場の災害対応マニュアル</li>
+          <li>下請・協力会社との連携体制</li>
+        </ul>
+        <div class="cat-btn cat-btn-con">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <a class="cat-card cat-card-gov" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-gov">
+        <div class="cat-icon">🏛️</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-gov">行政・公共施設系</div>
+          <div class="cat-name-en cat-name-gov">Government / Public Facility</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-gov">自治体</span>
+          <span class="cat-tag cat-tag-gov">公的施設</span>
+          <span class="cat-tag cat-tag-gov">公的機関</span>
+        </div>
+        <p class="cat-desc">災害対応業務・住民支援・行政機能の継続を確保するBCP策定・訓練を行政機関向けに提供します。</p>
+        <ul class="cat-points cat-points-gov">
+          <li>災害対応業務・住民支援体制</li>
+          <li>行政機能継続計画（COOP）策定</li>
+          <li>職員向け訓練・教育プログラム</li>
+          <li>避難所運営・地域連携マニュアル</li>
+        </ul>
+        <div class="cat-btn cat-btn-gov">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+    <a class="cat-card cat-card-ccp" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">
+      <div class="cat-header cat-header-ccp">
+        <div class="cat-icon">📍</div>
+        <div class="cat-name-wrap">
+          <div class="cat-name cat-name-ccp">地域　ＣＣＰ</div>
+          <div class="cat-name-en cat-name-ccp">Community Continuity Plan</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <div class="cat-target">
+          <span class="cat-tag cat-tag-ccp">自治会・町内会</span>
+          <span class="cat-tag cat-tag-ccp">地域組織</span>
+          <span class="cat-tag cat-tag-ccp">協議会</span>
+        </div>
+        <p class="cat-desc">地域コミュニティの継続を守るＣＣＰ（コミュニティー継続計画）の策定・訓練を支援します。</p>
+        <ul class="cat-points cat-points-ccp">
+          <li>地域コミュニティの事業継続計画策定</li>
+          <li>住民避難・安否確認体制の整備</li>
+          <li>地域防災リーダー向け訓練・教育</li>
+          <li>行政・施設・地域の連携体制構築</li>
+        </ul>
+        <div class="cat-btn cat-btn-ccp">お問い合わせ・ご相談はこちら →</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- Generic CTA -->
+<div class="cta-strip">
+  <div class="cta-strip-title">業種が当てはまらない場合もご相談ください</div>
+  <p class="cta-strip-sub">上記以外の業種・業態も全国対応可能です。まずはお気軽にお問い合わせください。</p>
+  <a class="cta-strip-btn" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'">無料相談・お問い合わせはこちら →</a>
+</div>
+
+<footer>
+  <p>© 一般社団法人 日本災害救助支援機構（JDRS）</p>
+</footer>
+
+</body>
+</html>

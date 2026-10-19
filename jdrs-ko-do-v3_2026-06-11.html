@@ -1,0 +1,1683 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JDRS - 一般社団法人 日本災害救助支援機構</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #12203d;
+  --navy-mid: #1a2d50;
+  --red: #c23a22;
+  --red-dark: #a13019;
+  --red-light: #d94f38;
+  --gold: #c6993a;
+  --gold-light: #dbb35c;
+  --gold-pale: #f5e6c4;
+  --white: #ffffff;
+  --gray-50: #f8f9fa;
+  --gray-100: #f0f1f3;
+  --gray-200: #e2e4e8;
+  --gray-600: #6b7280;
+  --gray-800: #2d3748;
+  /* ★ ヒーロー背景画像（WordPressの追加CSSで変更可能）
+     例: --hero-bg-image: url('https://jdrs21.jp/wp-content/uploads/2026/03/sky.jpg');
+     画像なしでグラデーションに戻すには none にしてください */
+  --hero-bg-image: url('sun-clouds.jpg');
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--gray-800);
+  background: var(--gray-50);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(10,22,40,0.4);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* ★ 電話番号・お問い合わせボタンは非表示 */
+.header-contact {
+  display: none;
+}
+
+.header-tel {
+  color: var(--gold-light);
+  font-size: 13px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-cta {
+  background: var(--red);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.header-cta:hover { background: var(--red-light); }
+
+/* ===== TAB NAV ===== */
+.tab-nav {
+  background: var(--navy-light);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ★ ナビゲーションをボタン式に変更 */
+.tab-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px 24px;
+  gap: 8px;
+  overflow-x: auto;
+  justify-content: center;
+}
+
+.tab-btn {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  transition: all 0.3s;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.tab-btn:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.tab-btn.active {
+  color: var(--white);
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.tab-btn.active::after {
+  display: none;
+}
+
+/* ===== MAIN ===== */
+.page { display: none; animation: fadeIn 0.4s ease; }
+.page.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HERO with SKY（★ 背景画像はCSS変数で変更可能） ===== */
+.hero {
+  background: var(--hero-bg-image), linear-gradient(180deg, #4a90c4 0%, #5da8d8 15%, #7bbce6 30%, #9dd1f0 45%, #b8e0f6 55%, #d0ecfb 65%, #e4f3fc 75%, #f0f8ff 85%, #f8fcff 100%);
+  background-size: cover;
+  background-position: center;
+  padding: 80px 24px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ★ 雲のエフェクト（CSS疑似要素で表現） */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  left: -10%;
+  width: 60%;
+  height: 160px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.15) 60%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: -8%;
+  width: 50%;
+  height: 140px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.1) 60%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(18px);
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(10,22,40,0.25);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  padding: 10px 28px;
+  border-radius: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(10,22,40,0.5), 0 0px 30px rgba(10,22,40,0.2);
+}
+
+.hero h1 .accent { color: var(--gold-light); text-shadow: 0 2px 12px rgba(10,22,40,0.4); }
+
+.hero p {
+  color: rgba(255,255,255,0.95);
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 6px rgba(10,22,40,0.4);
+}
+
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.btn-primary:hover { background: var(--red-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(194,58,34,0.3); }
+
+/* ★ btn-secondaryも赤に統一・同サイズ */
+.btn-secondary {
+  background: var(--red);
+  color: var(--white);
+  padding: 14px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover { background: var(--red-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(194,58,34,0.3); }
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  background: linear-gradient(180deg, var(--gold), var(--red));
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: var(--gray-600);
+  font-size: 14px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+}
+
+/* ===== CARDS ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 6px 20px rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--gray-100);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.card h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.card p {
+  color: var(--gray-600);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ★ 講演依頼実績を強調するカードスタイル */
+.card.card-featured {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border: 2px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.card.card-featured::before {
+  content: '★ 注目';
+  position: absolute;
+  top: 16px;
+  right: -28px;
+  background: var(--red);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 32px;
+  transform: rotate(45deg);
+}
+
+.card.card-featured .card-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  font-size: 28px;
+}
+
+.card.card-featured h3 {
+  color: var(--white);
+  font-size: 20px;
+}
+
+.card.card-featured p {
+  color: rgba(255,255,255,0.8);
+  font-size: 15px;
+}
+
+/* ===== NEWS (WordPress editable structure) ===== */
+.news-list { list-style: none; }
+
+.news-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--gray-100);
+  align-items: flex-start;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-item:hover { background: rgba(198,153,58,0.04); }
+
+.news-date {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.news-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ★ 最新情報の写真枠（大きめサイズ） */
+.news-thumb {
+  flex-shrink: 0;
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+}
+
+/* 写真がない場合のプレースホルダー（大きめサイズ） */
+.news-thumb-placeholder {
+  flex-shrink: 0;
+  width: 180px;
+  height: 120px;
+  border-radius: 8px;
+  background: var(--gray-100);
+  border: 1px dashed var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: var(--gray-600);
+}
+
+/* ===== PLAN BANNER ===== */
+.plan-banner {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(198,153,58,0.05));
+  pointer-events: none;
+}
+
+.plan-banner .btn-primary { position: relative; z-index: 1; }
+
+.plan-banner h2 {
+  font-family: 'Noto Serif JP', serif;
+  color: var(--white);
+  font-size: 22px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.plan-banner p {
+  color: rgba(255,255,255,0.85);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* ★ プランバナーを横並びにするラッパー */
+.plan-banner-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.plan-banner-row .plan-banner {
+  margin: 0;
+}
+
+/* ===== IMAGE BANNER with site images ===== */
+.img-banner {
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 24px 0;
+  position: relative;
+  display: block;
+}
+
+.img-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== VIDEO SECTION ===== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.video-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  border: 1px solid var(--gray-100);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.video-card:hover { transform: translateY(-3px); }
+
+.video-thumb {
+  background: var(--navy);
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+
+.play-icon {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  background: rgba(194,58,34,0.85);
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  backdrop-filter: blur(4px);
+}
+
+.video-card-body { padding: 20px; }
+.video-card-body h3 { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.5; }
+
+/* ===== SEMINARS ===== */
+.seminar-list { margin-top: 24px; }
+
+.seminar-item {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid var(--gray-100);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.seminar-item:hover { transform: translateX(4px); }
+
+.seminar-date-badge {
+  flex-shrink: 0;
+  background: var(--navy);
+  color: var(--gold-light);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  min-width: 90px;
+}
+
+.seminar-info { flex: 1; }
+.seminar-info h3 { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 4px; }
+
+/* ★ セミナーをアコーディオン化 */
+.seminar-item {
+  flex-wrap: wrap;
+}
+
+.seminar-toggle {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--navy);
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.seminar-item.open .seminar-toggle {
+  transform: rotate(180deg);
+  background: var(--gold-pale);
+}
+
+.seminar-body {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.seminar-item.open .seminar-body {
+  max-height: 300px;
+}
+
+.seminar-body-inner {
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-100);
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--gray-800);
+}
+
+/* ★ セミナー・参加者の声の写真枠（大きめサイズ） */
+.seminar-thumb, .impression-thumb {
+  flex-shrink: 0;
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--gray-100);
+  border: 1px dashed var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--gray-600);
+}
+
+/* ===== IMPRESSION ACCORDION ===== */
+.impression-item {
+  background: var(--white);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid var(--gray-100);
+  overflow: hidden;
+}
+
+.impression-header {
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.impression-header:hover { background: rgba(198,153,58,0.04); }
+
+.impression-header .date {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 700;
+  min-width: 90px;
+}
+
+.impression-header .title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  flex: 1;
+  line-height: 1.5;
+}
+
+.impression-header .toggle {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--navy);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.impression-item.open .toggle {
+  transform: rotate(180deg);
+  background: var(--gold-pale);
+}
+
+.impression-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 24px;
+}
+
+.impression-item.open .impression-body {
+  max-height: 500px;
+  padding: 0 24px 24px;
+}
+
+.impression-body p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--gray-800);
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-100);
+}
+
+/* ===== RELATED LINKS with logos ===== */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.link-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid var(--gray-200);
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.link-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+
+.link-card img { height: 40px; width: auto; object-fit: contain; }
+
+.link-card span { font-weight: 700; color: var(--navy); }
+
+/* ===== STAT COUNTER ANIMATION ===== */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border: 1px solid var(--gray-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+}
+
+.stat-number {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.stat-unit {
+  font-size: 18px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--gray-600);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ===== CONTACT FORM ===== */
+.contact-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.contact-header h1 { font-family: 'Noto Serif JP', serif; color: var(--white); font-size: 32px; margin-bottom: 20px; }
+.contact-header p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.8; }
+
+.contact-offices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.office-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 24px;
+  color: var(--white);
+}
+
+.office-card .label { font-size: 11px; color: var(--gold-light); font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+.office-card .address { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+.office-card .tel { font-size: 15px; font-weight: 700; color: var(--gold-light); margin-top: 8px; }
+
+.form-section { max-width: 800px; margin: -40px auto 60px; padding: 0 24px; }
+
+.form-container {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.form-group { margin-bottom: 28px; }
+
+.form-label {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  font-size: 14px; font-weight: 700; color: var(--navy);
+}
+
+.form-label .required { background: var(--red); color: var(--white); font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 700; }
+.form-label .optional { background: var(--gray-200); color: var(--gray-600); font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 700; }
+
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 12px 16px; border: 1px solid var(--gray-200); border-radius: 8px;
+  font-size: 14px; font-family: 'Noto Sans JP', sans-serif; transition: border-color 0.3s;
+  background: var(--white); color: var(--gray-800);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(198,153,58,0.1);
+}
+
+.form-textarea { min-height: 120px; resize: vertical; }
+.form-select { cursor: pointer; }
+
+.checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+.checkbox-item {
+  display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-800); cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] { accent-color: var(--navy); width: 16px; height: 16px; }
+
+.spam-notice {
+  background: var(--gray-50); padding: 16px; border-radius: 8px; font-size: 12px;
+  color: var(--gray-600); line-height: 1.7; margin-top: 24px; border: 1px solid var(--gray-100);
+}
+
+.spam-notice label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; margin-bottom: 8px; font-weight: 500; color: var(--navy); font-size: 13px; }
+
+.form-submit { margin-top: 32px; text-align: center; }
+
+.form-submit button {
+  background: var(--red); color: var(--white); padding: 16px 64px; border-radius: 8px;
+  font-size: 16px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.form-submit button:hover { background: var(--red-light); transform: translateY(-1px); }
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.page-header h1 { font-family: 'Noto Serif JP', serif; color: var(--white); font-size: 32px; margin-bottom: 12px; }
+.page-header p { color: rgba(255,255,255,0.7); font-size: 15px; }
+
+/* ===== SERVICE / RESULTS BLOCKS ===== */
+.service-section { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+
+.service-block, .results-block {
+  background: var(--white); border-radius: 16px; padding: 40px; margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid var(--gray-100);
+}
+
+.service-block h2, .results-block h2 {
+  font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; color: var(--navy);
+  padding-bottom: 16px; margin-bottom: 20px; border-bottom: 2px solid var(--gold-pale); line-height: 1.5;
+}
+
+.service-block h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin: 20px 0 8px; }
+.service-block p, .service-block li, .results-block p { font-size: 14px; line-height: 1.9; color: var(--gray-800); }
+.service-block ul { padding-left: 20px; margin: 8px 0; }
+.results-block p { margin-bottom: 12px; }
+
+.price-tag {
+  background: var(--gold-pale); display: inline-block; padding: 6px 16px; border-radius: 6px;
+  font-size: 14px; font-weight: 700; color: var(--navy); margin: 12px 0;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, rgba(10,22,40,0.03), rgba(198,153,58,0.05));
+  border-left: 4px solid var(--gold); padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 16px 0;
+}
+
+.divider-line { border: none; border-top: 1px solid var(--gray-200); margin: 16px 0; }
+
+/* ===== COMPANY TABLE ===== */
+.company-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+
+.company-table th, .company-table td {
+  padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--gray-100);
+  font-size: 14px; line-height: 1.8; vertical-align: top;
+}
+
+.company-table th { background: var(--gray-50); font-weight: 700; color: var(--navy); width: 140px; white-space: nowrap; }
+.company-table td { color: var(--gray-800); }
+
+.media-list { max-height: 400px; overflow-y: auto; padding-right: 8px; }
+.media-list::-webkit-scrollbar { width: 4px; }
+.media-list::-webkit-scrollbar-thumb { background: var(--gray-200); border-radius: 2px; }
+.media-item { padding: 8px 0; border-bottom: 1px solid var(--gray-50); font-size: 13px; line-height: 1.6; color: var(--gray-800); }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--navy);
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-logo { margin-bottom: 16px; }
+.footer-logo img { height: 40px; width: auto; opacity: 0.8; }
+
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold-light); }
+
+.footer-copy { color: rgba(255,255,255,0.3); font-size: 12px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+/* ===== ナビカード（横並びリンク） ===== */
+.nav-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.nav-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--navy);
+  border: 2px solid var(--gray-200);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.nav-card:hover {
+  border-color: var(--red);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(10,22,40,0.12);
+}
+.nav-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.nav-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.nav-card-desc {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-top { padding: 10px 16px; }
+  .header-contact { display: none; }
+  .tab-nav-inner { padding: 0 8px; }
+  .tab-btn { padding: 12px 14px; font-size: 13px; }
+  .hero { padding: 48px 16px 64px; }
+  .section { padding: 40px 16px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .form-container { padding: 28px 20px; }
+  .service-block, .results-block { padding: 28px 20px; }
+  .contact-offices { grid-template-columns: 1fr; }
+  .plan-banner { padding: 32px 20px; }
+  .plan-banner-row { grid-template-columns: 1fr; }
+  .tab-nav-inner { flex-wrap: wrap; justify-content: center; gap: 6px; }
+  .tab-btn { padding: 8px 14px; font-size: 12px; }
+  .news-thumb-placeholder, .news-thumb { width: 120px; height: 80px; font-size: 24px; }
+  .seminar-thumb, .impression-thumb { width: 100px; height: 70px; font-size: 22px; }
+  .company-table th { width: 100px; font-size: 12px; }
+  .stat-number { font-size: 28px; }
+  .nav-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .nav-card { padding: 20px 14px; }
+  .nav-card-title { font-size: 14px; }
+  /* 4列の投稿リストをモバイルで1列に */
+  [style*="grid-template-columns:repeat(4,1fr)"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* 3-column flow becomes vertical on mobile */
+  [style*="grid-template-columns:1fr auto 1fr auto 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER with ORIGINAL LOGO ===== -->
+<header class="site-header">
+  <div class="header-top">
+    <a class="logo" onclick="showPage('home')">
+      <img src="https://jdrs21.jp/wp-content/uploads/2019/07/jdrs-2.png" alt="JDRS 日本災害救助支援機構">
+    </a>
+    <div class="header-contact">
+      <a class="header-tel" href="tel:089-932-2394">📞 089-932-2394</a>
+      <button class="header-cta" onclick="showPage('contact')">お問い合わせ</button>
+    </div>
+  </div>
+  <nav class="tab-nav">
+    <div class="tab-nav-inner">
+      <button class="tab-btn active" data-page="home" onclick="showPage('home')">ホーム</button>
+      <button class="tab-btn" data-page="service" onclick="showPage('service')">取組み</button>
+      <button class="tab-btn" data-page="clients" onclick="showPage('clients')">実績</button>
+      <button class="tab-btn" data-page="contact" onclick="showPage('contact')">お申込み・お問い合わせ</button>
+      <button class="tab-btn" data-page="company" onclick="showPage('company')">機構概要</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ========================================== -->
+<!-- ===== HOME PAGE ===== -->
+<!-- ========================================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO with SKY background -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">元自衛官（危機管理専門）で組織するJDRS</div>
+      <h1>
+        過去の災害教訓・経験値を反映<br>
+        <span class="accent">「ＢＣＰ・初動対応・避難行動」</span><br>
+        経営者・管理職が<br>「関係者に受けさせたい教育・訓練」
+      </h1>
+      <p>ＢＣＰ策定・訓練・診断・危機管理力向上社員教育 ─ 過去の教訓から「ひとりでも多くの方を救う」新しい機能する防災・減災対策</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="showPage('contact')">ＢＣＰ訓練・講演受付中 →</button>
+        <button class="btn-secondary" onclick="showPage('service')">取組み詳細を見る</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ★ 全業種受付中バナー -->
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+    <div style="background:linear-gradient(135deg,#0ea5e9,#0284c7);border-radius:14px;padding:5px;box-shadow:0 4px 16px rgba(14,165,233,0.35);">
+      <div style="border:2px solid #c6993a;border-radius:10px;padding:4px;">
+        <div style="border:1px solid rgba(198,153,58,0.5);border-radius:7px;padding:10px 32px;text-align:center;">
+          <p style="color:white;font-family:'Noto Serif JP',serif;font-size:clamp(22px,3.5vw,30px);font-weight:700;margin:0;line-height:1.4;text-shadow:0 1px 3px rgba(0,0,0,0.2);">全業種・業態</p>
+          <p style="color:var(--gold-light);font-family:'Noto Serif JP',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;margin:6px 0 0;line-height:1.5;text-shadow:0 1px 3px rgba(0,0,0,0.2);">ＢＣＰに関する強化・危機管理に関する強化を受付中</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ★ 4カテゴリ統合（タイトル＋投稿リスト、色分け枠） -->
+  <div class="section">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto;">
+
+      <!-- 最新情報（コーラルレッド） -->
+      <div style="border:2px solid #e8574a;border-radius:14px;overflow:hidden;">
+        <a href="https://jdrs21.jp/news/" target="_blank" style="display:block;background:linear-gradient(135deg,rgba(232,87,74,0.85),rgba(217,68,53,0.9)),url('https://jdrs21.jp/wp-content/uploads/2025/02/行政・協議会・各施設・園向け　ＢＣＰ強化案内2025版.jpg');background-size:cover;background-position:center;color:white;text-align:center;padding:24px 12px;text-decoration:none;">
+          <div style="font-size:24px;margin-bottom:6px;">📰</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:19px;font-weight:700;">最新情報</div>
+        </a>
+        <div style="padding:14px 12px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li><a href="https://jdrs21.jp/news/%ef%bc%92%ef%bc%90%ef%bc%92%ef%bc%96%e5%b9%b4%ef%bc%92%e6%9c%88%ef%bd%9e%ef%bc%94%e6%9c%88%e6%9c%9f%e3%80%80%e3%80%8c%e5%85%a8%e5%9b%bd%e3%80%80%ef%bd%82%ef%bd%83%ef%bd%90%ef%bc%88%e4%ba%8b%e6%a5%ad/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,87,74,0.05);border-radius:6px;border-left:3px solid #e8574a;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2025/12</span>全国BCP訓練開催 ２０２６年２月～４月期</a></li>
+            <li><a href="https://jdrs21.jp/news/%ef%bc%92%ef%bc%90%ef%bc%92%ef%bc%94%e5%b9%b4%ef%bc%91%e6%9c%88%ef%bd%9e%ef%bc%96%e6%9c%88%ef%bc%88%e4%b8%8a%e5%8d%8a%e6%9c%9f%ef%bc%89%ef%bd%82%ef%bd%83%ef%bd%90%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,87,74,0.05);border-radius:6px;border-left:3px solid #e8574a;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2025/12</span>BCP無料オンラインセミナー ２０２６年上半期</a></li>
+            <li><a href="https://jdrs21.jp/news/%e3%83%a6%e3%83%bc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%96%e3%80%8c%ef%bd%82%ef%bd%83%ef%bd%90%e7%ad%96%e5%ae%9a%e8%a6%81%e9%a0%98%e5%8b%95%e7%94%bb%e3%80%8d%e3%80%80%e5%8e%9a%e7%94%9f%e5%8a%b4%e5%83%8d/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,87,74,0.05);border-radius:6px;border-left:3px solid #e8574a;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2023/08</span>BCP策定要領動画 厚労省ひな形</a></li>
+            <li><a href="https://jdrs21.jp/news/%e6%8a%9c%e3%81%8d%e6%89%93%e3%81%a1%e3%80%8c%e9%81%bf%e9%9b%a3%e8%a8%93%e7%b7%b4%e3%80%8d%e5%8d%97%e6%b5%b7%e3%83%88%e3%83%a9%e3%83%95%e7%89%88%ef%bc%88%e4%bd%99%e9%9c%87%e3%83%bb%ef%bc%92%e6%ac%a1/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,87,74,0.05);border-radius:6px;border-left:3px solid #e8574a;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2023/07</span>抜き打ち避難訓練 南海トラフ版</a></li>
+            <li><a href="https://jdrs21.jp/news/4716/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,87,74,0.05);border-radius:6px;border-left:3px solid #e8574a;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2022/03</span>無料オンライン教育 コロナ感染防止＆BCP</a></li>
+          </ul>
+          <a href="https://jdrs21.jp/news/" target="_blank" style="display:block;text-align:center;margin-top:10px;font-size:12px;color:var(--red);text-decoration:none;font-weight:600;">すべて見る →</a>
+        </div>
+      </div>
+
+      <!-- 開催予定セミナー（アンバーオレンジ） -->
+      <div style="border:2px solid #e89830;border-radius:14px;overflow:hidden;">
+        <a href="https://jdrs21.jp/endseminar/" target="_blank" style="display:block;background:linear-gradient(135deg,rgba(232,152,48,0.85),rgba(214,138,32,0.9)),url('https://jdrs21.jp/wp-content/uploads/2025/07/講話-7.jpg');background-size:cover;background-position:center;color:white;text-align:center;padding:24px 12px;text-decoration:none;">
+          <div style="font-size:24px;margin-bottom:6px;">🎤</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:19px;font-weight:700;">開催予定セミナー・講演</div>
+        </a>
+         <div style="padding:14px 12px;">
+           <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+             <li><a href="https://jdrs21.jp/seminarschedule/%ef%bd%82%ef%bd%83%ef%bd%90%e8%a8%93%e7%b7%b4%e3%80%80%e3%80%8c%e5%a4%a7%e8%a6%8f%e6%a8%a1%e5%9c%b0%e9%9c%87%e3%80%80%ef%bd%82%ef%bd%83%ef%bd%90%e5%88%9d%e5%8b%95%e5%af%be%e5%bf%9c%e3%80%8d%e9%96%a2/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,152,48,0.05);border-radius:6px;border-left:3px solid #e89830;"><span style="color:var(--gray-600);font-size:10px;display:block;">2026/06/11 千葉（関東）</span>「大規模地震 BCP初動対応」保育・幼稚園・認定こども園</a></li>
+             <li><a href="https://jdrs21.jp/seminarschedule/%ef%bd%82%ef%bd%83%ef%bd%90%e8%a8%93%e7%b7%b4%e3%80%80%e3%80%8c%e5%8d%97%e6%b5%b7%e3%83%88%e3%83%a9%e3%83%95%e5%9c%b0%e9%9c%87%e3%80%80%ef%bd%82%ef%bd%83%ef%bd%90%e5%88%9d%e5%8b%95%e5%af%be-18/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,152,48,0.05);border-radius:6px;border-left:3px solid #e89830;"><span style="color:var(--gray-600);font-size:10px;display:block;">2026/06/25 高知（四国）</span>「南海トラフ地震 BCP初動対応」保育・幼稚園・認定こども園</a></li>
+             <li><a href="https://jdrs21.jp/seminarschedule/%ef%bd%82%ef%bd%83%ef%bd%90%e8%a8%93%e7%b7%b4%e3%80%80%e3%80%8c%e5%8d%97%e6%b5%b7%e3%83%88%e3%83%a9%e3%83%95%e5%9c%b0%e9%9c%87%e3%80%80%ef%bd%82%ef%bd%83%ef%bd%90%e5%88%9d%e5%8b%95%e5%af%be-19/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,152,48,0.05);border-radius:6px;border-left:3px solid #e89830;"><span style="color:var(--gray-600);font-size:10px;display:block;">2026/07/07 大阪（関西）</span>「南海トラフ地震 BCP初動対応」保育・幼稚園・認定こども園</a></li>
+             <li><a href="https://jdrs21.jp/seminarschedule/%ef%bd%82%ef%bd%83%ef%bd%90%e8%a8%93%e7%b7%b4%e3%80%80%e3%80%8c%e5%a4%a7%e8%a6%8f%e6%a8%a1%e7%81%bd%e5%ae%b3%e3%80%80%ef%bd%82%ef%bd%83%ef%bd%90%e5%88%9d%e5%8b%95%e5%af%be%e5%bf%9c%e3%80%8d%e5%8c%97-3/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,152,48,0.05);border-radius:6px;border-left:3px solid #e89830;"><span style="color:var(--gray-600);font-size:10px;display:block;">2026/07/08 石川（北陸）</span>「大規模災害 BCP初動対応」保育・幼稚園・認定こども園</a></li>
+             <li><a href="https://jdrs21.jp/seminarschedule/%ef%bd%82%ef%bd%83%ef%bd%90%e8%a8%93%e7%b7%b4%e3%80%80%e3%80%8c%e5%a4%a7%e8%a6%8f%e6%a8%a1%e7%81%bd%e5%ae%b3%e3%80%80%ef%bd%82%ef%bd%83%ef%bd%90%e5%88%9d%e5%8b%95%e5%af%be%e5%bf%9c%e3%80%8d%e5%8c%97-4/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(232,152,48,0.05);border-radius:6px;border-left:3px solid #e89830;"><span style="color:var(--gray-600);font-size:10px;display:block;">2026/08/03 札幌（北海道）</span>「大規模災害 BCP初動対応」保育・幼稚園・認定こども園</a></li>
+           </ul>
+           <a href="https://jdrs21.jp/" target="_blank" style="display:block;text-align:center;margin-top:10px;font-size:12px;color:#e89830;text-decoration:none;font-weight:600;">すべて見る →</a>
+         </div>
+        </div>
+
+      <!-- 終了セミナー（スカイブルー） -->
+      <div style="border:2px solid #3b82c4;border-radius:14px;overflow:hidden;">
+        <a href="https://jdrs21.jp/endseminar/" target="_blank" style="display:block;background:linear-gradient(135deg,rgba(59,130,196,0.85),rgba(45,109,168,0.9)),url('https://jdrs21.jp/wp-content/uploads/2025/08/★模擬訓練-3-scaled.jpg');background-size:cover;background-position:center;color:white;text-align:center;padding:24px 12px;text-decoration:none;">
+          <div style="font-size:24px;margin-bottom:6px;">📋</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:19px;font-weight:700;">終了セミナー・講演</div>
+        </a>
+        <div style="padding:14px 12px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li><a href="https://jdrs21.jp/endseminar/%e5%9b%9b%e5%9b%bd%e5%8c%96%e6%88%90%e5%b7%a5%e6%a5%ad%e3%80%80%e7%81%bd%e5%ae%b3%e8%ac%9b%e8%a9%b1%e3%80%80%ef%bd%9e%e5%a4%a7%e5%9c%b0%e9%9c%87%e3%81%ab%e5%82%99%e3%81%88%e3%82%8b%e3%80%80%e8%87%aa/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(59,130,196,0.05);border-radius:6px;border-left:3px solid #3b82c4;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2025/10</span>四国化成工業 災害講話</a></li>
+            <li><a href="https://jdrs21.jp/endseminar/%e6%97%a5%e6%9c%ac%ef%bd%8c%ef%bd%90%e3%82%ac%e3%82%b9%e5%8d%94%e4%bc%9a%e3%80%80%ef%bd%82%ef%bd%83%ef%bd%90%ef%bc%88%e4%ba%8b%e6%a5%ad%e7%b6%99%e7%b6%9a%e8%a8%88%e7%94%bb%ef%bc%89%e8%ac%9b%e6%bc%94/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(59,130,196,0.05);border-radius:6px;border-left:3px solid #3b82c4;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2025/10</span>日本LPガス協会 BCP講演</a></li>
+            <li><a href="https://jdrs21.jp/endseminar/%e5%8d%83%e8%91%89%e7%9c%8c%e6%9f%8f%e5%b8%82%e3%80%80%e4%bf%9d%e8%82%b2%e9%81%8b%e5%96%b6%e8%aa%b2%e3%80%80%e3%80%8c%ef%bd%82%ef%bd%83%ef%bd%90%e8%a8%93%e7%b7%b4%e3%80%8d%e5%9c%92%e9%95%b7%e7%89%88/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(59,130,196,0.05);border-radius:6px;border-left:3px solid #3b82c4;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2025/08</span>千葉県柏市 BCP訓練 園長版</a></li>
+            <li><a href="https://jdrs21.jp/endseminar/%ef%bd%82%ef%bd%83%ef%bd%90%e8%ac%9b%e6%bc%94%e3%80%80%ef%bd%9e%ef%bd%82%ef%bd%83%ef%bd%90%e7%ad%96%e5%ae%9a%e8%a6%81%e9%a0%98%e3%80%80%e6%a9%9f%e8%83%bd%e3%81%99%e3%82%8b%ef%bd%82%ef%bd%83%ef%bd%90/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(59,130,196,0.05);border-radius:6px;border-left:3px solid #3b82c4;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2025/07</span>岩手県一関市 BCP講演 園長会</a></li>
+            <li><a href="https://jdrs21.jp/endseminar/%e5%a4%a7%e9%98%aa%e5%ba%9c%e5%86%85%e3%80%80%e4%b8%ad%e5%ad%a6%e6%a0%a1%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e3%80%8c%e5%a4%a7%e8%a6%8f%e6%a8%a1%e7%81%bd%e5%ae%b3%e5%af%be%e5%bf%9c%e8%a8%93%e7%b7%b4/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(59,130,196,0.05);border-radius:6px;border-left:3px solid #3b82c4;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2025/06</span>大阪府内 中学校 大規模災害対応訓練</a></li>
+          </ul>
+          <a href="https://jdrs21.jp/endseminar/" target="_blank" style="display:block;text-align:center;margin-top:10px;font-size:12px;color:#3b82c4;text-decoration:none;font-weight:600;">すべて見る →</a>
+        </div>
+      </div>
+
+      <!-- 参加者の声（グリーン） -->
+      <div style="border:2px solid #22a860;border-radius:14px;overflow:hidden;">
+        <a href="https://jdrs21.jp/impression/" target="_blank" style="display:block;background:linear-gradient(135deg,rgba(34,168,96,0.85),rgba(29,144,80,0.9)),url('https://jdrs21.jp/wp-content/uploads/2022/07/砥部町社協講演20220711-3-scaled.jpg');background-size:cover;background-position:center;color:white;text-align:center;padding:24px 12px;text-decoration:none;">
+          <div style="font-size:24px;margin-bottom:6px;">💬</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:19px;font-weight:700;">参加者・依頼者等の声</div>
+        </a>
+        <div style="padding:14px 12px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li><a href="https://jdrs21.jp/impression/%ef%bd%82%ef%bd%83%ef%bd%90%e8%ac%9b%e6%bc%94%e3%80%80%e3%80%8c%ef%bd%82%ef%bd%83%ef%bd%90%e3%81%ae%e9%87%8d%e8%a6%81%e6%80%a7%e3%80%80%ef%bd%9e%e5%85%a8%e8%81%b7%e5%93%a1%e3%81%ae%e9%96%a2%e4%b8%8e/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(34,168,96,0.05);border-radius:6px;border-left:3px solid #22a860;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2022/07</span>BCP講演（社協）全職員の関与の必要性</a></li>
+            <li><a href="https://jdrs21.jp/impression/%e5%8d%b1%e6%a9%9f%e7%ae%a1%e7%90%86%e6%8c%87%e5%b0%8e%ef%bc%93%ef%bd%88%e3%80%80%e4%bf%9d%e8%82%b2%e6%89%80%e7%89%88%ef%bc%88%e5%8d%83%e8%91%89%e7%9c%8c%ef%bc%89/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(34,168,96,0.05);border-radius:6px;border-left:3px solid #22a860;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2022/06</span>危機管理指導3h 保育所版（千葉県）</a></li>
+            <li><a href="https://jdrs21.jp/impression/%ef%bd%82%ef%bd%83%ef%bd%90%e8%a8%93%e7%b7%b4%e3%80%80-%e5%8f%82%e5%8a%a0%e8%80%85%e3%81%ae%e5%a3%b0/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(34,168,96,0.05);border-radius:6px;border-left:3px solid #22a860;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2022/01</span>BCP訓練 介護医療院 参加者の声</a></li>
+            <li><a href="https://jdrs21.jp/impression/%ef%bd%82%ef%bd%83%ef%bd%90%e3%82%b3%e3%83%b3%e3%82%af%e3%83%bc%e3%83%ab%e3%80%80-%e5%8f%82%e5%8a%a0%e8%80%85%e3%81%ae%e5%a3%b0/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(34,168,96,0.05);border-radius:6px;border-left:3px solid #22a860;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2021/07</span>BCPコンクール 保育関係者の声</a></li>
+            <li><a href="https://jdrs21.jp/impression/%e6%96%b0%e5%9e%8b%e3%82%b3%e3%83%ad%e3%83%8a%e3%82%a6%e3%82%a4%e3%83%ab%e3%82%b9%e6%84%9f%e6%9f%93%e9%98%b2%e6%ad%a2%e6%95%99%e8%82%b2%e3%80%80%e6%84%9f%e6%9f%93%e6%8b%a1%e5%a4%a7%e7%8a%b6%e6%b3%81/" target="_blank" style="text-decoration:none;color:var(--gray-800);font-size:12px;line-height:1.5;display:block;padding:7px 8px;background:rgba(34,168,96,0.05);border-radius:6px;border-left:3px solid #22a860;transition:all 0.2s;"><span style="color:var(--gray-600);font-size:10px;display:block;">2021/05</span>コロナ感染防止教育 模擬体験</a></li>
+          </ul>
+          <a href="https://jdrs21.jp/impression/" target="_blank" style="display:block;text-align:center;margin-top:10px;font-size:12px;color:#22a860;text-decoration:none;font-weight:600;">すべて見る →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ★ メディア出演・放映・掲載（直近5件 + 展開式） -->
+  <div class="section">
+    <div style="max-width:960px;margin:0 auto;background:linear-gradient(135deg,#f0f4ff 0%,#e8edf8 100%);border:2px solid #3b82c4;border-radius:16px;padding:32px 28px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(59,130,196,0.08),transparent);"></div>
+      <h2 style="font-family:'Noto Serif JP',serif;font-size:22px;color:#2a4a7f;text-align:center;margin-bottom:6px;position:relative;">📺 メディア出演・放映・掲載等</h2>
+      <p style="text-align:center;font-size:13px;color:var(--gray-600);margin-bottom:24px;position:relative;">テレビ・新聞・ラジオなど各メディアに取り上げていただきました</p>
+      <div style="position:relative;">
+      <!-- 直近5件（常に表示） -->
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid #e8574a;box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２６．１</span><span style="font-size:13px;color:var(--gray-800);">新聞（全国版）ＢＣＰ機能化に向けて</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid #e8574a;box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２５．８</span><span style="font-size:13px;color:var(--gray-800);">新聞 宮崎日日新聞社　ＢＣＰ訓練 宮崎開催 南海トラフ地震 初動対応訓練</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid #e8574a;box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２５．８</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ ＭＲＴ宮崎放送　ＢＣＰ訓練 宮崎開催 南海トラフ地震 初動対応訓練</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid #e8574a;box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２５．５</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ訓練 南海トラフ地震 高知開催 初動対応訓練</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid #e8574a;box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２５．４</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ策定前リスク洗い出し様子</span></div>
+      </div>
+      <!-- 残りの件数（折りたたみ） -->
+      <div id="mediaMore" style="display:none;margin-top:8px;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２５．３</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ、フジテレビ系、日本テレビ系、テレビ朝日系、ＴＢＳ系 他「南海トラフ地震津波避難訓練」</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２５．２</span><span style="font-size:13px;color:var(--gray-800);">新聞 宮崎日日新聞　ＢＣＰ訓練 九州開催宮崎会場 南海トラフ地震 保育所版</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２５．２</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ 宮崎放送　ＢＣＰ訓練 九州開催宮崎会場 南海トラフ地震 保育所版</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．１０</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　保育園 現地特化型ＢＣＰ訓練様子</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．８</span><span style="font-size:13px;color:var(--gray-800);">高知新聞　ＢＣＰ訓練 高知開催「臨時情報発令後における南海トラフ地震発生対応版」</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．７</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　市保育士会 講演「ＢＣＰ南海トラフ地震への初動対応」</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．６</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　園保護者向け 防災講演</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．６</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　園保護者向け 防災講演</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．３</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ訓練 南海トラフ地震初動対応</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．１</span><span style="font-size:13px;color:var(--gray-800);">高知新聞　ＢＣＰ訓練「南海トラフ地震 幼稚園現地特化版 初動対応」</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２４．１</span><span style="font-size:13px;color:var(--gray-800);">高知テレビ　ＢＣＰ訓練「南海トラフ地震 幼稚園現地特化版 初動対応」</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．９</span><span style="font-size:13px;color:var(--gray-800);">新聞　特集「人・ひと・人」</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．８</span><span style="font-size:13px;color:var(--gray-800);">新聞　ＢＣＰ訓練 愛媛開催 保育幼稚園関係者（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．７</span><span style="font-size:13px;color:var(--gray-800);">共同通信　ＢＣＰ訓練 高知開催（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．７</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ訓練 県老人保健施設協議会</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．７</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ朝日系　ＢＣＰ訓練 県老人保健施設協議会</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．６</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　抜き打ち避難訓練 保育所版</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．６</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　抜き打ち避難訓練 保育所版</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．６</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　抜き打ち避難訓練 保育所版</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．４</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫラジオ　南海トラフ巨大地震への対応</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．３</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ訓練 高知開催（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．２</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ訓練 県老施協（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２３．１</span><span style="font-size:13px;color:var(--gray-800);">読売新聞　ＢＣＰ訓練 学校法人（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２２．３</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ講話 介護支援専門員向け</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．１２</span><span style="font-size:13px;color:var(--gray-800);">読売新聞　ＢＣＰ訓練 県老施協（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．８</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　新型コロナ感染対策</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．７</span><span style="font-size:13px;color:var(--gray-800);">新聞　ＢＣＰ講演 保育協議会</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．７</span><span style="font-size:13px;color:var(--gray-800);">新聞　ＢＣＰ訓練 保育幼稚園関係者（感染症発生時における南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．４</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ訓練 広島開催 保育幼稚園関係者（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．３</span><span style="font-size:13px;color:var(--gray-800);">ＮＨＫ　ＢＣＰ訓練 高知開催 保育幼稚園関係者（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．２</span><span style="font-size:13px;color:var(--gray-800);">読売新聞　ＢＣＰ訓練 広島開催 保育幼稚園関係者（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．２</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　災害講話 小中ＰＴＡ関係者（過去の災害の現場）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２１．１</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　ＢＣＰ訓練 社会福祉協議会（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２０．１２</span><span style="font-size:13px;color:var(--gray-800);">新聞　ＢＣＰ講演 ケアマネ関係者（南海トラフ・風水害版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２０．１１</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ　ＢＣＰ訓練 介護事業所（南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２０．１１</span><span style="font-size:13px;color:var(--gray-800);">新聞　ＢＣＰ訓練 保育園（感染症発生時における南海トラフ版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２０．７</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ朝日系　感染症対策 高校野球連盟（大会開催における対策指導）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２０．６</span><span style="font-size:13px;color:var(--gray-800);">ＴＶ朝日系　感染症対策 高校野球連盟（大会開催における対策指導）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０２０．３</span><span style="font-size:13px;color:var(--gray-800);">新聞　ＢＣＰ訓練 介護・障がい事業所等（感染症発生時における南海トラフ対応版）</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:8px;border-left:4px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--gray-600);white-space:nowrap;font-weight:600;">２０１９．１２</span><span style="font-size:13px;color:var(--gray-800);">経済レポート　ＢＣＰ訓練 介護・障がい事業所（南海トラフ版）</span></div>
+        </div>
+      </div>
+      <!-- 開閉ボタン -->
+      <div style="text-align:center;margin-top:16px;">
+        <button id="mediaToggleBtn" onclick="var m=document.getElementById('mediaMore');var b=document.getElementById('mediaToggleBtn');if(m.style.display==='none'){m.style.display='block';b.textContent='▲ 閉じる';}else{m.style.display='none';b.textContent='▼ 過去の出演をすべて見る（全４５件）';}" style="background:white;border:2px solid #3b82c4;color:#3b82c4;padding:10px 28px;border-radius:8px;font-size:14px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:600;transition:all 0.2s;">▼ 過去の出演をすべて見る（全４５件）</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ★ Plan Banners（横並び） -->
+  <div class="section">
+    <div class="plan-banner-row">
+      <div class="plan-banner" style="background:linear-gradient(135deg,rgba(10,22,40,0.5),rgba(26,45,80,0.55)),url('https://jdrs21.jp/wp-content/uploads/2024/11/ＨＰ模擬訓練⑩-scaled.jpg');background-size:cover;background-position:center;">
+        <h2>法人向け</h2>
+        <p>「ＢＣＰ策定・訓練・診断・強化」プラン</p>
+        <a class="btn-primary" href="https://jdrs21.jp/portfolio/%e3%83%97%e3%83%a9%e3%83%b3%e7%b4%b9%e4%bb%8b/" target="_blank">プランこちらから →</a>
+      </div>
+      <div class="plan-banner" style="background:linear-gradient(135deg,rgba(10,22,40,0.5),rgba(26,45,80,0.55)),url('https://jdrs21.jp/wp-content/uploads/2020/10/DSC_2251-scaled.jpg');background-size:cover;background-position:center;">
+        <h2>行政・協議会・団体向け</h2>
+        <p>「ＢＣＰ講演・訓練・策定支援」プラン</p>
+        <a class="btn-primary" href="https://jdrs21.jp/portfolio/%e8%a1%8c%e6%94%bf%e3%83%bb%e5%8d%94%e8%ad%b0%e4%bc%9a%e3%83%bb%e5%9b%a3%e4%bd%93%e5%90%91%e3%81%91%e3%83%97%e3%83%a9%e3%83%b3%e7%b4%b9%e4%bb%8b/" target="_blank">プランこちらから →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ★ BCP悩み解決フロー -->
+  <div class="section" style="max-width:1400px;">
+    <div style="background:linear-gradient(135deg,rgba(42,74,127,0.88) 0%,rgba(59,94,158,0.85) 50%,rgba(42,74,127,0.88) 100%),url('https://jdrs21.jp/wp-content/uploads/2024/11/%EF%BC%A8%EF%BC%B0%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4%E2%91%A2-scaled.jpg');background-size:cover;background-position:center;border-radius:20px;padding:48px 40px;overflow:hidden;position:relative;">
+      <div style="text-align:center;margin-bottom:40px;position:relative;z-index:1;">
+        <div style="display:inline-block;background:var(--red);color:white;font-size:clamp(18px,3vw,26px);font-family:'Noto Serif JP',serif;font-weight:700;padding:10px 28px;border-radius:8px;margin-bottom:16px;">BCP（事業継続計画）で悩んでいませんか？</div>
+        <p style="color:var(--gold-light);font-size:15px;font-weight:500;margin-top:8px;">行政・協議会・各施設・園向け ─ ２０２５年度にはＢＣＰの強化を</p>
+        <p style="color:rgba(255,255,255,0.7);font-size:13px;margin-top:4px;">JDRS（元自衛官）BCPのプロが多様な講演テーマ・訓練で強化</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:16px;align-items:start;position:relative;z-index:1;">
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px;">
+          <div style="background:var(--red);color:white;text-align:center;padding:8px;border-radius:8px;font-weight:700;font-size:15px;margin-bottom:16px;">よくある課題</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:rgba(255,255,255,0.06);border-left:3px solid var(--red);padding:10px 14px;border-radius:0 8px 8px 0;color:rgba(255,255,255,0.9);font-size:13px;">BCPの重要性を強化したい</div>
+            <div style="background:rgba(255,255,255,0.06);border-left:3px solid var(--red);padding:10px 14px;border-radius:0 8px 8px 0;color:rgba(255,255,255,0.9);font-size:13px;">初動対応がわからない</div>
+            <div style="background:rgba(255,255,255,0.06);border-left:3px solid var(--red);padding:10px 14px;border-radius:0 8px 8px 0;color:rgba(255,255,255,0.9);font-size:13px;">策定に必要なリスク洗い出しが…</div>
+            <div style="background:rgba(255,255,255,0.06);border-left:3px solid var(--red);padding:10px 14px;border-radius:0 8px 8px 0;color:rgba(255,255,255,0.9);font-size:13px;">BCPが不安…形だけになっている</div>
+            <div style="background:rgba(255,255,255,0.06);border-left:3px solid var(--red);padding:10px 14px;border-radius:0 8px 8px 0;color:rgba(255,255,255,0.9);font-size:13px;">避難訓練がマンネリ化している</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;align-self:center;font-size:28px;color:var(--gold-light);">→</div>
+        <div style="background:rgba(198,153,58,0.1);border:1px solid rgba(198,153,58,0.25);border-radius:14px;padding:24px;">
+          <div style="background:var(--gold);color:var(--navy);text-align:center;padding:8px;border-radius:8px;font-weight:700;font-size:15px;margin-bottom:16px;">JDRSが実施する講演・訓練等</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:rgba(255,255,255,0.08);padding:10px 14px;border-radius:8px;color:rgba(255,255,255,0.9);font-size:13px;text-align:center;font-weight:500;">🎤 BCP講演<br><span style="font-weight:400;font-size:12px;color:rgba(255,255,255,0.6);">ご希望の課題に対してテーマ設定（90分基準）</span></div>
+            <div style="background:rgba(255,255,255,0.08);padding:10px 14px;border-radius:8px;color:rgba(255,255,255,0.9);font-size:13px;text-align:center;font-weight:500;">🛡️ BCP訓練（模擬災害対応）</div>
+            <div style="background:rgba(255,255,255,0.08);padding:10px 14px;border-radius:8px;color:rgba(255,255,255,0.9);font-size:13px;text-align:center;font-weight:500;">📋 BCP策定・診断・修正支援</div>
+            <div style="background:rgba(255,255,255,0.08);padding:10px 14px;border-radius:8px;color:rgba(255,255,255,0.9);font-size:13px;text-align:center;font-weight:500;">🏥 感染防護指導・避難訓練指導</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;align-self:center;font-size:28px;color:var(--gold-light);">→</div>
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px;">
+          <div style="background:var(--navy);border:1px solid var(--gold);color:var(--gold-light);text-align:center;padding:8px;border-radius:8px;font-weight:700;font-size:15px;margin-bottom:16px;">講演・訓練（現地特化型）実績</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="text-align:center;padding:12px;color:white;">
+              <div style="font-family:'Noto Serif JP',serif;font-size:28px;font-weight:700;color:var(--red-light);">年間 約１万人</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;">が学ぶ</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.06);padding:10px 14px;border-radius:8px;color:rgba(255,255,255,0.8);font-size:12px;line-height:1.6;">千葉県柏市 / 神奈川県相模原市 / 高山市 / 富山市 / 大阪府堺市 / 島根県出雲市 / 宮崎県南国市 / 高知県 / 愛媛県松山市・大洲市 / 行政・各府県・各市町</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;position:relative;z-index:1;">
+        <p style="color:var(--red-light);font-family:'Noto Serif JP',serif;font-size:clamp(16px,2.5vw,22px);font-weight:700;margin-bottom:8px;">「施設の存続」「関係者の命」本当に守りきれますか？</p>
+        <p style="color:var(--gold-light);font-size:14px;margin-bottom:20px;">その「覚悟」ありますか？</p>
+        <button class="btn-primary" onclick="showPage('contact')">お問い合わせ →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Videos -->
+  <div class="section">
+    <h2 class="section-title">動画紹介</h2>
+    <p class="section-subtitle">ＢＣＰ訓練の様子や参加者の声をご覧ください</p>
+    <div class="video-grid">
+      <a class="video-card" href="https://youtu.be/gD2TIZl6KDY" target="_blank" style="text-decoration:none;color:inherit;">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/gD2TIZl6KDY/hqdefault.jpg" alt="BCP訓練動画">
+          <div class="play-icon">▶</div>
+        </div>
+        <div class="video-card-body"><h3>【動画】ＢＣＰ訓練様子・参加者の声（保育・幼稚園・認定こども園向け）</h3></div>
+      </a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=aqBBBkP9l34" target="_blank" style="text-decoration:none;color:inherit;">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/aqBBBkP9l34/hqdefault.jpg" alt="BCP訓練動画">
+          <div class="play-icon">▶</div>
+        </div>
+        <div class="video-card-body"><h3>【動画】ＢＣＰ（事業継続計画）訓練（協議会・協会等団体向け）</h3></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="section">
+    <div class="card-grid">
+      <a class="card card-featured" href="https://jdrs21.jp/portfolio/%e9%81%8e%e5%8e%bb%e3%81%ae%e8%ac%9b%e6%bc%94%e4%be%9d%e9%a0%bc%e5%ae%9f%e7%b8%be/" target="_blank" style="text-decoration:none;color:white;background:linear-gradient(135deg,rgba(20,40,100,0.82),rgba(10,20,60,0.78)),url('https://jdrs21.jp/wp-content/uploads/2024/11/%EF%BC%A8%EF%BC%B0%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4%E2%91%A9-scaled.jpg');background-size:cover;background-position:center;">
+        <div class="card-icon">📋</div>
+         <h3 style="color:white;">講演依頼実績</h3>
+         <p style="color:rgba(255,255,255,0.85);">過去の講演依頼実績をご覧いただけます。多数の企業・団体様からの依頼を受けてまいりました。</p>
+      </a>
+      <a class="card" href="https://jdrs21.jp/?post_type=portfolio&p=5058&preview=true" target="_blank" style="text-decoration:none;color:white;background:linear-gradient(135deg,rgba(30,80,50,0.80),rgba(10,60,30,0.75)),url('https://jdrs21.jp/wp-content/uploads/2026/05/PXL_20260523_235059660.MP_-scaled.jpg');background-size:cover;background-position:center;">
+        <div class="card-icon">🎁</div>
+        <h3 style="color:white;">ご寄付による寄贈のご報告</h3>
+        <p style="color:rgba(255,255,255,0.85);">皆様からのご寄付による寄贈先の報告をこちらからご確認いただけます。</p>
+      </a>
+      <a class="card" href="https://jdrs21.jp/portfolio/%ef%bc%92%ef%bc%90%ef%bc%92%ef%bc%92%e5%b9%b4%ef%bc%91%e6%9c%88%e5%8f%b7%e3%80%80%e6%96%b0%e8%81%9e/" target="_blank" style="text-decoration:none;color:inherit;">
+        <div class="card-icon">📰</div>
+        <h3>２０２２年 実績 新聞各月号</h3>
+        <p>２０２２年１月〜の新聞掲載実績をご覧いただけます。</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- BCP資格 & 危険回避能力 & お問い合わせ -->
+  <div class="section">
+    <div class="card-grid">
+      <!-- BCPリーダー・マネージャー資格カード -->
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,rgba(26,45,80,0.82),rgba(10,22,40,0.88)),url('https://jdrs21.jp/wp-content/uploads/2021/01/HP%E3%80%80BCP%E8%B3%87%E6%A0%BC%EF%BC%91%E6%9C%88%EF%BC%93%EF%BC%90%E6%97%A5%E7%89%88-1024x576.jpg');background-size:cover;background-position:center;padding:32px;text-align:center;">
+          <div style="font-family:'Noto Serif JP',serif;color:var(--gold-light);font-size:12px;letter-spacing:2px;margin-bottom:8px;">JDRS認定資格</div>
+          <div style="font-family:'Noto Serif JP',serif;color:white;font-size:20px;font-weight:700;line-height:1.5;">過去の災害を教訓にBCP（事業継続計画）<br>で職場を存続させる！</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:6px;">（元自衛官教える真に機能するBCP）</div>
+          <div style="margin-top:20px;display:flex;justify-content:center;gap:16px;">
+            <div style="background:var(--red);color:white;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:700;">BCPリーダー</div>
+            <div style="background:var(--gold);color:var(--navy);padding:10px 18px;border-radius:8px;font-size:14px;font-weight:700;">BCPマネージャー</div>
+          </div>
+          <div style="margin-top:16px;display:flex;justify-content:center;gap:24px;">
+            <div style="text-align:center;">
+              <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:24px;">👔</div>
+              <div style="color:rgba(255,255,255,0.7);font-size:11px;">就活・面接に活かす</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:24px;">🏢</div>
+              <div style="color:rgba(255,255,255,0.7);font-size:11px;">会社を守る人材に</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:24px;">🎓</div>
+              <div style="color:rgba(255,255,255,0.7);font-size:11px;">オンラインで取得</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:24px;">
+          <h3>「ＢＣＰリーダー」・「ＢＣＰマネージャー」資格</h3>
+          <p>ＢＣＰ（Ｌ・Ｍ）の資格取得で災害時にリーダーシップを発揮し企業を守る人材に。</p>
+        </div>
+      </div>
+      <!-- 危険回避能力向上 & お問い合わせカード -->
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,rgba(245,230,196,0.70),rgba(250,243,229,0.75)),url('https://jdrs21.jp/wp-content/uploads/2019/08/disaster_prevention.jpg');background-size:cover;background-position:center;padding:32px;position:relative;">
+          <div style="font-family:'Noto Serif JP',serif;color:var(--navy);font-size:16px;font-weight:700;line-height:1.6;margin-bottom:16px;">過去の大規模災害の現状をお伝えし</div>
+          <div style="font-family:'Noto Serif JP',serif;color:var(--navy);font-size:15px;line-height:1.6;">職員・子供がどこにいても<br>生涯使える</div>
+          <div style="font-family:'Noto Serif JP',serif;color:var(--red);font-size:22px;font-weight:700;margin:8px 0;">「危険回避能力」を向上</div>
+          <div style="font-size:13px;color:var(--gray-800);line-height:1.7;margin-top:8px;">
+            職員・子供にわかりやすく<br>
+            <span style="color:var(--red);font-weight:700;">「危険見積もり」・「地形見積もり」・「状況判断」能力</span><br>
+            を習得し「危険回避能力を向上」
+          </div>
+          <div style="position:absolute;top:16px;right:16px;background:var(--red-light);color:white;padding:8px 12px;border-radius:8px;font-size:11px;font-weight:700;line-height:1.4;text-align:center;">
+            状況判断能力向上は<br>平時における業務効率化へ<br>繋がります
+          </div>
+        </div>
+        <div style="padding:24px;">
+          <h3>お問い合わせ</h3>
+          <p>ＢＣＰに関するお悩み・ご相談はお気軽にお問い合わせください。</p>
+          <button class="btn-primary" onclick="showPage('contact')" style="margin-top:12px;">お問い合わせページ →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 関連リンク（元サイト通り） -->
+  <div class="section">
+    <h2 class="section-title">関連リンク</h2>
+    <div class="links-grid">
+      <a class="link-card" href="https://www.cao.go.jp/" target="_blank">
+        <img src="https://jdrs21.jp/wp-content/uploads/2019/08/naikakufu-2.jpg" alt="内閣府">
+        <span>内閣府</span>ホームページ
+      </a>
+      <a class="link-card" href="http://www.mlit.go.jp/" target="_blank">
+        <img src="https://jdrs21.jp/wp-content/uploads/2019/08/kokudokoutuusyou-2.jpg" alt="国土交通省">
+        <span>国土交通省</span>ホームページ
+      </a>
+      <a class="link-card" href="http://www.bousai.go.jp/" target="_blank">
+        <img src="https://jdrs21.jp/wp-content/uploads/2019/08/bousai-2.jpg" alt="内閣府防災情報">
+        <span>内閣府</span>防災情報のページ
+      </a>
+      <a class="link-card" href="https://www.mhlw.go.jp/" target="_blank">
+        <img src="https://jdrs21.jp/wp-content/uploads/2021/02/厚生労働省HPロゴ２ーサイズ中ーアップ.jpg" alt="厚生労働省">
+        <span>厚生労働省</span>ホームページ
+      </a>
+      <a class="link-card" href="https://www.jma.go.jp/jma/" target="_blank">
+        <img src="https://jdrs21.jp/wp-content/uploads/2021/04/気象庁HPロゴ　大中.jpg" alt="気象庁">
+        <span>気象庁</span>ホームページ
+      </a>
+      <a class="link-card" href="https://dogo.jp/" target="_blank">
+        <img src="https://jdrs21.jp/wp-content/uploads/2019/08/dougoonsen.jpg" alt="道後温泉">
+        <span>道後温泉</span>ホームページ
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVICE PAGE (取組み) ===== -->
+<div id="page-service" class="page">
+  <div class="page-header"><h1>取組み</h1><p>災害に備え、個人・団体・企業等のリスク強化へ</p></div>
+  <div class="service-section">
+    <div class="highlight-box" style="margin-bottom:32px;"><p style="font-size:14px;line-height:1.9;color:var(--gray-800);margin:0;"><strong>「自助」</strong>＝事業継続計画（ＢＣＰ）策定訓練支援・防災教育・野外活動支援・社員教育<br><strong>「共助」</strong>＝大規模災害救助支援・災害救助機械操縦士育成・災害講話を支援</p></div>
+    <div class="service-block"><p>依然として災害の脅威にさらされている日本国土は、地震、水害、噴火、豪雪、地震後の台風等、災害の複合化も顕在化する中で想定をはるかに超える災害が頻発しています。一般社団法人　日本災害救助支援機構（以下「ＪＤＲＳ」＝ジェイディーアースといいます。）は、自然災害及び各種事象に対しての初期対応を効果的に実施するため、枠組みを超えた連携の下、災害対応に取り組むことを目指します。</p><p>大規模災害時には、建設機械操縦の高い操縦技術を持った「ＪＤＲＳ災害救助機械操縦士」による新しい救助体制により「１名でも多くの人命が救われる」事を目指します。また、過去における多くの危機的事象に対しての対応実績を各企業等へ事業継続計画（ＢＣＰ）策定等の支援を行います。</p><p>例として、大規模災害等の危機的事象等が発生した際に、企業及び従業員又は家族を守れる実効性ある事業継続計画（ＢＣＰ）をご提供するほか平時・有事においての「自助」・「共助」の各種取組みを支援いたします。</p></div>
+    <div class="service-block"><h2>【危機管理アドバイザリー】</h2><p><strong>元自衛官が伝える「真に機能する危機管理」</strong><br>過去の教訓を活かしリスクマネジメントで企業・法人を救う</p><p>各S・M・Lプランにより変動</p><ul><li>ＢＣＰの策定・訓練・評価・診断</li><li>新型コロナ感染防止指導（感染防護専門家による）</li><li>避難訓練指導</li><li>原子力災害対応</li><li>災害講話</li><li>防犯訓練</li><li>社員教育（管理者教育等）</li></ul><p>様々な危機管理をまとめてサポート</p><img src="https://jdrs21.jp/wp-content/uploads/2021/05/ＨP状況報告-scaled.jpg" alt="危機管理アドバイザリー" style="width:100%;border-radius:10px;margin-top:16px;"></div>
+    <div class="service-block"><h2>【感染防護アドバイザリー】</h2><p><strong>元自衛官感染防護専門家が伝える正しい感染防護対策</strong></p><p>各S・M・Lプランにより変動</p><ul><li>感染防護教育（初回のみ座学）</li><li>施設内における感染リスク洗出し</li><li>業務中における感染リスク指導</li><li>チェックリスト作成</li><li>指導内容報告書提示</li><li>ゾーニング指導</li><li>防護服着脱要領</li></ul><img src="https://jdrs21.jp/wp-content/uploads/2020/03/006防護服HP用-2.jpg" alt="感染防護" style="width:100%;border-radius:10px;margin-top:16px;"></div>
+    <div class="service-block"><h2>【ＢＣＰ（事業継続計画）策定・診断・訓練・評価・修正】</h2><p>「ＢＣＰ策定に必要なスキル・ノウハウを」全国対応</p><p>元自衛官を主体とし２５年以上にわたる大規模災害等に対応してきた危機管理の実績を現地訓練ができる　真に機能するＢＣＰを提供</p><h3>自社で策定したＢＣＰにはリスクが高くなります。危機管理専門家が全面的にバックアップします。</h3><p>「ＢＣＰ」策定は、企業・従業員・家族を守ることにつながります。</p><p>東日本大震災による被害：関連倒産件数１９０３件、倒産企業従業員数約２万９千人<br>産業別：サービス業（宿泊業・飲食業含）５０５件　製造業４３８件　卸売業３４８件　建設業２２３件　小売業１８０件（出典：東京商工リサーチ２０１９．２．１８）</p><p>２５年以上にわたる各種大規模災害等への対応要領をＢＣＰ策定における策定要領・訓練・評価・修正へ反映させ、机上の空論ではない、より実効性あるＢＣＰ策定をご提案します。</p><div class="highlight-box"><p style="margin:0;font-size:14px;">平時からのＢＣＰ策定及び継続的な訓練等により、大規模災害、大規模停電、パンデミック等の危機的事象が発生した際に重要業務を中断させることのないよう、あらかじめ準備された戦略に基づき、対策・対応を速やかに実行し危機的事象を乗り越えられるＢＣＰ策定をご提案いたします。</p></div><p>危機的事象を乗り越えることは、「企業・従業員・家族を守る」ことにつながり、「取引先からの評価・新たな顧客獲得・社会からの信頼・取引先の拡大・投資家からの信頼獲得」等を得るため極めて重要です。</p><p class="price-tag">ＢＣＰ策定：５０万円～小規模企業、８０万円～中小企業</p><br><p class="price-tag">診断・訓練・修正：各３０万円～小規模企業、５０万円～中小企業</p><img src="https://jdrs21.jp/wp-content/uploads/2019/08/bcp_seminar.jpg" alt="BCP" style="width:100%;border-radius:10px;margin-top:16px;"></div>
+    <div class="service-block"><h2>【ＢＣＰ策定オンライン講座】</h2><p>「ＢＣＰ策定要領をお伝え」全国どこからでも学べる</p><p>元自衛官危機管理担当者が過去の教訓を反映させた真に機能するＢＣＰの基盤をお伝え</p><p><strong>「ＢＣＰ」策定は、企業・従業員・家族を守ることにつながります。</strong></p><p class="price-tag">Ｓプラン（前編６０分・後編６０分）受講料：７万５千円（税込）</p><br><p class="price-tag">Ｍ１プラン（前編９０分・後編９０分＋無料相談５回＋認定書発行）受講料：３５万円（税込）</p><img src="https://jdrs21.jp/wp-content/uploads/2020/04/大学生向けコロナ教育４-HP用.jpeg" alt="オンライン" style="width:100%;border-radius:10px;margin-top:16px;"></div>
+    <div class="service-block"><h2>【ＢＣＰ訓練 全国各会場にて定期的に開催】</h2><p>全国対応</p><p>リアリティーある模擬訓練を体験することにより大規模災害時の早期態勢の確立、人命救助、情報収集、重要業務継続等に対する必要な対応・態勢作りを体感できるとともに具体的な行動方針が把握できるようになります。</p><p>事業継続に必要な意思決定及び各種対応要領、対応の難しさを模擬体験することで、今後の課題を見出すとともに危機的事象を乗り越えられる事業継続意識の向上を図ります。</p></div>
+    <div class="service-block"><h2>【大規模災害等救助支援】</h2><p><strong>大規模災害等における救助活動は、機械力（油圧ショベル等）を使用することにより、迅速かつ効果的な救助活動が可能となります。</strong></p><img src="https://jdrs21.jp/wp-content/uploads/2019/08/shovel.jpg" alt="救助支援" style="width:100%;border-radius:10px;margin-top:16px;"></div>
+    <div class="service-block"><h2>【ＪＤＲＳ災害救助機械操縦士】</h2><img src="https://jdrs21.jp/wp-content/uploads/2019/08/jdrs_pilot.jpg" alt="操縦士" style="width:100%;border-radius:10px;margin-bottom:16px;"><p>各種災害現場においての救助活動の主力を担うのは人力によるものです。しかし過去の災害を教訓に、より効果的な救助活動を実施するには多くの建設機械等を使用することが非常に重要です。</p></div>
+    <div class="service-block"><h2>【野外活動支援】</h2><p>生涯の財産となるよう非常時の「生きる力」を体験</p><img src="https://jdrs21.jp/wp-content/uploads/2019/08/outdoor_support.jpg" alt="野外活動" style="width:100%;border-radius:10px;margin-top:16px;"></div>
+  </div>
+</div>
+
+<!-- ===== CLIENTS PAGE (実績) with COUNTER ANIMATION ===== -->
+<div id="page-clients" class="page">
+  <div class="page-header"><h1>実績</h1><p>過去の大規模災害の教訓を次へつなげる</p></div>
+  <div class="service-section">
+    <div class="stat-grid" id="stats-grid">
+      <div class="stat-card"><div class="stat-number"><span class="counter" data-target="10000" data-prefix="約" data-suffix="人">0</span></div><div class="stat-label">２０２２年 講演実績</div></div>
+      <div class="stat-card"><div class="stat-number"><span class="counter" data-target="5000" data-prefix="約" data-suffix="人">0</span></div><div class="stat-label">２０２３年 講演実績</div></div>
+      <div class="stat-card"><div class="stat-number"><span class="counter" data-target="5000" data-prefix="約" data-suffix="人">0</span></div><div class="stat-label">ＢＣＰ訓練参加者（２０１９年～）</div></div>
+      <div class="stat-card"><div class="stat-number"><span class="counter" data-target="20" data-prefix="月約" data-suffix="">0</span></div><div class="stat-label">BCP策定依頼数</div></div>
+    </div>
+    <!-- rest of clients content same as v1 -->
+    <div class="results-block"><h2>【講演】（オンライン含）</h2><p><strong>２０２２年実績　約１万人</strong><br><strong>２０２３年実績　約５千人</strong></p><p>事業継続計画（BCP）：「BCPの重要性」、「BCP策定に向けて」、「ＢＣＰ全職員の関与の重要性」、「機能する初動対応」、「教訓を活かす事業継続計画」等</p><p><strong>（依頼者）</strong><br>県長寿介護課、県社会福祉協議会、市町村社会福祉協議会、老人福祉施設協議会、福祉施設士会、老人保健施設協議会、社会福祉法人、福祉施設、地域密着支援センター、基幹相談支援センター、保育協議会、保育所、医療法人等</p></div>
+    <div class="results-block"><h2>【ＢＣＰ策定・訓練・診断】</h2><p>「真に機能するBCP」大規模災害、大規模停電、パンデミック、その他危機的事象に真に機能するBCPを提供</p><p>元自衛官（危機管理担当）を主体とする当機構は、あらゆる危機的事象に対応してまいりました。その経験値・ノウハウを各種災害時の「非常時の態勢確立」及び「各種対応要領」をＢＣＰに反映させ<strong>実効性ある「真に使えるＢＣＰ策定・訓練・診断」</strong>を行い<strong>企業・団体・従業員・その家族をお守り</strong>することにつなげます。</p><p>BCP策定依頼　月策定約２０　医療法人、老人保健施設、介護医療院、デイサービス、保育園、認定こども園、障がい者施設等</p></div>
+    <div class="results-block"><h2>【危機管理アドバイザリー】</h2><p><strong>年間通して組織の危機管理全般をサポート</strong></p><p>アドバイザー項目：「BCP策定」「BCP訓練」「防災（避難）訓練指導」「防災講話」「原子力災害対応指導」「新型コロナウイルス対策指導」「危機管理教育」「社員教育」「防犯指導」</p></div>
+    <div class="results-block"><h2>【災害講話、防災教育、子供防災】</h2><p>災害時等におけるリーダシップ発揮のため平時より「災害講話」・「社員教育」・「防災教育」・「野外活動支援」等を行い今までにない新しい災害に強い人材・組織つくりを支援</p><p>依頼団体：保育園、小学校、中学校、高等学校、地区こども会、各種団体等</p></div>
+    <div class="plan-banner"><h2>お問合せはこちら</h2><button class="btn-primary" onclick="showPage('contact')">お問合せページ →</button></div>
+  </div>
+</div>
+
+<!-- ===== CONTACT PAGE (same form as v1) ===== -->
+<div id="page-contact" class="page">
+  <div class="contact-header">
+    <h1>お申込み・お問合せ</h1><p>まずは、簡単なご質問やご相談から</p>
+    <div class="contact-offices">
+      <div class="office-card"><div class="label">愛媛本部</div><div class="address">〒790-0813　愛媛県松山市萱町１丁目３－３<br>南海トラフ巨大地震対応型</div><div class="tel">📞 089-932-2394 / 📠 089-932-2395</div></div>
+      <div class="office-card"><div class="label">東京</div><div class="address">〒105-0013　東京都港区浜松町２丁目２番１５号</div><div class="tel">📞 03-6778-1203</div></div>
+      <div class="office-card"><div class="label">大阪</div><div class="address">〒530-0001　大阪府大阪市北区梅田1-1-3　大阪駅前第３ビル</div></div>
+    </div>
+  </div>
+  <div class="form-section"><div class="form-container">
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>申込企業（団体）名</label><input type="text" class="form-input" placeholder="全角：例　〇〇株式会社（旧字体では読み取れないときがあります）"></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>申込（代表）者氏名</label><input type="text" class="form-input" placeholder="全角：例　鈴木　一郎（旧字体では読み取れないときがあります）"></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>フリガナ</label><input type="text" class="form-input" placeholder="全角カタカナ：例　スズキ　イチロウ"></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>役職等</label><select class="form-select"><option value="">選択してください</option><option>経営者・役員等</option><option>事業所長等</option><option>管理職</option><option>危機管理担当者</option><option>従業員等一般</option><option>行政、教育機関等関係者</option><option>その他</option></select></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>ご住所（都道府県市町村含む）</label><input type="text" class="form-input" placeholder="全角：例　〇〇県〇〇市〇〇町１丁目２－３　〇〇ビル"></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>メールアドレス</label><input type="email" class="form-input" placeholder="半角英数字：例　nihonsaigaikyujoshien@gmail.com"></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>メールアドレス（確認用）</label><input type="email" class="form-input" placeholder="確認のためもう一度ご入力ください"></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>電話番号</label><input type="tel" class="form-input" placeholder="半角数字：例　012-3456-7890"></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>参加（依頼）希望月</label><select class="form-select"><option value="">選択してください</option><option>１月</option><option>２月</option><option>３月</option><option>４月</option><option>５月</option><option>６月</option><option>７月</option><option>８月</option><option>９月</option><option>１０月</option><option>１１月</option><option>１２月</option><option>資料請求</option></select></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>参加（依頼）希望日</label><select class="form-select"><option value="">選択してください</option><option>１日</option><option>２日</option><option>３日</option><option>４日</option><option>５日</option><option>６日</option><option>７日</option><option>８日</option><option>９日</option><option>１０日</option><option>１１日</option><option>１２日</option><option>１３日</option><option>１４日</option><option>１５日</option><option>１６日</option><option>１７日</option><option>１８日</option><option>１９日</option><option>２０日</option><option>２１日</option><option>２２日</option><option>２３日</option><option>２４日</option><option>２５日</option><option>２６日</option><option>２７日</option><option>２８日</option><option>２９日</option><option>３０日</option><option>３１日</option><option>資料請求</option></select></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>お問い合わせ（参加）項目の選択</label><select class="form-select"><option value="">クリックし希望項目を選択 ⇒</option><option>絵本　新しい防災　園児向け</option><option>２０２６年度「講演・訓練・策定支援(行政・協会・協議会向け)」</option><option>ＢＣＰ基盤確立強化プラン（５年）</option><option>２０２６年　紹介限定プラン</option><option>訓練・講演・セミナー等参加者限定プラン（５年）</option><option>２０２６年　１００園限定プラン</option><option>施設機能強化推進費プラン</option><option>資料請求</option><option>全国訓練開催参加者　限定プラン</option><option>２０２６年上半期　ＢＣＰ無料オンラインセミナー</option><option>２０２６年度　保護者向け防災講演プラン</option><option>介護・障がい向け　ＢＣＰ訓練（法人特化型）資料請求</option><option>ＢＣＰ策定ダイジェスト版申込</option><option>ＢＣＰ策定講座申込</option><option>避難訓練診断・指導</option><option>ＢＣＰ訓練　６月　千葉開催</option><option>ＢＣＰ訓練　６月　高知開催</option><option>ＢＣＰ訓練　７月　大阪開催</option><option>ＢＣＰ訓練　７月　石川開催</option><option>ＢＣＰ訓練　８月　札幌開催</option><option>ＢＣＰ訓練見学（行政・協議会等研修担当者限定）</option><option>ＢＣＰ→ＶＣ設置判断訓練問合せ</option><option>希望無料　過去オンラインＢＣＰ講演参加者（限定）</option><option>危機管理無料相談</option><option>有料（オンライン）～危機管理課題解消～</option><option>ＢＣＰ講話依頼（現地・オンライン）</option><option>ＢＣＰリーダー・マネージャー資料請求</option><option>ＢＣＰリーダー・マネージャー申込み</option><option>新型コロナ感染対策指導</option><option>危機管理アドバイザリーに関するお問合せ</option><option>ＢＣＰ策定・訓練・診断・修正等相談・依頼</option><option>ＢＣＰ訓練【出張型】依頼</option><option>「ＪＤＲＳ災害救助機械操縦士」受講</option><option>「災害救助機械操縦士」受講</option><option>防災訓練参加依頼</option><option>社員教育</option><option>防災教育</option><option>野外活動支援</option><option>災害講話</option><option>パワハラ対策相談</option><option>その他お問合せ</option></select></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>参加者数 及び 資料請求 選択</label><select class="form-select"><option value="">選択してください</option><option>資料請求</option><option>1名</option><option>2名</option><option>3名</option><option>4名</option><option>5名</option><option>5名以上</option><option>10名以上</option><option>20名以上</option><option>30名以上</option><option>40名以上</option><option>50名以上</option><option>100名以上</option></select></div>
+    <div class="form-group"><label class="form-label"><span class="required">必須</span>どのようにして知りましたか？　複数チェック可</label><div class="checkbox-group"><label class="checkbox-item"><input type="checkbox"> 口コミ</label><label class="checkbox-item"><input type="checkbox"> ＪＤＲＳからの案内メール</label><label class="checkbox-item"><input type="checkbox"> 都道府県からの通知（案内）</label><label class="checkbox-item"><input type="checkbox"> 区市町村からの通知（案内）</label><label class="checkbox-item"><input type="checkbox"> 協議会等からの通知（案内）</label><label class="checkbox-item"><input type="checkbox"> ＨＰ</label><label class="checkbox-item"><input type="checkbox"> ＳＮＳ</label><label class="checkbox-item"><input type="checkbox"> ファックス</label><label class="checkbox-item"><input type="checkbox"> ＤＭ</label><label class="checkbox-item"><input type="checkbox"> メディア</label><label class="checkbox-item"><input type="checkbox"> 新聞・雑誌</label><label class="checkbox-item"><input type="checkbox"> 紹介</label><label class="checkbox-item"><input type="checkbox"> 関連団体等から情報提供</label><label class="checkbox-item"><input type="checkbox"> その他</label></div></div>
+    <div class="form-group"><label class="form-label"><span class="optional">任意</span>申込経緯（課題等）</label><textarea class="form-textarea" placeholder="例：南海トラフ地震に備えたBCP訓練を実施したい　等"></textarea></div>
+    <div class="form-group"><label class="form-label"><span class="optional">任意</span>その他お問い合わせ欄・ご希望時間等</label><textarea class="form-textarea" placeholder="ご希望の時間帯や追加のご質問をご記入ください。"></textarea></div>
+    <div class="spam-notice"><label><input type="checkbox"> スパムメール防止のため、こちらのボックスにチェックを入れてから送信してください。</label><p>スパムメールとは、受信者の意向を無視して一方的に送り付けられるメールとなり、迷惑メールとも呼ばれます。スパムメールにはさまざまな種類があり、商品の宣伝を目的とするものやフィッシングサイトへの誘導経路などを目的に使われます。</p></div>
+    <div class="form-submit"><button type="button" onclick="alert('プレビュー版のため送信機能は無効です。')">送信する</button></div>
+  </div></div>
+</div>
+
+<!-- ===== COMPANY PAGE ===== -->
+<div id="page-company" class="page">
+  <div class="page-header"><h1>機構概要</h1><p>一般社団法人 日本災害救助支援機構について</p></div>
+  <div class="service-section">
+    <div class="results-block" style="overflow-x:auto;">
+      <table class="company-table">
+        <tr><th>法人名</th><td>一般社団法人　日本災害救助支援機構</td></tr>
+        <tr><th>英文名</th><td>Japan Disaster Relief Support Organization</td></tr>
+        <tr><th>略名</th><td>JDRS（ジェイディー・アース）</td></tr>
+        <tr><th>設立年</th><td>2019</td></tr>
+        <tr><th>所在地</th><td>〒790-0012　愛媛県松山市萱町１丁目３－３（令和７年１月１日より新事務所（萱町）へ移転）<br>〒105-0013　東京都港区浜松町２丁目２番１５号<br>〒530-0001　大阪府大阪市北区梅田１－１－３　大阪駅前第３ビル２９階</td></tr>
+        <tr><th>連絡先</th><td>本部 TEL：089-932-2394　FAX：089-932-2395<br>東京 TEL：03-6778-1203</td></tr>
+        <tr><th>理念</th><td>「一人でも多くの人（組織）を守る」<br>過去の教訓を活かし「次のひとり、次の企業・団体等を教育・訓練・ＢＣＰにより危機管理強化を行います」</td></tr>
+        <tr><th>JDRS概要</th><td>元自衛官を主体とするJDRSは、過去の大規模災害をはじめさまざまな危機管理対応に携わってまいりました。各種災害（危機的事象時）の教訓をお伝えし、個々の「危険回避能力向上」、団体・企業等へ「真に機能する事業継続計画（BCP）」及び平時からのリスク対策確立に関する危機管理サポート等を行っております。</td></tr>
+        <tr><th>代表理事</th><td>髙須賀　顕<br>２６年間自衛官として勤務し長年、危機管理（初動対応）、各階級への教育に携わる。現在は、ＢＣＰの第一人者として年間約１万人に対して教育、訓練、講演等を行う。</td></tr>
+        <tr><th>理事</th><td>近藤　由道 / 荒木　健之 / 野本　哲司 / 三好　雄介 / 水野　玄太郎</td></tr>
+        <tr><th>監事</th><td>佐野　透</td></tr>
+      </table>
+    </div>
+    <div class="results-block"><h2>メディア出演・放映・掲載等</h2><div class="media-list">
+      <div class="media-item">２０２６．１　新聞（全国版）ＢＣＰ機能化に向けて</div>
+      <div class="media-item">２０２５．８　新聞 宮崎日日新聞社　ＢＣＰ訓練 宮崎開催 南海トラフ地震 初動対応訓練</div>
+      <div class="media-item">２０２５．８　ＴＶ ＭＲＴ宮崎放送　ＢＣＰ訓練 宮崎開催 南海トラフ地震 初動対応訓練</div>
+      <div class="media-item">２０２５．５　ＮＨＫ　ＢＣＰ訓練 南海トラフ地震 高知開催 初動対応訓練</div>
+      <div class="media-item">２０２５．４　ＮＨＫ　ＢＣＰ策定前リスク洗い出し様子</div>
+      <div class="media-item">２０２５．３　ＮＨＫ、フジテレビ系、日本テレビ系、テレビ朝日系、ＴＢＳ系 他 新聞社「南海トラフ地震津波避難訓練」</div>
+      <div class="media-item">２０２５．２　新聞 宮崎日日新聞　ＢＣＰ訓練 九州開催宮崎会場 南海トラフ地震 保育所版</div>
+      <div class="media-item">２０２５．２　ＴＶ 宮崎放送　ＢＣＰ訓練 九州開催宮崎会場 南海トラフ地震 保育所版</div>
+      <div class="media-item">２０２４．１０　ＮＨＫ　保育園 現地特化型ＢＣＰ訓練様子</div>
+      <div class="media-item">２０２４．８　高知新聞　ＢＣＰ訓練 高知開催「臨時情報発令後における南海トラフ地震発生対応版」</div>
+      <div class="media-item">２０２４．７　ＴＶ　市保育士会 講演「ＢＣＰ南海トラフ地震への初動対応」</div>
+      <div class="media-item">２０２４．６　ＴＶ　園保護者向け 防災講演</div>
+      <div class="media-item">２０２４．６　ＴＶ　園保護者向け 防災講演</div>
+      <div class="media-item">２０２４．３　ＮＨＫ　ＢＣＰ訓練 南海トラフ地震初動対応</div>
+      <div class="media-item">２０２４．１　高知新聞　ＢＣＰ訓練「南海トラフ地震 幼稚園現地特化版 初動対応」</div>
+      <div class="media-item">２０２４．１　高知テレビ　ＢＣＰ訓練「南海トラフ地震 幼稚園現地特化版 初動対応」</div>
+      <div class="media-item">２０２３．９　新聞　特集「人・ひと・人」</div>
+      <div class="media-item">２０２３．８　新聞　ＢＣＰ訓練 愛媛開催 保育幼稚園関係者（南海トラフ版）</div>
+      <div class="media-item">２０２３．７　共同通信　ＢＣＰ訓練 高知開催（南海トラフ版）</div>
+      <div class="media-item">２０２３．７　ＮＨＫ　ＢＣＰ訓練 県老人保健施設協議会</div>
+      <div class="media-item">２０２３．７　ＴＶ朝日系　ＢＣＰ訓練 県老人保健施設協議会</div>
+      <div class="media-item">２０２３．６　ＮＨＫ　抜き打ち避難訓練 保育所版</div>
+      <div class="media-item">２０２３．６　ＴＶ　抜き打ち避難訓練 保育所版</div>
+      <div class="media-item">２０２３．６　ＴＶ　抜き打ち避難訓練 保育所版</div>
+      <div class="media-item">２０２３．４　ＮＨＫラジオ　南海トラフ巨大地震への対応</div>
+      <div class="media-item">２０２３．３　ＮＨＫ　ＢＣＰ訓練 高知開催（南海トラフ版）</div>
+      <div class="media-item">２０２３．２　ＮＨＫ　ＢＣＰ訓練 県老施協（南海トラフ版）</div>
+      <div class="media-item">２０２３．１　読売新聞　ＢＣＰ訓練 学校法人（南海トラフ版）</div>
+      <div class="media-item">２０２２．３　ＮＨＫ　ＢＣＰ講話 介護支援専門員向け</div>
+      <div class="media-item">２０２１．１２　読売新聞　ＢＣＰ訓練 県老施協（南海トラフ版）</div>
+      <div class="media-item">２０２１．８　ＮＨＫ　新型コロナ感染対策</div>
+      <div class="media-item">２０２１．７　新聞　ＢＣＰ講演 保育協議会</div>
+      <div class="media-item">２０２１．７　新聞　ＢＣＰ訓練 保育幼稚園関係者（感染症発生時における南海トラフ版）</div>
+      <div class="media-item">２０２１．４　ＮＨＫ　ＢＣＰ訓練 広島開催 保育幼稚園関係者（南海トラフ版）</div>
+      <div class="media-item">２０２１．３　ＮＨＫ　ＢＣＰ訓練 高知開催 保育幼稚園関係者（南海トラフ版）</div>
+      <div class="media-item">２０２１．２　読売新聞　ＢＣＰ訓練 広島開催 保育幼稚園関係者（南海トラフ版）</div>
+      <div class="media-item">２０２１．２　ＴＶ　災害講話 小中ＰＴＡ関係者（過去の災害の現場）</div>
+      <div class="media-item">２０２１．１　ＴＶ　ＢＣＰ訓練 社会福祉協議会（南海トラフ版）</div>
+      <div class="media-item">２０２０．１２　新聞　ＢＣＰ講演 ケアマネ関係者（南海トラフ・風水害版）</div>
+      <div class="media-item">２０２０．１１　ＴＶ　ＢＣＰ訓練 介護事業所（南海トラフ版）</div>
+      <div class="media-item">２０２０．１１　新聞　ＢＣＰ訓練 保育園（感染症発生時における南海トラフ版）</div>
+      <div class="media-item">２０２０．７　ＴＶ朝日系　感染症対策 高校野球連盟（大会開催における対策指導）</div>
+      <div class="media-item">２０２０．６　ＴＶ朝日系　感染症対策 高校野球連盟（大会開催における対策指導）</div>
+      <div class="media-item">２０２０．３　新聞　ＢＣＰ訓練 介護・障がい事業所等（感染症発生時における南海トラフ対応版）</div>
+      <div class="media-item">２０１９．１２　経済レポート　ＢＣＰ訓練 介護・障がい事業所（南海トラフ版）</div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="https://jdrs21.jp/wp-content/uploads/2019/07/jdrs-2.png" alt="JDRS"></div>
+    <div class="footer-links">
+      <a href="javascript:void(0)" onclick="showPage('home')">ホーム</a>
+      <a href="javascript:void(0)" onclick="showPage('service')">取組み</a>
+      <a href="javascript:void(0)" onclick="showPage('clients')">実績</a>
+      <a href="javascript:void(0)" onclick="showPage('contact')">お申込み・お問い合わせ</a>
+      <a href="javascript:void(0)" onclick="showPage('company')">機構概要</a>
+      <a href="https://jdrs21.jp/%e3%83%97%e3%83%a9%e3%82%a4%e3%83%90%e3%82%b7%e3%83%bc%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc/" target="_blank">プライバシーポリシー</a>
+      <a href="https://jdrs21.jp/%e5%af%84%e4%bb%98%e3%81%ae%e3%81%8a%e9%a1%98%e3%81%84/" target="_blank">ご寄付のお願い</a>
+    </div>
+    <div class="footer-copy">© Copyright JDRS. All Rights Reserved</div>
+  </div>
+</footer>
+
+<script>
+// Tab switching
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const page = document.getElementById('page-' + name);
+  if (page) page.classList.add('active');
+  const btn = document.querySelector('.tab-btn[data-page="' + name + '"]');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Trigger counter animation when clients page shown
+  if (name === 'clients') setTimeout(startCounters, 300);
+}
+
+// Impression accordion
+function toggleImpression(header) {
+  const item = header.parentElement;
+  item.classList.toggle('open');
+}
+
+// ★ セミナーアコーディオン
+function toggleSeminar(item) {
+  item.classList.toggle('open');
+}
+
+// Counter animation
+let countersStarted = false;
+function startCounters() {
+  if (countersStarted) return;
+  countersStarted = true;
+  document.querySelectorAll('.counter').forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    const prefix = counter.dataset.prefix || '';
+    const suffix = counter.dataset.suffix || '';
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      counter.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+    }, 16);
+  });
+}
+
+// Also trigger on scroll for clients page
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) startCounters();
+  });
+}, { threshold: 0.3 });
+
+const statsGrid = document.getElementById('stats-grid');
+if (statsGrid) observer.observe(statsGrid);
+</script>
+</body>
+</html>

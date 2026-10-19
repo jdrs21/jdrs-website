@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年上半期 教育訓練・セミナー実績</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #12203d;
+  --navy-mid: #1a2d50;
+  --red: #c23a22;
+  --gold: #c6993a;
+  --gold-light: #dbb35c;
+  --text: #1a1a2e;
+  --gray-100: #f4f5f7;
+  --gray-600: #6b7280;
+  --gray-800: #1f2937;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--gray-100);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ヘッダー */
+.site-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.back-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.header-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ヒーロー */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3a6e 100%);
+  padding: 48px 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(198,153,58,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  border: 1px solid rgba(198,153,58,0.4);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  text-wrap: balance;
+}
+.hero-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.05em;
+}
+.hero-hint {
+  margin-top: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.hero-hint::before { content: '👆'; font-size: 14px; }
+
+/* グリッド */
+.grid-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 700px) {
+  .month-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .month-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 月カード */
+.month-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.month-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+}
+.month-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 14px 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.month-label {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+.month-count {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.1);
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+.zoom-icon {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.month-body {
+  padding: 10px 12px;
+}
+.event-list {
+  list-style: none;
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: #374151;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.event-list::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, #fff);
+}
+.event-list li {
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  gap: 4px;
+}
+.event-list li:last-child { border-bottom: none; }
+.ev-date { color: var(--navy-mid); font-weight: 700; flex-shrink: 0; min-width: 30px; }
+.ev-loc { color: var(--red); font-weight: 500; flex-shrink: 0; min-width: 24px; }
+.ev-desc { color: #374151; }
+.card-footer {
+  padding: 8px 12px;
+  background: rgba(10,22,40,0.04);
+  font-size: 11px;
+  color: var(--navy-mid);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* モーダル */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 25, 0.82);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: popIn 0.22s ease;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+.modal-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.modal-month {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+.modal-close {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s;
+  flex-shrink: 0;
+}
+.modal-close:hover { background: rgba(255,255,255,0.28); }
+.modal-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+.modal-event-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.modal-event-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f4;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.modal-event-list li:last-child { border-bottom: none; }
+.m-date {
+  color: var(--navy);
+  font-weight: 700;
+  min-width: 38px;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.m-loc {
+  background: rgba(194,58,34,0.08);
+  color: var(--red);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 1px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+}
+.m-desc { color: #374151; font-size: 14px; }
+.modal-footer {
+  padding: 12px 24px;
+  background: var(--gray-100);
+  font-size: 11px;
+  color: var(--gray-600);
+  text-align: center;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="jdrs-ko-do-v3.html" class="back-btn">← トップページへ</a>
+  <div class="header-title">日本災害救助支援機構</div>
+</header>
+
+<section class="hero">
+  <div class="hero-label">実績レポート</div>
+  <h1>日本災害救助支援機構が開催した<br>教育訓練・セミナー等</h1>
+  <div class="hero-sub">2026年1月〜9月 ｜ 都道府県別・実施内容一覧</div>
+  <div class="hero-hint">各月をクリックすると拡大表示されます</div>
+</section>
+
+<div class="grid-wrapper">
+  <div class="month-grid" id="monthGrid"></div>
+</div>
+
+<!-- モーダル -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-month" id="modalTitle"></div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <ul class="modal-event-list" id="modalList"></ul>
+    </div>
+    <div class="modal-footer">タップまたはキーボードのEscキーで閉じる</div>
+  </div>
+</div>
+
+<script>
+const months = [
+  {
+    label: '1月',
+    events: [
+      ['07日','愛媛','防犯指導'],
+      ['08日','大阪','BCP訓練 AM'],
+      ['08日','大阪','防犯指導 PM'],
+      ['09日','大阪','職員教育'],
+      ['15日','東京','新聞社取材'],
+      ['16日','大阪','避難訓練'],
+      ['17日','大阪','BCP訓練'],
+      ['19日','大阪','避難訓練'],
+      ['20日','大阪','職員教育'],
+      ['23日','千葉','防犯指導・BCP担当者育成'],
+      ['24日','高知','BCP訓練'],
+      ['26日','大阪','参集訓練 AM'],
+      ['26日','大阪','職員教育 PM'],
+      ['27日','高知','防犯指導 AM'],
+      ['27日','高知','BCP訓練 PM'],
+      ['29日','大阪','参集訓練夜'],
+      ['29日','千葉','職員教育・BCP担当者育成 PM'],
+      ['31日','高知','防犯指導・BCP訓練'],
+    ]
+  },
+  {
+    label: '2月',
+    events: [
+      ['02日','高知','避難訓練・BCP担当者育成'],
+      ['03日','高知','職員教育'],
+      ['04日','千葉','BCP講演'],
+      ['06日','千葉','保護者向け防災講話'],
+      ['09日','愛媛','避難訓練'],
+      ['10日','大阪','BCP訓練 AM'],
+      ['10日','大阪','危機管理指導 PM'],
+      ['12日','大阪','職員教育・BCP担当者育成 AM'],
+      ['12日','大阪','職員教育・BCP担当者育成 PM'],
+      ['13日','全国','オンラインセミナー AM'],
+      ['14日','大阪','職員教育 AM'],
+      ['14日','大阪','参集訓練 PM'],
+      ['14日','大阪','参集訓練 AM'],
+      ['17日','大阪','危機管理指導 PM'],
+      ['18日','山口','避難訓練・BCP担当者育成'],
+      ['19日','愛媛','BCP訓練'],
+      ['21日','高知','職員教育・BCP担当者育成'],
+      ['24日','山口','現地リスク洗い出し・職員教育'],
+      ['25日','島根','BCP訓練'],
+      ['26日','大阪','職員教育・BCP担当者育成'],
+      ['27日','宮崎','BCP訓練'],
+      ['28日','宮崎','防犯指導'],
+    ]
+  },
+  {
+    label: '3月',
+    events: [
+      ['02日','高知','職員教育・BCP担当者育成'],
+      ['03日','高知','BCP訓練'],
+      ['09日','愛媛','防犯指導'],
+      ['09日','愛媛','避難訓練・職員教育'],
+      ['11日','全国','オンラインセミナー'],
+      ['14日','高知','BCP訓練'],
+      ['16日','北海道','BCP訓練'],
+      ['17日','大阪','BCP訓練'],
+      ['18日','大阪','BCP訓練'],
+      ['19日','大阪','BCP訓練 AM'],
+      ['19日','大阪','BCP訓練 PM'],
+      ['19日','大阪','BCP訓練 夜'],
+      ['23日','愛媛','BCP担当者育成 AM'],
+      ['23日','愛媛','BCP訓練 PM'],
+      ['24日','愛媛','職員教育'],
+      ['25日','千葉','危機管理指導'],
+      ['28日','宮崎','職員教育・BCP担当者育成'],
+      ['31日','大阪','危機管理指導'],
+    ]
+  },
+  {
+    label: '4月',
+    events: [
+      ['01日','愛媛','避難経路確認'],
+      ['02日','山口','職員教育・BCP担当者育成'],
+      ['03日','愛媛','防犯指導・BCP担当者育成'],
+      ['06日','愛媛','職員教育・BCP担当者育成'],
+      ['07日','高知','職員教育・BCP担当者育成'],
+      ['09日','大阪','職員教育'],
+      ['10日','大阪','大阪開催・BCP訓練'],
+      ['14日','大阪','職員教育'],
+      ['15日','全国','オンラインセミナー'],
+      ['17日','高知','職員教育・BCP担当者育成'],
+      ['18日','愛媛','保護者向け防災講話'],
+      ['21日','大阪','職員教育'],
+      ['24日','千葉','職員教育・BCP担当者育成'],
+      ['25日','千葉','職員教育・防犯指導'],
+      ['27日','愛媛','引き渡し訓練'],
+      ['28日','高知','職員教育'],
+    ]
+  },
+  {
+    label: '5月',
+    events: [
+      ['08日','大阪','職員教育'],
+      ['09日','高知','BCP訓練'],
+      ['11日','千葉','職員教育・BCP担当者育成 AM'],
+      ['11日','千葉','職員教育・BCP担当者育成 PM'],
+      ['13日','全国','オンラインセミナー'],
+      ['15日','愛媛','職員教育'],
+      ['16日','宮崎','宮崎開催・BCP訓練'],
+      ['18日','愛媛','職員教育'],
+      ['19日','愛媛','引き渡し訓練・防犯指導'],
+      ['22日','大阪','避難訓練'],
+      ['23日','大阪','BCP訓練 AM'],
+      ['24日','大阪','現地リスク洗い出し・職員教育 PM'],
+      ['24日','石川','BCP訓練'],
+      ['26日','高知','引き渡し訓練'],
+      ['27日','大阪','職員教育 AM'],
+      ['27日','愛媛','現地リスク洗い出し PM'],
+      ['28日','愛媛','愛媛開催・BCP訓練'],
+      ['29日','広島','広島開催・BCP訓練'],
+      ['30日','山口','防災講話・BCP訓練'],
+    ]
+  },
+  {
+    label: '6月',
+    events: [
+      ['02日','高知','BCP訓練 AM'],
+      ['02日','高知','避難訓練 PM'],
+      ['05日','愛媛','職員教育'],
+      ['06日','愛媛','防災参集・引き渡し訓練'],
+      ['08日','大阪','職員教育・BCP担当者育成'],
+      ['11日','千葉','千葉開催・BCP訓練'],
+      ['12日','千葉','避難訓練・BCP担当者育成'],
+      ['12日','神奈川','BCP訓練'],
+      ['15日','愛媛','引き渡し訓練'],
+      ['17日','大阪','職員教育 AM'],
+      ['17日','全国','オンラインセミナー PM'],
+      ['18日','大阪','職員教育・BCP担当者育成'],
+      ['19日','愛媛','BCP担当者育成'],
+      ['20日','高知','防災講話・引き渡し訓練'],
+      ['22日','大阪','職員教育・BCP担当者育成'],
+      ['23日','高知','高知開催・BCP訓練'],
+      ['24日','大阪','現地リスク洗い出し'],
+      ['27日','大阪','現地リスク洗い出し・職員教育 AM'],
+      ['27日','大阪','現地リスク洗い出し PM'],
+      ['29日','大阪','危機管理指導'],
+      ['30日','大阪','危機管理指導'],
+    ]
+  },
+  {
+    label: '7月',
+    events: [
+      ['03日','高知','避難訓練'],
+      ['04日','高知','避難訓練'],
+      ['06日','奈良','現地リスク洗い出し・職員教育'],
+      ['07日','大阪','大阪開催・BCP訓練'],
+      ['08日','石川','石川開催・BCP訓練'],
+      ['11日','千葉','BCP訓練'],
+      ['14日','高知','避難訓練'],
+      ['15日','愛媛','BCP講義'],
+      ['16日','愛媛','訓練'],
+      ['17日','愛媛','訓練'],
+      ['18日','大阪','職員教育'],
+      ['22日','宮崎','職員教育'],
+      ['23日','高知','避難訓練・職員教育'],
+      ['25日','宮崎','職員教育・BCP担当者育成'],
+      ['28日','山口','避難訓練・BCP担当者育成'],
+      ['29日','千葉','BCP基礎確立講義'],
+      ['30日','愛媛','備蓄品・投光器確認'],
+    ]
+  },
+  {
+    label: '8月',
+    events: [
+      ['03日','北海道','札幌開催・BCP訓練'],
+      ['04日','北海道','BCP訓練'],
+      ['07日','愛媛','職員教育・主任振り返り'],
+      ['10日','大阪','職員教育'],
+      ['17日','大阪','避難訓練・防犯指導'],
+      ['18日','大阪','避難訓練・防犯指導'],
+      ['19日','大阪','防犯指導 PM'],
+      ['20日','大阪','職員教育'],
+      ['21日','大阪','職員教育'],
+      ['22日','大阪','避難訓練'],
+      ['24日','大阪','避難訓練 AM'],
+      ['24日','大阪','避難訓練 PM'],
+      ['25日','大分','大分開催・BCP訓練'],
+      ['26日','宮崎','宮崎開催・BCP訓練'],
+      ['27日','福岡','BCP講演'],
+      ['28日','千葉','職員教育'],
+    ]
+  },
+  {
+    label: '9月',
+    events: [
+      ['01日','宮城','仙台開催・BCP訓練'],
+      ['03日','静岡','静岡開催・BCP訓練'],
+      ['04日','東京','BCPに関する収録'],
+      ['05日','高知','BCPに関する収録'],
+      ['08日','千葉','BCP訓練'],
+      ['11日','全国','オンラインセミナー'],
+      ['12日','高知','職員教育・防犯指導'],
+      ['14日','奈良','避難訓練'],
+      ['14日','大阪','避難訓練 PM'],
+      ['15日','大阪','職員教育・BCP担当者育成 AM'],
+      ['15日','大阪','職員教育 PM'],
+      ['16日','千葉','BCP訓練'],
+      ['17日','福岡','BCP講演PM（オンライン）'],
+      ['17日','大阪','BCP訓練 PM'],
+      ['17日','大阪','避難訓練 AM'],
+      ['18日','大阪','職員教育'],
+      ['22日','宮城','避難訓練・職員教育・BCP担当者育成'],
+      ['28日','高知','職員教育 AM'],
+      ['29日','高知','職員教育'],
+      ['29日','高知','職員教育 夜'],
+      ['30日','愛媛','BCP訓練'],
+    ]
+  },
+];
+
+const grid = document.getElementById('monthGrid');
+const overlay = document.getElementById('modalOverlay');
+const modalTitle = document.getElementById('modalTitle');
+const modalList = document.getElementById('modalList');
+const modalClose = document.getElementById('modalClose');
+
+months.forEach((m, idx) => {
+  const card = document.createElement('div');
+  card.className = 'month-card';
+  card.innerHTML = `
+    <div class="month-header">
+      <span class="month-label">${m.label}</span>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span class="month-count">${m.events.length}件</span>
+        <span class="zoom-icon">🔍</span>
+      </div>
+    </div>
+    <div class="month-body">
+      <ul class="event-list">
+        ${m.events.map(e => `<li><span class="ev-date">${e[0]}</span><span class="ev-loc">${e[1]}</span><span class="ev-desc">${e[2]}</span></li>`).join('')}
+      </ul>
+    </div>
+    <div class="card-footer">クリックで拡大表示 →</div>
+  `;
+  card.addEventListener('click', () => openModal(idx));
+  grid.appendChild(card);
+});
+
+function openModal(idx) {
+  const m = months[idx];
+  modalTitle.textContent = `2026年 ${m.label}`;
+  modalList.innerHTML = m.events.map(e =>
+    `<li><span class="m-date">${e[0]}</span><span class="m-loc">${e[1]}</span><span class="m-desc">${e[2]}</span></li>`
+  ).join('');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>

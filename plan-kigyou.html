@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一般企業等向け BCPプラン｜JDRS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root {
+  --navy:#0a1628; --navy-light:#12203d; --navy-mid:#1a2d50;
+  --red:#c23a22; --red-light:#e04a2a;
+  --gold:#c6993a; --gold-light:#dbb35c;
+  --white:#fff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--navy);color:var(--white);line-height:1.7;min-height:100vh;}
+
+/* ── Header ── */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,153,58,0.25);padding:12px 20px;display:flex;align-items:center;gap:16px;}
+.back-link{color:var(--gold-light);text-decoration:none;font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;transition:opacity .2s;}
+.back-link:hover{opacity:.75;}
+.header-title{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;color:var(--white);}
+
+/* ── Hero ── */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,rgba(198,153,58,0.15) 60%,rgba(194,58,34,0.1) 100%);padding:60px 20px 48px;text-align:center;border-bottom:1px solid rgba(198,153,58,0.2);}
+.hero-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:.08em;margin-bottom:18px;}
+.hero-title{font-family:'Noto Serif JP',serif;font-size:clamp(22px,5vw,38px);font-weight:900;line-height:1.3;margin-bottom:14px;}
+.hero-title span{color:var(--gold-light);}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.72);max-width:640px;margin:0 auto 32px;}
+.hero-cta{display:inline-block;background:var(--red);color:var(--white);font-size:16px;font-weight:700;padding:14px 40px;border-radius:8px;text-decoration:none;transition:background .2s,transform .15s;box-shadow:0 4px 20px rgba(194,58,34,0.45);}
+.hero-cta:hover{background:var(--red-light);transform:translateY(-2px);}
+
+/* ── Section ── */
+.section{padding:56px 20px;max-width:960px;margin:0 auto;}
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:36px;}
+.section-label::before,.section-label::after{content:'';flex:1;height:1px;background:rgba(198,153,58,0.3);}
+.section-label-text{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--gold-light);white-space:nowrap;padding:0 8px;}
+
+/* ── Photo Gallery ── */
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.photo-card{border-radius:12px;overflow:hidden;border:1px solid rgba(198,153,58,0.2);}
+.photo-card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .3s;}
+.photo-card:hover img{transform:scale(1.03);}
+.photo-caption{padding:10px 14px;background:rgba(26,45,80,0.8);font-size:13px;color:rgba(255,255,255,0.75);}
+
+/* ── Audience ── */
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.audience-box{background:rgba(198,153,58,0.08);border:1px solid rgba(198,153,58,0.25);border-radius:10px;padding:16px;text-align:center;}
+.audience-icon{font-size:24px;margin-bottom:6px;}
+.audience-name{font-size:13px;font-weight:700;color:rgba(255,255,255,0.9);}
+
+/* ── Service Cards ── */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.svc-card{background:rgba(255,255,255,0.04);border:1px solid rgba(198,153,58,0.18);border-radius:14px;padding:24px;}
+.svc-card-icon{font-size:28px;margin-bottom:10px;}
+.svc-card-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:var(--gold-light);margin-bottom:10px;}
+.svc-card-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.svc-card-list li{font-size:13px;color:rgba(255,255,255,0.75);padding-left:14px;position:relative;}
+.svc-card-list li::before{content:'▶';font-size:9px;color:var(--gold);position:absolute;left:0;top:4px;}
+
+/* ── Flow ── */
+.flow-grid{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:0;align-items:start;}
+@media(max-width:700px){.flow-grid{grid-template-columns:1fr;gap:12px;}.flow-arrow{display:none;}}
+.flow-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;}
+.flow-box-title{font-size:13px;font-weight:700;text-align:center;padding:6px;border-radius:6px;margin-bottom:14px;}
+.flow-box-title.red{background:var(--red);}
+.flow-box-title.gold{background:var(--gold);color:var(--navy);}
+.flow-box-title.blue{background:#2a5fa0;color:#fff;}
+.flow-item{font-size:13px;color:rgba(255,255,255,0.82);padding:8px 12px;background:rgba(255,255,255,0.05);border-left:3px solid var(--red);border-radius:0 6px 6px 0;margin-bottom:8px;line-height:1.5;}
+.flow-item.gold-border{border-left-color:var(--gold);}
+.flow-item.blue-border{border-left-color:#3b82c4;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--gold-light);padding-top:40px;}
+
+/* ── Steps ── */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.step:last-child{border-bottom:none;}
+.step-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;}
+.step-body{flex:1;}
+.step-title{font-weight:700;font-size:15px;color:var(--white);margin-bottom:4px;}
+.step-desc{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;}
+
+/* ── CTA ── */
+.cta-section{background:linear-gradient(135deg,rgba(26,45,80,0.95),rgba(10,22,40,0.98));border:1px solid rgba(198,153,58,0.3);border-radius:20px;padding:48px 32px;text-align:center;margin:0 auto;max-width:700px;}
+.cta-title{font-family:'Noto Serif JP',serif;font-size:clamp(18px,4vw,26px);font-weight:700;margin-bottom:12px;}
+.cta-title span{color:var(--red-light);}
+.cta-sub{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:28px;line-height:1.8;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--red),var(--red-light));color:var(--white);font-size:16px;font-weight:700;padding:16px 48px;border-radius:10px;text-decoration:none;box-shadow:0 4px 20px rgba(194,58,34,0.5);transition:transform .15s;}
+.cta-btn:hover{transform:translateY(-3px);}
+.cta-note{margin-top:16px;font-size:12px;color:rgba(255,255,255,0.5);}
+
+/* ── Footer ── */
+footer{padding:28px 20px;text-align:center;border-top:1px solid rgba(198,153,58,0.15);margin-top:60px;}
+footer p{font-size:12px;color:rgba(255,255,255,0.35);}
+
+@media(max-width:600px){
+  .hero{padding:40px 16px 36px;}
+  .section{padding:40px 16px;}
+  .cta-section{padding:32px 20px;}
+  .photo-grid{grid-template-columns:1fr;}
+  .photo-card img{height:200px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="back-link" href="jdrs-ko-do-v3.html" onclick="sessionStorage.setItem('page','home')">← トップページへ戻る</a>
+  <span class="header-title">JDRS 一般企業等向けプラン</span>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-tag">一般企業等向け</div>
+  <h1 class="hero-title">「ＢＣＰ策定・訓練・<span>診断・強化」プラン</span></h1>
+  <p class="hero-sub">元自衛官（ＪＤＲＳ）による実践的なＢＣＰ策定・訓練・診断支援を、<br>全国の一般企業・事業所へ提供しています。</p>
+  <a href="jdrs-ko-do-v3.html" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'" class="hero-cta">無料相談・お申し込みはこちら →</a>
+</section>
+
+<!-- ── 活動写真 ── -->
+<div class="section">
+  <div class="section-label"><span class="section-label-text">活動の様子</span></div>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <img src="https://jdrs21.jp/wp-content/uploads/2026/10/IMG_5712.jpg" alt="BCP訓練の様子">
+      <div class="photo-caption">ＢＣＰ訓練・初動対応の様子</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://jdrs21.jp/wp-content/uploads/2025/08/写真③.jpeg" alt="建設業に対する安全大会" style="object-position:center top;">
+      <div class="photo-caption">建設業に対する安全大会</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 対象企業 ── -->
+<div class="section" style="padding-top:0;">
+  <div class="section-label"><span class="section-label-text">こんな企業・事業所に</span></div>
+  <div class="audience-grid">
+    <div class="audience-box"><div class="audience-icon">🏭</div><div class="audience-name">製造業</div></div>
+    <div class="audience-box"><div class="audience-icon">🏬</div><div class="audience-name">商業・サービス業</div></div>
+    <div class="audience-box"><div class="audience-icon">🚚</div><div class="audience-name">物流・運輸業</div></div>
+    <div class="audience-box"><div class="audience-icon">🏗️</div><div class="audience-name">建設・土木業</div></div>
+    <div class="audience-box"><div class="audience-icon">💼</div><div class="audience-name">IT・情報通信業</div></div>
+    <div class="audience-box"><div class="audience-icon">🏢</div><div class="audience-name">その他一般企業</div></div>
+  </div>
+</div>
+
+<!-- ── 課題 → 解決 フロー ── -->
+<div style="background:rgba(255,255,255,0.01);border-top:1px solid rgba(198,153,58,0.1);border-bottom:1px solid rgba(198,153,58,0.1);padding:56px 20px;">
+<div style="max-width:960px;margin:0 auto;">
+  <div class="section-label" style="margin-bottom:36px;"><span class="section-label-text">よくある課題とJDRSの解決策</span></div>
+  <div class="flow-grid">
+    <div class="flow-box">
+      <div class="flow-box-title red">よくある課題</div>
+      <div class="flow-item">BCPが未策定・形骸化している</div>
+      <div class="flow-item">災害時の初動対応がわからない</div>
+      <div class="flow-item">従業員への教育・周知ができていない</div>
+      <div class="flow-item">訓練をしたことがない・マンネリ化</div>
+      <div class="flow-item">リスク洗い出しが難しい</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(198,153,58,0.35);">
+      <div class="flow-box-title gold">JDRSが実施</div>
+      <div class="flow-item gold-border">📋 BCP策定支援・診断</div>
+      <div class="flow-item gold-border">🛡️ BCP訓練（模擬災害対応）</div>
+      <div class="flow-item gold-border">🎤 BCP講演・教育</div>
+      <div class="flow-item gold-border">🔍 リスク分析・改善提案</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(59,130,196,0.35);">
+      <div class="flow-box-title blue">期待できる効果</div>
+      <div class="flow-item blue-border">✅ 実効性あるBCPの完成</div>
+      <div class="flow-item blue-border">✅ 全従業員が動ける体制</div>
+      <div class="flow-item blue-border">✅ 事業継続リスクの低減</div>
+      <div class="flow-item blue-border">✅ 取引先・顧客からの信頼向上</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── サービス内容 ── -->
+<div class="section">
+  <div class="section-label"><span class="section-label-text">サービス内容</span></div>
+  <div class="service-grid">
+    <div class="svc-card">
+      <div class="svc-card-icon">📋</div>
+      <div class="svc-card-title">BCP策定・診断支援</div>
+      <ul class="svc-card-list">
+        <li>現状のBCP診断・課題抽出</li>
+        <li>リスク分析・優先度整理</li>
+        <li>実効性あるBCP文書の作成支援</li>
+        <li>策定後の修正・改善サポート</li>
+      </ul>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-icon">🛡️</div>
+      <div class="svc-card-title">BCP訓練・模擬災害対応</div>
+      <ul class="svc-card-list">
+        <li>全員が意思決定者となる実践訓練</li>
+        <li>即断即決を求める初動対応訓練</li>
+        <li>複合災害を想定したシナリオ訓練</li>
+        <li>訓練後の振り返り・改善指導</li>
+      </ul>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-icon">🎤</div>
+      <div class="svc-card-title">BCP講演・従業員教育</div>
+      <ul class="svc-card-list">
+        <li>全従業員向けBCP講演</li>
+        <li>2人一組で考える参加型教育</li>
+        <li>経営層向け危機管理セミナー</li>
+        <li>階層別・部門別の教育対応</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ── 導入の流れ ── -->
+<div style="background:rgba(255,255,255,0.01);border-top:1px solid rgba(198,153,58,0.1);padding:56px 20px;">
+<div style="max-width:680px;margin:0 auto;">
+  <div class="section-label" style="margin-bottom:36px;"><span class="section-label-text">導入の流れ</span></div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">無料相談・ヒアリング</div>
+        <div class="step-desc">貴社の業種・規模・現状のBCP状況をお聞きし、最適なプランをご提案します。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">現状診断・課題整理</div>
+        <div class="step-desc">リスク分析・BCP診断を実施し、優先すべき課題を明確にします。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">訓練・教育・策定支援の実施</div>
+        <div class="step-desc">貴社の状況に合わせたBCP訓練・講演・策定支援を実施します。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">振り返り・継続的改善</div>
+        <div class="step-desc">訓練後の振り返りと改善提案で、BCPの実効性を継続的に高めます。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="section">
+  <div class="cta-section">
+    <div class="cta-title">まずは<span>無料相談</span>から</div>
+    <p class="cta-sub">
+      お見積もり・資料請求も承っております。<br>
+      元自衛官の専門家が貴社の状況に合わせてご提案します。
+    </p>
+    <a href="jdrs-ko-do-v3.html" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'" class="cta-btn">無料相談・お申し込みはこちら →</a>
+    <p class="cta-note">お問い合わせ：info@jdrs21.jp</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 一般社団法人 日本災害救助支援機構（JDRS）</p>
+</footer>
+</body>
+</html>

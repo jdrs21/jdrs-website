@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教育・学校系ＢＣＰ | JDRS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@700&display=swap">
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy-light: #12203d;
+      --navy-mid: #1a2d50;
+      --red: #c23a22;
+      --gold: #c6993a;
+      --gold-light: #dbb35c;
+      --purple: #9370db;
+      --purple-light: #b09ce8;
+      --purple-soft: rgba(147,112,219,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f5f5f7;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+
+    /* ヘッダー */
+    .site-header {
+      background: var(--navy);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .site-header .logo {
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(15px, 3vw, 20px);
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .site-header .back-btn {
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all .2s;
+    }
+    .site-header .back-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* ヒーロー */
+    .hero {
+      position: relative;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://jdrs21.jp/wp-content/uploads/2026/10/ＨＰ-模擬訓練-4-scaled.jpg');
+      background-size: cover;
+      background-position: center center;
+      opacity: .65;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.30) 100%);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(14px, 2vw, 16px);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    /* メインコンテンツ */
+    .main { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* セクションタイトル */
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3.5vw, 26px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--purple);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .icon { font-size: 1.3em; }
+
+    .section { margin-bottom: 56px; }
+
+    /* 課題ブロック */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .challenge-card {
+      background: #fff;
+      border-left: 4px solid var(--purple);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .challenge-card .card-head {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--purple);
+      margin-bottom: 8px;
+    }
+    .challenge-card p { font-size: 14px; color: #444; line-height: 1.7; }
+
+    /* 写真 */
+    .photo-wrap {
+      margin: 32px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    .photo-wrap img {
+      width: 100%;
+      display: block;
+      max-height: 420px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .photo-caption {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      font-size: 12px;
+      padding: 8px 16px;
+      text-align: center;
+    }
+
+    /* 2カラム写真 */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .photo-grid .photo-wrap { margin: 0; }
+
+    /* ポイントリスト */
+    .point-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .point-list li {
+      display: flex;
+      gap: 14px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      align-items: flex-start;
+    }
+    .point-list .num {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      background: var(--purple);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .point-list .text { font-size: 14px; line-height: 1.7; color: #333; }
+    .point-list .text strong { color: var(--navy); display: block; font-size: 15px; margin-bottom: 4px; }
+
+    /* 実績バナー */
+    .achievement-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 14px;
+      padding: 32px;
+      color: #fff;
+      margin-top: 32px;
+      border: 2px solid rgba(147,112,219,0.4);
+    }
+    .achievement-banner h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--purple-light);
+    }
+    .achievement-banner p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.85); }
+
+    /* 対象リスト */
+    .target-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .target-chip {
+      background: var(--purple-soft);
+      border: 1px solid rgba(147,112,219,0.4);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 30px;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 56px;
+      border: 2px solid var(--gold);
+    }
+    .cta-section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px, 3vw, 24px);
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .cta-section p { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 28px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 48px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(194,58,34,0.4);
+      transition: all .2s;
+      letter-spacing: .05em;
+    }
+    .cta-btn:hover { background: #a83020; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(194,58,34,0.5); }
+
+    /* フッター */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 12px;
+      padding: 24px;
+    }
+
+    /* モバイル */
+    @media (max-width: 600px) {
+      .challenge-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 32px 20px; }
+      .achievement-banner { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="site-header">
+  <a href="jdrs-ko-do-v3.html" class="logo">JDRS｜日本災害救助支援機構</a>
+  <a href="jdrs-ko-do-v3.html" class="back-btn">← トップへ戻る</a>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">🏫 教育・学校系 ＢＣＰ</span>
+    <h1 class="hero-title">子どもたちに<br>「生涯役立つ防災力」を</h1>
+    <p class="hero-sub">
+      防災訓練の枠を超えた本格的なＢＣＰ訓練を学校現場に。<br>
+      当事者意識を持って取り組む教育が、地域の未来をつくります。
+    </p>
+  </div>
+</section>
+
+<!-- メインコンテンツ -->
+<main class="main">
+
+  <!-- セクション：子どもたちへの長期的な効果（トップに移動） -->
+  <section class="section">
+    <h2 class="section-title"><span class="icon">🌱</span>学校で学んだＢＣＰは生涯の財産</h2>
+    <p style="font-size:15px;line-height:1.9;color:#333;margin-bottom:24px;">
+      学校でＢＣＰを学んだ子どもたちは、その知識とスキルを将来にわたって活かすことができます。
+    </p>
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <p class="card-head">就職先・職場で役立つ</p>
+        <p>将来、企業・病院・施設などに就職した際、ＢＣＰの考え方を持つ人材として即戦力になれます。</p>
+      </div>
+      <div class="challenge-card">
+        <p class="card-head">移住先の地域でも活躍</p>
+        <p>進学・就職で転居した先の地域でも、自主防災活動やＣＣＰ（コミュニティ継続計画）で地域に貢献できます。</p>
+      </div>
+      <div class="challenge-card">
+        <p class="card-head">地域を支える若者に</p>
+        <p>地元に残った場合も、防災・ＢＣＰの知識を持つ若い世代が地域の防災力を次世代へ引き継いでいきます。</p>
+      </div>
+      <div class="challenge-card">
+        <p class="card-head">家庭での防災意識の向上</p>
+        <p>子どもが学校で学んだことが家庭に持ち帰られ、家族全体の防災意識・準備を高めるきっかけになります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 写真① -->
+  <div class="photo-wrap">
+    <img src="https://jdrs21.jp/wp-content/uploads/2026/10/%EF%BC%A8%EF%BC%B0-%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-4-scaled.jpg" alt="学校BCP訓練の様子①" loading="lazy">
+    <div class="photo-caption">実際の学校向けＢＣＰ模擬訓練の様子</div>
+  </div>
+
+  <!-- セクション：現状の課題 -->
+  <section class="section">
+    <h2 class="section-title"><span class="icon">⚠️</span>学校の防災訓練が抱える課題</h2>
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <p class="card-head">訓練が「形式的」になっている</p>
+        <p>毎年同じ手順で行われる避難訓練は、子どもたちにとって日常の一部となり、緊張感・当事者意識が薄れがちです。</p>
+      </div>
+      <div class="challenge-card">
+        <p class="card-head">「ＢＣＰ」の視点が欠如している</p>
+        <p>学校には避難マニュアルはあっても、授業再開・学校機能の継続のための計画（ＢＣＰ）が整備されていないケースが多くあります。</p>
+      </div>
+      <div class="challenge-card">
+        <p class="card-head">教職員の負担が大きい</p>
+        <p>防災担当教員だけに任される傾向があり、組織全体での共有・実践体制が構築されていません。</p>
+      </div>
+      <div class="challenge-card">
+        <p class="card-head">地域連携が不十分</p>
+        <p>学校の防災は地域の自主防災組織・行政と連携することで初めて機能します。孤立した訓練では限界があります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション：JDRSのアプローチ -->
+  <section class="section">
+    <h2 class="section-title"><span class="icon">📋</span>防災訓練からＢＣＰ訓練へ</h2>
+    <p style="font-size:15px;line-height:1.9;color:#333;margin-bottom:20px;">
+      ＪＤＲＳが学校現場で実施するのは、単なる避難訓練ではありません。<br>
+      「もしも学校機能が止まったとき、どう早期再開するか」を子どもたち自身が考え、行動するための<strong style="color:var(--purple);">本格的なＢＣＰ訓練</strong>です。
+    </p>
+    <ul class="point-list">
+      <li>
+        <span class="num">1</span>
+        <span class="text">
+          <strong>当事者意識を育てる</strong>
+          「避難する」だけでなく、「授業・部活・給食・学校行事の継続をどう守るか」を子どもたちが主体的に考えます。自分たちの学校を自分たちで守る意識が芽生えます。
+        </span>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <span class="text">
+          <strong>本物の「模擬訓練」で体験する</strong>
+          机上の学習だけでなく、実際の状況を想定した模擬訓練により、体で覚える実践的な能力が身につきます。緊急時に「考えて動ける力」を養います。
+        </span>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <span class="text">
+          <strong>教職員・保護者・地域と連携</strong>
+          学校単独ではなく、地域の自主防災組織・行政・保護者とともに取り組む体制を構築します。地域全体の防災力向上につながります。
+        </span>
+      </li>
+      <li>
+        <span class="num">4</span>
+        <span class="text">
+          <strong>行政への報告資料としても活用可能</strong>
+          訓練の内容・結果は文書化し、教育委員会や自治体への報告資料として活用できる形で提供します。
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 写真② ③ 横2列 -->
+  <div class="photo-grid">
+    <div class="photo-wrap">
+      <img src="https://jdrs21.jp/wp-content/uploads/2026/10/%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-3-scaled.jpg" alt="学校BCP訓練の様子②" loading="lazy">
+      <div class="photo-caption">グループで取り組む模擬訓練</div>
+    </div>
+    <div class="photo-wrap">
+      <img src="https://jdrs21.jp/wp-content/uploads/2026/10/%EF%BC%A8%EF%BC%B0-%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-scaled.jpg" alt="学校BCP訓練の様子③" loading="lazy">
+      <div class="photo-caption">実践形式のＢＣＰ教育</div>
+    </div>
+  </div>
+
+  <!-- 実績バナー -->
+  <div class="achievement-banner">
+    <h3>📍 ＪＤＲＳの学校向けＢＣＰ訓練 実績</h3>
+    <p>
+      これまでに複数の中学校において、生徒を対象としたＢＣＰ教育訓練を実施してまいりました。<br>
+      防災の基礎知識にとどまらず、「学校という組織の継続」を考えるＢＣＰの視点を、模擬訓練を通じて体験してもらう内容です。<br>
+      参加した生徒からは「避難訓練と全然違う」「自分が考えることの大切さがわかった」という声が多く寄せられています。
+    </p>
+  </div>
+
+  <!-- 対象 -->
+  <section class="section" style="margin-top:48px;">
+    <h2 class="section-title"><span class="icon">🏫</span>対象・ご相談先</h2>
+    <p style="font-size:15px;line-height:1.9;color:#333;margin-bottom:20px;">
+      学校機関への導入は、教育委員会・行政機関からのご依頼・ご相談を承っております。
+    </p>
+    <div class="target-list">
+      <span class="target-chip">小学校</span>
+      <span class="target-chip">中学校</span>
+      <span class="target-chip">高等学校</span>
+      <span class="target-chip">特別支援学校</span>
+      <span class="target-chip">教育委員会</span>
+      <span class="target-chip">都道府県・市区町村</span>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>学校向けＢＣＰ訓練の<br>ご相談・お問い合わせ</h2>
+    <p>導入事例・プログラム内容・費用など、まずはお気軽にご相談ください</p>
+    <a href="jdrs-ko-do-v3.html" class="cta-btn" onclick="sessionStorage.setItem('page','contact')">
+      お問い合わせ・ご相談はこちら →
+    </a>
+  </div>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <p>© JDRS 一般社団法人 日本防災復興研究所　All Rights Reserved.</p>
+</footer>
+
+<script>
+(function(){
+  var base = 'https://jdrs21.jp/wp-content/uploads/2026/10/';
+  var urls = [
+    base + '%EF%BC%A8%EF%BC%B0-%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-4-scaled.jpg',
+    base + 'ＨＰ-模擬訓練-4-scaled.jpg',
+    base + '%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-3-scaled.jpg',
+    base + '★模擬訓練-3-scaled.jpg'
+  ];
+  var bg = document.querySelector('.hero-bg');
+  if (!bg) return;
+  function tryUrl(i) {
+    if (i >= urls.length) return;
+    var img = new Image();
+    img.onload = function() { bg.style.backgroundImage = "url('" + urls[i] + "')"; };
+    img.onerror = function() { tryUrl(i + 1); };
+    img.src = urls[i];
+  }
+  tryUrl(0);
+})();
+</script>
+</body>
+</html>

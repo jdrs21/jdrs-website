@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【保育系】BCP基盤確立強化プラン｜JDRS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --navy:#0a1628;--navy-light:#12203d;--navy-mid:#1a2d50;
+  --red:#c23a22;--red-light:#e04a2a;
+  --gold:#c6993a;--gold-light:#dbb35c;
+  --pink:#e07080;
+  --white:#fff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--navy);color:var(--white);line-height:1.7;}
+
+/* ── Header ── */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,153,58,0.25);padding:12px 20px;display:flex;align-items:center;gap:14px;}
+.back-link{color:var(--gold-light);text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;}
+.back-link:hover{opacity:.75;}
+.header-badges{display:flex;gap:6px;flex-wrap:wrap;}
+.hbadge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;}
+.hbadge-pink{background:rgba(224,112,128,0.2);border:1px solid rgba(224,112,128,0.5);color:#f0a0b0;}
+.hbadge-gold{background:rgba(198,153,58,0.15);border:1px solid rgba(198,153,58,0.4);color:var(--gold-light);}
+
+/* ── Hero ── */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,rgba(224,112,128,0.1) 50%,rgba(198,153,58,0.08) 100%);padding:52px 20px 44px;text-align:center;border-bottom:2px solid rgba(198,153,58,0.2);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;justify-content:center;}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:.06em;}
+.tag-pink{background:rgba(224,112,128,0.2);border:1px solid rgba(224,112,128,0.5);color:#f0a0b0;}
+.tag-gold{background:rgba(198,153,58,0.15);border:1px solid rgba(198,153,58,0.4);color:var(--gold-light);}
+.hero-title{font-family:'Noto Serif JP',serif;font-size:clamp(20px,5vw,36px);font-weight:900;line-height:1.3;margin-bottom:10px;}
+.hero-title em{color:var(--gold-light);font-style:normal;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:28px;line-height:1.8;}
+.hero-cta{display:inline-block;background:linear-gradient(135deg,var(--red),var(--red-light));color:var(--white);font-size:15px;font-weight:700;padding:14px 44px;border-radius:10px;text-decoration:none;box-shadow:0 4px 20px rgba(194,58,34,0.45);transition:transform .15s;}
+.hero-cta:hover{transform:translateY(-2px);}
+
+/* ── Section wrapper ── */
+.section{padding:52px 20px;max-width:1000px;margin:0 auto;}
+.section-full{padding:52px 20px;background:rgba(255,255,255,0.01);border-top:1px solid rgba(198,153,58,0.12);border-bottom:1px solid rgba(198,153,58,0.12);}
+.section-full-inner{max-width:1000px;margin:0 auto;}
+.sec-title{font-family:'Noto Serif JP',serif;font-size:clamp(17px,3.5vw,22px);font-weight:700;color:var(--gold-light);margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.sec-title::after{content:'';flex:1;height:1px;background:rgba(198,153,58,0.25);}
+
+/* ── Slideshow ── */
+.slideshow-wrap{background:rgba(0,0,0,0.4);border-radius:16px;overflow:hidden;border:1px solid rgba(198,153,58,0.2);}
+.slideshow-main{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;}
+.slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease;pointer-events:none;}
+.slide-img.active{opacity:1;pointer-events:auto;}
+.slide-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,22,40,0.72);border:1px solid rgba(198,153,58,0.4);color:var(--gold-light);font-size:22px;width:44px;height:64px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .15s;}
+.slide-btn:hover{background:rgba(198,153,58,0.25);}
+.slide-btn.prev{left:10px;}
+.slide-btn.next{right:10px;}
+.slide-counter{position:absolute;bottom:10px;right:14px;background:rgba(10,22,40,0.8);color:var(--gold-light);font-size:12px;font-weight:700;padding:4px 10px;border-radius:10px;z-index:10;}
+/* Thumbnail strip */
+.thumb-strip{display:flex;gap:5px;padding:10px 12px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:rgba(198,153,58,0.3) transparent;}
+.thumb-strip::-webkit-scrollbar{height:4px;}
+.thumb-strip::-webkit-scrollbar-thumb{background:rgba(198,153,58,0.3);border-radius:2px;}
+.thumb{flex-shrink:0;width:80px;height:45px;object-fit:cover;border-radius:4px;cursor:pointer;opacity:.5;border:2px solid transparent;transition:opacity .15s,border-color .15s;}
+.thumb.active{opacity:1;border-color:var(--gold);}
+.thumb:hover{opacity:.85;}
+/* Slide title bar */
+.slide-titlebar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(26,45,80,0.8);border-top:1px solid rgba(198,153,58,0.2);}
+.slide-titlebar-label{font-size:12px;color:rgba(255,255,255,0.55);}
+.slide-titlebar-num{font-size:13px;font-weight:700;color:var(--gold-light);}
+
+/* ── Point boxes ── */
+.point-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.point-box{background:rgba(255,255,255,0.04);border:1px solid rgba(198,153,58,0.18);border-radius:12px;padding:20px;text-align:center;}
+.point-icon{font-size:28px;margin-bottom:8px;}
+.point-title{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:var(--gold-light);margin-bottom:6px;}
+.point-desc{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;}
+
+/* ── Steps ── */
+.steps{display:flex;flex-direction:column;gap:0;max-width:680px;margin:0 auto;}
+.step{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.step:last-child{border-bottom:none;}
+.step-num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--red);color:var(--white);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;}
+.step-title{font-weight:700;font-size:14px;color:var(--white);margin-bottom:3px;}
+.step-desc{font-size:13px;color:rgba(255,255,255,0.68);line-height:1.7;}
+
+/* ── CTA ── */
+.cta-box{background:linear-gradient(135deg,rgba(26,45,80,0.97),rgba(10,22,40,0.99));border:2px solid rgba(198,153,58,0.35);border-radius:20px;padding:44px 28px;text-align:center;max-width:640px;margin:0 auto;}
+.cta-title{font-family:'Noto Serif JP',serif;font-size:clamp(17px,4vw,24px);font-weight:700;margin-bottom:10px;}
+.cta-title em{color:var(--red-light);font-style:normal;}
+.cta-sub{font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:24px;line-height:1.9;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--red),var(--red-light));color:var(--white);font-size:15px;font-weight:700;padding:14px 44px;border-radius:10px;text-decoration:none;box-shadow:0 4px 20px rgba(194,58,34,0.5);transition:transform .15s;}
+.cta-btn:hover{transform:translateY(-2px);}
+.cta-note{margin-top:12px;font-size:12px;color:rgba(255,255,255,0.4);}
+
+footer{padding:24px 20px;text-align:center;border-top:1px solid rgba(198,153,58,0.15);margin-top:60px;}
+footer p{font-size:12px;color:rgba(255,255,255,0.3);}
+
+@media(max-width:600px){
+  .hero{padding:36px 14px 32px;}
+  .section{padding:36px 14px;}
+  .slide-btn{width:36px;height:52px;font-size:18px;}
+  .thumb{width:60px;height:34px;}
+  .cta-box{padding:28px 16px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="back-link" href="plan-hojin.html">← プラン選択に戻る</a>
+  <div class="header-badges">
+    <span class="hbadge hbadge-pink">【保育系】</span>
+    <span class="hbadge hbadge-gold">法人向けプラン</span>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="tag tag-pink">【保育系】法人向け</span>
+    <span class="tag tag-gold">2026年版</span>
+  </div>
+  <h1 class="hero-title">ＢＣＰ基盤確立強化プラン<em>（5年）</em></h1>
+  <p class="hero-sub">
+    危機管理専門家（元自衛官）がトータルでサポート<br>
+    策定・診断（修正）・訓練・教育等に関する技能を教授
+  </p>
+  <a href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'" class="hero-cta">無料相談・お申し込みはこちら →</a>
+</section>
+
+<!-- スライドショー -->
+<div class="section">
+  <div class="sec-title">📋 プラン資料（全15ページ）</div>
+
+  <div class="slideshow-wrap">
+    <!-- Main slide area -->
+    <div class="slideshow-main" id="slideMain">
+      <img src="slides-hojin/slide1.jpg"  class="slide-img active" alt="スライド1">
+      <img src="slides-hojin/slide2.jpg"  class="slide-img" alt="スライド2">
+      <img src="slides-hojin/slide3.jpg"  class="slide-img" alt="スライド3">
+      <img src="slides-hojin/slide4.jpg"  class="slide-img" alt="スライド4">
+      <img src="slides-hojin/slide5.jpg"  class="slide-img" alt="スライド5">
+      <img src="slides-hojin/slide6.jpg"  class="slide-img" alt="スライド6">
+      <img src="slides-hojin/slide7.jpg"  class="slide-img" alt="スライド7">
+      <img src="slides-hojin/slide8.jpg"  class="slide-img" alt="スライド8">
+      <img src="slides-hojin/slide9.jpg"  class="slide-img" alt="スライド9">
+      <img src="slides-hojin/slide10.jpg" class="slide-img" alt="スライド10">
+      <img src="slides-hojin/slide11.jpg" class="slide-img" alt="スライド11">
+      <img src="slides-hojin/slide12.jpg" class="slide-img" alt="スライド12">
+      <img src="slides-hojin/slide13.jpg" class="slide-img" alt="スライド13">
+      <img src="slides-hojin/slide14.jpg" class="slide-img" alt="スライド14">
+      <img src="slides-hojin/slide15.jpg" class="slide-img" alt="スライド15">
+
+      <button class="slide-btn prev" onclick="changeSlide(-1)">&#8249;</button>
+      <button class="slide-btn next" onclick="changeSlide(1)">&#8250;</button>
+      <div class="slide-counter" id="slideCounter">1 / 15</div>
+    </div>
+
+    <!-- Title bar -->
+    <div class="slide-titlebar">
+      <span class="slide-titlebar-label">BCP基盤確立強化プラン（5年）｜保育系法人向け限定</span>
+      <span class="slide-titlebar-num" id="slideNumLabel">スライド 1</span>
+    </div>
+
+    <!-- Thumbnail strip -->
+    <div class="thumb-strip" id="thumbStrip">
+      <img src="slides-hojin/slide1.jpg"  class="thumb active" alt="1"  onclick="goSlide(0)">
+      <img src="slides-hojin/slide2.jpg"  class="thumb" alt="2"  onclick="goSlide(1)">
+      <img src="slides-hojin/slide3.jpg"  class="thumb" alt="3"  onclick="goSlide(2)">
+      <img src="slides-hojin/slide4.jpg"  class="thumb" alt="4"  onclick="goSlide(3)">
+      <img src="slides-hojin/slide5.jpg"  class="thumb" alt="5"  onclick="goSlide(4)">
+      <img src="slides-hojin/slide6.jpg"  class="thumb" alt="6"  onclick="goSlide(5)">
+      <img src="slides-hojin/slide7.jpg"  class="thumb" alt="7"  onclick="goSlide(6)">
+      <img src="slides-hojin/slide8.jpg"  class="thumb" alt="8"  onclick="goSlide(7)">
+      <img src="slides-hojin/slide9.jpg"  class="thumb" alt="9"  onclick="goSlide(8)">
+      <img src="slides-hojin/slide10.jpg" class="thumb" alt="10" onclick="goSlide(9)">
+      <img src="slides-hojin/slide11.jpg" class="thumb" alt="11" onclick="goSlide(10)">
+      <img src="slides-hojin/slide12.jpg" class="thumb" alt="12" onclick="goSlide(11)">
+      <img src="slides-hojin/slide13.jpg" class="thumb" alt="13" onclick="goSlide(12)">
+      <img src="slides-hojin/slide14.jpg" class="thumb" alt="14" onclick="goSlide(13)">
+      <img src="slides-hojin/slide15.jpg" class="thumb" alt="15" onclick="goSlide(14)">
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.4);margin-top:10px;">← → キーまたは矢印ボタンでページを切り替えできます</p>
+</div>
+
+<!-- プランの特長 -->
+<div class="section-full">
+<div class="section-full-inner">
+  <div class="sec-title">このプランの特長</div>
+  <div class="point-grid">
+    <div class="point-box">
+      <div class="point-icon">👶</div>
+      <div class="point-title">子どもの命を守る</div>
+      <div class="point-desc">保育現場に特化したシナリオで、園全体が発災直後から動ける体制を構築します。</div>
+    </div>
+    <div class="point-box">
+      <div class="point-icon">👩‍🏫</div>
+      <div class="point-title">職員の安心をつくる</div>
+      <div class="point-desc">園長一人で抱え込まない。全職員が能動的に行動できる訓練プログラムを提供します。</div>
+    </div>
+    <div class="point-box">
+      <div class="point-icon">🏫</div>
+      <div class="point-title">園の継続を支える</div>
+      <div class="point-desc">BCP策定・診断・修正で事業継続力を強化。義務化対応も含めて専門家が全面支援します。</div>
+    </div>
+    <div class="point-box">
+      <div class="point-icon">🤝</div>
+      <div class="point-title">地域とつながる</div>
+      <div class="point-desc">保護者・行政・地域との連携体制を整備し、地域から信頼される園づくりを支援します。</div>
+    </div>
+    <div class="point-box">
+      <div class="point-icon">🎖️</div>
+      <div class="point-title">元自衛官が伝授</div>
+      <div class="point-desc">25年以上の大規模災害対応実績を持つ危機管理専門家が直接指導します。</div>
+    </div>
+    <div class="point-box">
+      <div class="point-icon">📅</div>
+      <div class="point-title">5年間の継続サポート</div>
+      <div class="point-desc">策定から訓練・評価・改善まで、5年間を通じてJDRSが継続的にサポートします。</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ご依頼の流れ -->
+<div class="section">
+  <div class="sec-title">ご依頼の流れ</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">お問い合わせ・ご相談（無料）</div>
+        <div class="step-desc">フォームまたはメール（info@jdrs21.jp）よりご連絡ください。現状の課題や目的をお聞かせいただき、最適なプランをご提案します。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">ヒアリング・プランご提案</div>
+        <div class="step-desc">園の規模・現在のBCP状況・ご予算をヒアリングし、5年間のロードマップをご提案します。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">契約・BCP策定スタート</div>
+        <div class="step-desc">契約締結後、リスク洗い出しからBCP策定・診断を開始。担当者が丁寧にサポートします。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">訓練・教育の実施</div>
+        <div class="step-desc">元自衛官の専門家による現地BCP訓練・オンライン教育を実施。全職員が実践力を習得します。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-title">評価・改善・継続サポート（5年間）</div>
+        <div class="step-desc">実施後の評価・BCP修正・次回訓練まで、5年間を通じて継続的にサポートします。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="padding:44px 20px 68px;">
+  <div class="cta-box">
+    <h2 class="cta-title">計画がある園から、<em>実際に動ける園へ</em></h2>
+    <p class="cta-sub">
+      JDRSが継続的にサポートします。<br>
+      まずはお気軽に無料相談をご利用ください。<br>
+      アドバイザリー導入園からの紹介限定プランです。
+    </p>
+    <a href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact');location.href='jdrs-ko-do-v3.html'" class="cta-btn">無料相談・お申し込みはこちら →</a>
+    <p class="cta-note">📧 info@jdrs21.jp</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 一般社団法人 日本災害救助支援機構（JDRS）｜For the Children's Future</p>
+</footer>
+
+<script>
+var cur = 0;
+var total = 15;
+var imgs = document.querySelectorAll('.slide-img');
+var thumbs = document.querySelectorAll('.thumb');
+
+function goSlide(n) {
+  imgs[cur].classList.remove('active');
+  thumbs[cur].classList.remove('active');
+  cur = (n + total) % total;
+  imgs[cur].classList.add('active');
+  thumbs[cur].classList.add('active');
+  document.getElementById('slideCounter').textContent = (cur + 1) + ' / ' + total;
+  document.getElementById('slideNumLabel').textContent = 'スライド ' + (cur + 1);
+  // Scroll thumbnail into view
+  thumbs[cur].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+}
+
+function changeSlide(dir) { goSlide(cur + dir); }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   changeSlide(-1);
+});
+
+// Touch swipe support
+var startX = 0;
+document.getElementById('slideMain').addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+document.getElementById('slideMain').addEventListener('touchend', function(e){
+  var dx = e.changedTouches[0].clientX - startX;
+  if (Math.abs(dx) > 40) changeSlide(dx < 0 ? 1 : -1);
+}, {passive:true});
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一般企業系ＢＣＰ | JDRS 一般社団法人日本防災訓練研究所</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700&display=swap">
+<style>
+:root {
+  --navy:#0a1628;
+  --navy-light:#12203d;
+  --red:#c23a22;
+  --gold:#c6993a;
+  --gold-light:#dbb35c;
+  --steel:#2d6a8f;
+  --steel-light:#3d8ab5;
+  --steel-pale:#e8f4fb;
+  --white:#ffffff;
+  --text:#1a1a2e;
+  --text-light:#4a5568;
+  --bg:#f4f8fb;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+
+.site-header{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+.site-header .logo{color:#fff;font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;text-decoration:none;}
+.site-header .back-btn{color:var(--gold-light);font-size:13px;text-decoration:none;border:1px solid var(--gold);padding:6px 14px;border-radius:4px;transition:background .2s;}
+.site-header .back-btn:hover{background:rgba(198,153,58,0.15);}
+
+.hero{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0d2240 0%,#1e4d7a 50%,var(--navy) 100%);}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.3;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0.3) 0%,rgba(10,22,40,0.65) 100%);}
+.hero-content{position:relative;z-index:2;padding:60px 24px;}
+.hero-eyebrow{display:inline-block;background:var(--steel);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:4px 16px;border-radius:20px;margin-bottom:16px;}
+.hero-title{font-family:'Noto Serif JP',serif;font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;line-height:1.3;text-shadow:0 2px 8px rgba(0,0,0,0.4);margin-bottom:12px;}
+.hero-title span{color:var(--gold-light);}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.88);margin-bottom:28px;line-height:1.6;}
+.hero-cta{display:inline-block;background:var(--red);color:#fff;font-size:15px;font-weight:700;padding:14px 36px;border-radius:6px;text-decoration:none;transition:opacity .2s;}
+.hero-cta:hover{opacity:.85;}
+
+.section{padding:64px 24px;}
+.section-inner{max-width:960px;margin:0 auto;}
+.section-label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.12em;color:var(--steel);border-bottom:2px solid var(--steel);padding-bottom:3px;margin-bottom:12px;}
+.section-title{font-family:'Noto Serif JP',serif;font-size:clamp(22px,3.5vw,32px);font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:8px;}
+.section-lead{font-size:15px;color:var(--text-light);max-width:720px;margin-bottom:36px;line-height:1.8;}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.card{background:#fff;border-radius:12px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--steel);}
+.card-icon{font-size:36px;margin-bottom:12px;}
+.card-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.card-text{font-size:13px;color:var(--text-light);line-height:1.7;}
+
+.risk-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2d50 100%);padding:64px 24px;}
+.risk-section .section-title{color:#fff;}
+.risk-section .section-lead{color:rgba(255,255,255,0.8);}
+.risk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.risk-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:20px 16px;backdrop-filter:blur(4px);}
+.risk-card-icon{font-size:32px;margin-bottom:10px;}
+.risk-card-title{font-size:14px;font-weight:700;color:var(--gold-light);margin-bottom:6px;}
+.risk-card-text{font-size:12px;color:rgba(255,255,255,0.78);line-height:1.7;}
+
+.photo-wrap{width:100%;max-width:860px;margin:0 auto 40px;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.12);}
+.photo-placeholder{width:100%;height:280px;background:linear-gradient(135deg,#e8f4fb,#b3d4e8);display:flex;align-items:center;justify-content:center;font-size:48px;border-radius:12px;}
+
+.points-list{display:grid;gap:16px;}
+.point-item{display:flex;gap:16px;background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.point-num{flex-shrink:0;width:40px;height:40px;background:var(--steel);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
+.point-body{}
+.point-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.point-text{font-size:13px;color:var(--text-light);line-height:1.7;}
+
+.impact-section{background:#fff;padding:64px 24px;}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:32px;}
+.impact-tile{background:var(--steel-pale);border-radius:10px;padding:20px 16px;text-align:center;border-bottom:4px solid var(--steel);}
+.impact-icon{font-size:32px;margin-bottom:8px;}
+.impact-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.impact-text{font-size:11px;color:var(--text-light);line-height:1.6;}
+
+.training-section{background:var(--bg);padding:64px 24px;}
+.training-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:32px;}
+.training-item{border-left:4px solid var(--steel);padding:16px 18px;background:#fff;border-radius:0 10px 10px 0;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.training-item-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.training-item-text{font-size:12px;color:var(--text-light);line-height:1.7;}
+
+.targets-section{background:linear-gradient(135deg,var(--steel-pale) 0%,#f4f8fb 100%);padding:64px 24px;}
+.target-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+.target-chip{background:#fff;border:2px solid var(--steel);color:var(--steel);font-size:13px;font-weight:700;padding:8px 18px;border-radius:30px;}
+
+.cta-section{background:linear-gradient(135deg,var(--red) 0%,#a0271a 100%);padding:64px 24px;text-align:center;}
+.cta-title{font-family:'Noto Serif JP',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:#fff;margin-bottom:10px;}
+.cta-sub{font-size:14px;color:rgba(255,255,255,0.88);margin-bottom:28px;}
+.cta-btn{display:inline-block;background:#fff;color:var(--red);font-size:15px;font-weight:700;padding:16px 44px;border-radius:6px;text-decoration:none;transition:opacity .2s;}
+.cta-btn:hover{opacity:.88;}
+
+.footer{background:var(--navy);color:rgba(255,255,255,0.6);text-align:center;padding:24px;font-size:12px;}
+
+@media(max-width:600px){
+  .cards-grid{grid-template-columns:1fr 1fr;}
+  .risk-cards{grid-template-columns:1fr 1fr;}
+  .impact-grid{grid-template-columns:1fr 1fr;}
+  .training-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="jdrs-ko-do-v3.html">JDRS｜日本災害救助支援機構</a>
+  <a class="back-btn" href="jdrs-ko-do-v3.html">← トップへ戻る</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">一般企業系ＢＣＰ</div>
+    <h1 class="hero-title">事業を止めない<br><span>一般企業のＢＣＰ策定・訓練</span></h1>
+    <p class="hero-sub">オフィス・本社・支社・営業所<br>社員と事業継続を守る実践的な危機管理体制を構築します</p>
+    <a class="hero-cta" href="jdrs-ko-do-v3.html" onclick="sessionStorage.setItem('page','contact')">お問い合わせ・ご相談はこちら</a>
+  </div>
+</section>
+
+<!-- なぜ企業にＢＣＰが必要か -->
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div class="section-label">一般企業にＢＣＰが必要な理由</div>
+    <h2 class="section-title">大規模災害後の企業倒産を防ぐ<br>事業継続計画（ＢＣＰ）の重要性</h2>
+    <p class="section-lead">過去の大規模災害では、被災から数ヶ月以内に廃業・倒産に至った企業が少なくありません。顧客・取引先・従業員を守るためにも、事前の備えが経営リスクを大きく左右します。ＢＣＰは「守り」ではなく企業の「競争力」です。</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <div class="card-title">従業員の安全確保と安否確認</div>
+        <div class="card-text">全従業員の安否をいち早く確認し、帰宅困難者への対応を判断します。安否確認システムの導入と訓練で確認速度を上げます。</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">重要業務の継続・早期復旧</div>
+        <div class="card-text">どの業務を優先して継続・復旧するかを事前に決定。重要顧客・サプライヤーとの連携を維持する計画を策定します。</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <div class="card-title">データ・システムの保護</div>
+        <div class="card-text">基幹システム・顧客データのバックアップ体制。サイバー攻撃・停電時もデータを守るためのIT-ＢＣＰを整備します。</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">取引先・顧客への信頼維持</div>
+        <div class="card-text">取引先への迅速な情報発信と納期・サービスへの影響説明。ＢＣＰ策定済みであることが企業評価・入札要件にもなっています。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO 1 -->
+<div style="background:#fff;padding:0 24px 40px;">
+  <div class="photo-wrap" id="photo1wrap">
+    <img id="photo1img" src="" alt="一般企業系BCP訓練の様子" style="width:100%;height:auto;display:block;">
+  </div>
+</div>
+
+<!-- RISK -->
+<section class="risk-section">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--gold-light);border-color:var(--gold-light);">企業が直面するリスク</div>
+    <h2 class="section-title">オフィスで起きる<br>災害時の主要リスク</h2>
+    <p class="section-lead">「うちは大丈夫」という油断が最大のリスクです。オフィスビルで特に注意すべきリスクを把握し、具体的な対策を講じることが重要です。</p>
+
+    <div class="risk-cards">
+      <div class="risk-card">
+        <div class="risk-card-icon">🏙️</div>
+        <div class="risk-card-title">帰宅困難者の発生</div>
+        <div class="risk-card-text">首都直下地震では東京だけで約800万人の帰宅困難者が発生すると推計されています。社内での一時収容計画・水食料の備蓄が必要です。</div>
+      </div>
+      <div class="risk-card">
+        <div class="risk-card-icon">📡</div>
+        <div class="risk-card-title">通信・システム障害</div>
+        <div class="risk-card-text">社内ネットワーク・電話・クラウドサービスの停止。重要データのオフラインバックアップと代替通信手段の確保が求められます。</div>
+      </div>
+      <div class="risk-card">
+        <div class="risk-card-icon">🔗</div>
+        <div class="risk-card-title">サプライチェーン寸断</div>
+        <div class="risk-card-text">仕入先・外注先が被災した場合の代替調達先の確保。重要な原材料・部品の在庫基準を見直し、複数購買体制を整備します。</div>
+      </div>
+      <div class="risk-card">
+        <div class="risk-card-icon">⚖️</div>
+        <div class="risk-card-title">法令・コンプライアンスリスク</div>
+        <div class="risk-card-text">上場企業・公共機関との取引では、ＢＣＰの策定・訓練が調達基準や審査要件になっているケースが増えています。早期対応が競争優位につながります。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BCP POINTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">ＢＣＰ策定のポイント</div>
+    <h2 class="section-title">一般企業のＢＣＰで<br>特に重要な５つのポイント</h2>
+    <p class="section-lead">JDRSが多くの一般企業と取り組んできた経験をもとに、特に重要な５つのポイントを解説します。</p>
+
+    <div class="points-list">
+      <div class="point-item">
+        <div class="point-num">1</div>
+        <div class="point-body">
+          <div class="point-title">重要業務の特定と優先順位</div>
+          <div class="point-text">災害直後にすべての業務を再開することは不可能です。「最低限続けなければならない業務」を3つ程度に絞り、そこに人・モノ・情報を集中させる判断基準を事前に決めます。</div>
+        </div>
+      </div>
+      <div class="point-item">
+        <div class="point-num">2</div>
+        <div class="point-body">
+          <div class="point-title">安否確認と緊急連絡体制</div>
+          <div class="point-text">安否確認システムの導入と定期訓練。社員・家族・役員・取引先への連絡順序と担当者を決め、誰でも動けるよう整備します。年1回の訓練で確認時間を短縮できます。</div>
+        </div>
+      </div>
+      <div class="point-item">
+        <div class="point-num">3</div>
+        <div class="point-body">
+          <div class="point-title">代替拠点・テレワーク対応</div>
+          <div class="point-text">本社が被災した場合に業務を継続できる代替オフィスの確保、またはテレワーク体制の整備。クラウドシステムの活用と情報セキュリティ対策も合わせて整備します。</div>
+        </div>
+      </div>
+      <div class="point-item">
+        <div class="point-num">4</div>
+        <div class="point-body">
+          <div class="point-title">財務・資金繰りの継続計画</div>
+          <div class="point-text">売上が止まっても従業員に給与を払い続けられる期間と資金確保計画。金融機関との緊急融資枠の設定や、災害時の費用補填策を事前に整理します。</div>
+        </div>
+      </div>
+      <div class="point-item">
+        <div class="point-num">5</div>
+        <div class="point-body">
+          <div class="point-title">訓練による全社浸透</div>
+          <div class="point-text">計画書を作って終わりでは意味がありません。年1回の訓練で全社員がＢＣＰを体験し、「いざというとき動ける」状態を維持します。管理職向け・全社員向けの2段構成が効果的です。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 訓練実績 -->
+<section class="impact-section">
+  <div class="section-inner">
+    <div class="section-label">訓練内容</div>
+    <h2 class="section-title">JDRSが提供する<br>一般企業向けＢＣＰ訓練</h2>
+    <p class="section-lead">書類整備から実践訓練まで、企業の規模・状況に合わせたプログラムを提供します。</p>
+    <div class="impact-grid">
+      <div class="impact-tile">
+        <div class="impact-icon">🚨</div>
+        <div class="impact-title">初動対応訓練</div>
+        <div class="impact-text">発災直後の行動を全社員に体験させます。落ち着いて動くための手順を繰り返し習得します。</div>
+      </div>
+      <div class="impact-tile">
+        <div class="impact-icon">📱</div>
+        <div class="impact-title">安否確認訓練</div>
+        <div class="impact-text">実際に安否確認システムを使い、全社員が30分以内に回答完了できる体制を作ります。</div>
+      </div>
+      <div class="impact-tile">
+        <div class="impact-icon">🗺️</div>
+        <div class="impact-title">机上訓練（図上演習）</div>
+        <div class="impact-text">シナリオに沿って管理職が意思決定を行う演習。判断力とリーダーシップを鍛えます。</div>
+      </div>
+      <div class="impact-tile">
+        <div class="impact-icon">📋</div>
+        <div class="impact-title">ＢＣＰ計画書作成支援</div>
+        <div class="impact-text">ゼロからの作成・既存計画の見直しに伴走支援。実際に動ける計画書に仕上げます。</div>
+      </div>
+      <div class="impact-tile">
+        <div class="impact-icon">🔄</div>
+        <div class="impact-title">定期見直し・更新支援</div>
+        <div class="impact-text">組織変更・拠点移転などに合わせてＢＣＰを定期的に更新するサービスも提供します。</div>
+      </div>
+      <div class="impact-tile">
+        <div class="impact-icon">👔</div>
+        <div class="impact-title">経営層向け研修</div>
+        <div class="impact-text">経営者・役員が災害時に迅速に意思決定するための危機管理マインドセット研修です。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGETS -->
+<section class="targets-section">
+  <div class="section-inner">
+    <div class="section-label">対象企業</div>
+    <h2 class="section-title">あらゆる業種・規模の企業に対応</h2>
+    <p class="section-lead">従業員数・業種・上場・非上場を問わず対応します。中小企業から大企業まで、それぞれの規模に合ったプランを提案します。</p>
+    <div class="target-chips">
+      <span class="target-chip">IT・情報通信</span>
+      <span class="target-chip">金融・保険</span>
+      <span class="target-chip">不動産・建設</span>
+      <span class="target-chip">小売・流通</span>
+      <span class="target-chip">サービス業全般</span>
+      <span class="target-chip">食品・農業</span>
+      <span class="target-chip">印刷・出版</span>
+      <span class="target-chip">コンサルティング</span>
+      <span class="target-chip">メディア・広告</span>
+      <span class="target-chip">中小企業</span>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO 2 -->
+<div style="background:#f4f6f9;padding:40px 24px;">
+  <div class="photo-wrap" id="photo2wrap" style="max-width:960px;margin:0 auto;">
+    <img id="photo2img" src="" alt="一般企業系BCP研修の様子" style="width:100%;height:460px;object-fit:cover;object-position:center center;display:block;border-radius:10px;">
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner">
+    <h2 class="cta-title">ＢＣＰ策定は経営判断。今すぐ備えましょう</h2>
+    <p class="cta-sub">会社の規模・業種・現状をお聞きした上で、最適なプランをご提案します。まずはご相談ください。</p>
+    <a class="cta-btn" href="jdrs-ko-do-v3.html" onclick="sessionStorage.setItem('page','contact')">お問い合わせ・ご相談はこちら</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 一般社団法人 日本防災訓練研究所（JDRS）All Rights Reserved.</p>
+</footer>
+
+<script>
+(function(){
+  var base = 'https://jdrs21.jp/wp-content/uploads/';
+
+  function loadBg(id, urls){
+    var i = 0;
+    function tryNext(){
+      if(i >= urls.length) return;
+      var img = new Image();
+      img.onload = function(){
+        var el = document.getElementById(id);
+        if(el){ el.style.backgroundImage = 'url("'+urls[i]+'")'; }
+      };
+      img.onerror = function(){ i++; tryNext(); };
+      img.src = urls[i];
+    }
+    tryNext();
+  }
+
+  function loadImg(id, urls){
+    var i = 0;
+    function tryNext(){
+      if(i >= urls.length) return;
+      var img = new Image();
+      img.onload = function(){
+        var el = document.getElementById(id);
+        if(el){ el.src = urls[i]; }
+      };
+      img.onerror = function(){ i++; tryNext(); };
+      img.src = urls[i];
+    }
+    tryNext();
+  }
+
+  loadBg('heroBg', [
+    base + '2025/07/★模擬訓練-27-HP-scaled.jpg',
+    base + '2025/07/%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-27-HP-scaled.jpg'
+  ]);
+
+  loadImg('photo1img', [
+    base + '2026/10/スライド5.jpg',
+    base + '2026/10/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%895.jpg'
+  ]);
+
+  loadImg('photo2img', [
+    base + '2026/10/スライド4.jpg',
+    base + '2026/10/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%894.jpg'
+  ]);
+})();
+</script>
+
+</body>
+</html>

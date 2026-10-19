@@ -1,0 +1,187 @@
+下記のプログラムは「外観」「カスタマイズ」「追加CSS」への入力データ
+下記は正しいプログラムである。2026.3.4
+
+
+
+.mouse-helper {
+	display: none;
+}
+
+.pb-0 header {
+	width: 100%;
+	margin-left: 0;
+}
+
+.custom-background {
+	background-image: none!important;
+}
+
+.tp-mask-wrap {
+	top: 20px;
+}
+
+.page .bg-light {
+	background-color: #ffffff;
+}
+
+/* --- トップページ --- */
+/* セミナーリンク */
+#seminar .col-team.col-sm-6.col-lg-3 {
+	width: 33.333333%;
+}
+
+.wpb_content_element {
+	margin-bottom: 0;
+}
+
+/* 外部リンクバナー */
+#link .section-content .clearfix {
+	margin: 0 -5px;
+}
+
+#link .section-content {
+	display: table;
+	margin: 14em auto;
+}
+
+#link .col-team.col-sm-6.col-lg-3 {
+	margin: 0 5px;
+	max-width: 225px;
+	width: auto;
+}
+
+@media screen and (max-width: 640px) {
+	/* セミナーリンク */
+	#seminar .col-team.col-sm-6.col-lg-3 {
+		width: 100%;
+	}
+	
+	/* 外部リンクバナー */
+	#link .section-content .clearfix {
+		margin: 0;
+	}
+	
+	#link .col-team.col-sm-6.col-lg-3 {
+		max-width: initial;
+		margin: 0 auto 15px;
+	}
+	
+	#link .section-content {
+		display: table;
+		margin: 10em auto 3em;
+	}
+}
+
+/* --- 取組み --- */
+#effort .box {
+	background-color: #ebebeb;
+	border-radius: 10px;
+	margin: 0 0 20px;
+	padding: 50px 20px;
+}
+
+#effort .box p {
+	line-height: 1.8;
+	margin: 10px 0 0;
+}
+
+#effort .box .column {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+	-ms-justify-content: space-between;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+
+#effort .box .column .text {
+	width: 49%;
+}
+
+#effort .box .column .text h3 {
+	margin: 0 0 15px;
+	text-align: center;
+}
+
+#effort .box .column .image {
+	width: 48%;
+}
+
+@media screen and (max-width: 640px) {
+	#effort .box {
+		padding: 20px;
+	}
+	
+	#effort .box .column {
+		display: block;
+		padding: 250px 0 0;
+		position: relative;
+	}
+	
+	#effort .box .column .text {
+		width: 100%;
+	}
+	
+	#effort .box .column .image {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 230px;
+		width: 100%;
+	}
+	
+	#effort .box .column .image img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+/* --- 機構概要 --- */
+#mechanism table tr th {
+	background-color: #eeeeee;
+	font-weight: bold;
+	text-align: center;
+	width: 30%;
+}
+
+#mechanism table tr td {
+	background-color: #ffffff;
+}
+
+@media screen and (max-width: 640px) {
+	#mechanism table tr th {
+		display: block;
+		text-align: left;
+		width: 100%;
+	}
+
+	#mechanism table tr td {
+		display: block;
+	}
+}
+
+
+----------------------------------------------------------------------------ここから下は前HPプログラムである「固定ページ」「トップページ」右の「コード」ページ
+画面中央ひだりの（ベー県土エディター）を選択
+
+
+[vc_row][vc_column css_animation="none"][mario_header_slider alias_slider="agency_classic" css=".vc_custom_1650496580280{background-color: #1e73be !important;}"][mario_banner title="法人向け　「ＢＣＰ策定・訓練・診断・強化」プラン　悩んだらまずこちら　→　「プランご紹介」" tb="プランこちらから" t_url="https://jdrs21.jp/portfolio/%e3%83%97%e3%83%a9%e3%83%b3%e7%b4%b9%e4%bb%8b/" images="2810" css=".vc_custom_1766550179128{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="研修担当者さま"][mario_banner title="行政・協議会・団体向け　「ＢＣＰ講演・訓練・策定支援」プラン　悩んだらまずこちら　→　「プランご紹介」" tb="プランこちらから" t_url="https://jdrs21.jp/portfolio/%e8%a1%8c%e6%94%bf%e3%83%bb%e5%8d%94%e8%ad%b0%e4%bc%9a%e3%83%bb%e5%9b%a3%e4%bd%93%e5%90%91%e3%81%91%e3%83%97%e3%83%a9%e3%83%b3%e7%b4%b9%e4%bb%8b/" images="2810" css=".vc_custom_1766550304058{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="研修担当者さま"][mario_banner title="【動画】ＢＣＰ訓練様子・参加者の声　　（保育・幼稚園・認定こども園向け）" tb="動画" t_url="https://youtu.be/gD2TIZl6KDY" images="2810" css=".vc_custom_1744267677977{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background: #eeee22 url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="経営者・園長様"][mario_banner title="【動画】ＢＣＰ（事業継続計画）訓練　　（協議会・協会等団体向け）" tb="ＢＣＰ訓練の様子" t_url="https://www.youtube.com/watch?v=aqBBBkP9l34&amp;t=0s" images="2810" css=".vc_custom_1713421325207{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="研修担当者さま"][mario_banner title="講演依頼実績" tb="講　演　実　績" t_url="https://jdrs21.jp/portfolio/%e9%81%8e%e5%8e%bb%e3%81%ae%e8%ac%9b%e6%bc%94%e4%be%9d%e9%a0%bc%e5%ae%9f%e7%b8%be/" images="2810" css=".vc_custom_1766558728108{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}"][mario_banner title="ご寄付による寄贈のご報告" tb="寄贈先こちら" t_url="https://jdrs21.jp/?post_type=portfolio&amp;p=5058&amp;preview=true" images="2810" css=".vc_custom_1688876908154{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;border-radius: 30px !important;}"][mario_banner title="２０２２年　実績　新聞各月号" tb="２０２２年１月～" t_url="https://jdrs21.jp/portfolio/%ef%bc%92%ef%bc%90%ef%bc%92%ef%bc%92%e5%b9%b4%ef%bc%91%e6%9c%88%e5%8f%b7%e3%80%80%e6%96%b0%e8%81%9e/" images="2810" css=".vc_custom_1680765847698{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}"][news][seminarschedule][endseminar][impression][vc_column_text css_animation="fadeInDown" el_class="container"]<img class="aligncenter size-full wp-image-5265" src="https://jdrs21.jp/wp-content/uploads/2025/02/行政・協議会・各施設・園向け　ＢＣＰ強化案内2025版.jpg" alt="" width="720" height="960" />[/vc_column_text][mario_banner title="行政・協議会・団体・法人向け　「ＢＣＰで悩んでいませんか？」" tb="「ＢＣＰで悩んでいませんか？」　お問い合わせ" t_url="https://jdrs21.jp/contact" images="2810" css=".vc_custom_1738915806429{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background: #dd9933 url(https://jdrs21.jp/wp-content/uploads/2022/04/logo-tate-A　ロゴのみ.jpg?id=4772) !important;border-radius: 30px !important;}"][vc_column_text css_animation="fadeInDown" el_class="container"]<img class="aligncenter size-large wp-image-4179" src="https://jdrs21.jp/wp-content/uploads/2021/01/HP　BCP資格１月３０日版-1024x576.jpg" alt="" width="1024" height="576" />[/vc_column_text][mario_banner title="「ＢＣＰリーダー」・「ＢＣＰマネージャー」資格" tb="ＢＣＰ（Ｌ・Ｍ）お問い合わせ" t_url="https://jdrs21.jp/portfolio/%ef%bd%82%ef%bd%83%ef%bd%90%e3%83%aa%e3%83%bc%e3%83%80%e3%83%bc%e3%83%bb%ef%bd%82%ef%bd%83%ef%bd%90%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%83%bc%e8%b3%87%e6%a0%bc/" images="2810" css=".vc_custom_1681526436886{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background: #dd9933 url(https://jdrs21.jp/wp-content/uploads/2022/04/logo-tate-A　ロゴのみ.jpg?id=4772) !important;border-radius: 30px !important;}"][vc_column_text css=".vc_custom_1651112461605{border-top-width: 20px !important;border-right-width: 20px !important;border-bottom-width: 20px !important;border-left-width: 20px !important;padding-top: 10px !important;padding-right: 10px !important;padding-bottom: 10px !important;padding-left: 10px !important;border-left-style: none !important;border-right-style: none !important;border-top-style: none !important;border-bottom-style: none !important;}"]<img class="aligncenter size-full wp-image-3243" src="http://jdrs21.jp/wp-content/uploads/2020/02/避難訓練マンネリ化HP用.jpg" alt="" width="720" height="960" />[/vc_column_text][mario_banner title="お問い合わせ" tb="お問い合わせページ" t_url="https://jdrs21.jp/contact" images="2810" css=".vc_custom_1681526456578{background-image: url(https://jdrs21.jp/wp-content/uploads/2022/04/logo-tate-A　ロゴのみ.jpg?id=4772) !important;}"][vc_raw_html el_id="link" el_class="container"]JTNDZGl2JTIwY2xhc3MlM0QlMjJzZWN0aW9uLWNvbnRlbnQlMjIlM0UlMEElMDklM0NkaXYlMjBjbGFzcyUzRCUyMmNsZWFyZml4JTIyJTNFJTBBJTA5JTA5JTNDZGl2JTIwY2xhc3MlM0QlMjJjb2wtdGVhbSUyMGNvbC1zbS02JTIwY29sLWxnLTMlMjIlM0UlMEElMDklMDklMDklM0NmaWd1cmUlMjBjbGFzcyUzRCUyMnRlYW0tcHJvZmlsZSUyMiUzRSUwQSUwOSUwOSUwOSUwOSUzQ2ElMjBocmVmJTNEJTIyaHR0cHMlM0ElMkYlMkZ3d3cuY2FvLmdvLmpwJTJGJTIyJTIwdGl0bGUlM0QlMjIlRTUlODYlODUlRTklOTYlQTMlRTUlQkElOUMlMjIlMjB0YXJnZXQlM0QlMjJfYmxhbmslMjIlM0UlMEElMDklMDklMDklMDklMDklM0NpbWclMjBhbHQlM0QlMjIlMjIlMjBzcmMlM0QlMjIlMkYlMkZqZHJzMjEuanAlMkZ3cC1jb250ZW50JTJGdXBsb2FkcyUyRjIwMTklMkYwOCUyRm5haWtha3VmdS0yLmpwZyUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQ2ZpZ2NhcHRpb24lMjBjbGFzcyUzRCUyMnRlYW0tY2FwdGlvbiUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUzQ2RpdiUyMGNsYXNzJTNEJTIydGVhbS1tZXRhJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTA5JTNDc3Ryb25nJTIwY2xhc3MlM0QlMjJ0ZWFtLW5hbWUlMjIlM0UlRTUlODYlODUlRTklOTYlQTMlRTUlQkElOUMlM0MlMkZzdHJvbmclM0UlMEElMDklMDklMDklMDklMDklMDklMDklM0NzcGFuJTIwY2xhc3MlM0QlMjJ0ZWFtLXNwZWMlMjIlM0UlRTMlODMlOUIlRTMlODMlQkMlRTMlODMlQTAlRTMlODMlOUElRTMlODMlQkMlRTMlODIlQjglM0MlMkZzcGFuJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTNDJTJGZGl2JTNFJTBBJTA5JTA5JTA5JTA5JTA5JTNDJTJGZmlnY2FwdGlvbiUzRSUwQSUwOSUwOSUwOSUwOSUzQyUyRmElM0UlMEElMDklMDklMDklM0MlMkZmaWd1cmUlM0UlMEElMDklMDklM0MlMkZkaXYlM0UlMEElMDklMDklM0NkaXYlMjBjbGFzcyUzRCUyMmNvbC10ZWFtJTIwY29sLXNtLTYlMjBjb2wtbGctMyUyMiUzRSUwQSUwOSUwOSUwOSUzQ2ZpZ3VyZSUyMGNsYXNzJTNEJTIydGVhbS1wcm9maWxlJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTNDYSUyMGhyZWYlM0QlMjJodHRwJTNBJTJGJTJGd3d3Lm1saXQuZ28uanAlMkYlMjIlMjB0aXRsZSUzRCUyMiVFNSU5QiVCRCVFNSU5QyU5RiVFNCVCQSVBNCVFOSU4MCU5QSVFNyU5QyU4MSUyMiUyMHRhcmdldCUzRCUyMl9ibGFuayUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQ2ltZyUyMGFsdCUzRCUyMiUyMiUyMHNyYyUzRCUyMiUyRiUyRmpkcnMyMS5qcCUyRndwLWNvbnRlbnQlMkZ1cGxvYWRzJTJGMjAxOSUyRjA4JTJGa29rdWRva291dHV1c3lvdS0yLmpwZyUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQ2ZpZ2NhcHRpb24lMjBjbGFzcyUzRCUyMnRlYW0tY2FwdGlvbiUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUzQ2RpdiUyMGNsYXNzJTNEJTIydGVhbS1tZXRhJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTA5JTNDc3Ryb25nJTIwY2xhc3MlM0QlMjJ0ZWFtLW5hbWUlMjIlM0UlRTUlOUIlQkQlRTUlOUMlOUYlRTQlQkElQTQlRTklODAlOUElRTclOUMlODElM0MlMkZzdHJvbmclM0UlMEElMDklMDklMDklMDklMDklMDklMDklM0NzcGFuJTIwY2xhc3MlM0QlMjJ0ZWFtLXNwZWMlMjIlM0UlRTMlODMlOUIlRTMlODMlQkMlRTMlODMlQTAlRTMlODMlOUElRTMlODMlQkMlRTMlODIlQjglM0MlMkZzcGFuJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTNDJTJGZGl2JTNFJTBBJTA5JTA5JTA5JTA5JTA5JTNDJTJGZmlnY2FwdGlvbiUzRSUwQSUwOSUwOSUwOSUwOSUzQyUyRmElM0UlMEElMDklMDklMDklM0MlMkZmaWd1cmUlM0UlMEElMDklMDklM0MlMkZkaXYlM0UlMEElMDklMDklM0NkaXYlMjBjbGFzcyUzRCUyMmNvbC10ZWFtJTIwY29sLXNtLTYlMjBjb2wtbGctMyUyMiUzRSUwQSUwOSUwOSUwOSUzQ2ZpZ3VyZSUyMGNsYXNzJTNEJTIydGVhbS1wcm9maWxlJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTNDYSUyMGhyZWYlM0QlMjJodHRwJTNBJTJGJTJGd3d3LmJvdXNhaS5nby5qcCUyRiUyMiUyMHRpdGxlJTNEJTIyJUU1JTg2JTg1JUU5JTk2JUEzJUU1JUJBJTlDJTIwJUU5JTk4JUIyJUU3JTgxJUJEJUU2JTgzJTg1JUU1JUEwJUIxJUUzJTgxJUFFJUUzJTgzJTlBJUUzJTgzJUJDJUUzJTgyJUI4JTIyJTIwdGFyZ2V0JTNEJTIyX2JsYW5rJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTNDaW1nJTIwYWx0JTNEJTIyJTIyJTIwc3JjJTNEJTIyJTJGJTJGamRyczIxLmpwJTJGd3AtY29udGVudCUyRnVwbG9hZHMlMkYyMDE5JTJGMDglMkZib3VzYWktMi5qcGclMjIlM0UlMEElMDklMDklMDklMDklMDklM0NmaWdjYXB0aW9uJTIwY2xhc3MlM0QlMjJ0ZWFtLWNhcHRpb24lMjIlM0UlMEElMDklMDklMDklMDklMDklMDklM0NkaXYlMjBjbGFzcyUzRCUyMnRlYW0tbWV0YSUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUwOSUzQ3N0cm9uZyUyMGNsYXNzJTNEJTIydGVhbS1uYW1lJTIyJTNFJUU1JTg2JTg1JUU5JTk2JUEzJUU1JUJBJTlDJTNDJTJGc3Ryb25nJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTA5JTNDc3BhbiUyMGNsYXNzJTNEJTIydGVhbS1zcGVjJTIyJTNFJUU5JTk4JUIyJUU3JTgxJUJEJUU2JTgzJTg1JUU1JUEwJUIxJUUzJTgxJUFFJUUzJTgzJTlBJUUzJTgzJUJDJUUzJTgyJUI4JTNDJTJGc3BhbiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUzQyUyRmRpdiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQyUyRmZpZ2NhcHRpb24lM0UlMEElMDklMDklMDklMDklM0MlMkZhJTNFJTBBJTA5JTA5JTA5JTNDJTJGZmlndXJlJTNFJTBBJTA5JTA5JTNDJTJGZGl2JTNFJTBBJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJTNDZGl2JTIwY2xhc3MlM0QlMjJjb2wtdGVhbSUyMGNvbC1zbS02JTIwY29sLWxnLTMlMjIlM0UlMEElMDklMDklMDklM0NmaWd1cmUlMjBjbGFzcyUzRCUyMnRlYW0tcHJvZmlsZSUyMiUzRSUwQSUwOSUwOSUwOSUwOSUzQ2ElMjBocmVmJTNEJTIyaHR0cHMlM0ElMkYlMkZ3d3cubWhsdy5nby5qcCUyRiUyMiUyMHRpdGxlJTNEJTIyJUU1JThFJTlBJUU3JTk0JTlGJUU1JThBJUI0JUU1JTgzJThEJUU3JTlDJTgxJTIyJTIwdGFyZ2V0JTNEJTIyX2JsYW5rJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTNDaW1nJTIwYWx0JTNEJTIyJTIyJTIwc3JjJTNEJTIyJTJGJTJGamRyczIxLmpwJTJGd3AtY29udGVudCUyRnVwbG9hZHMlMkYyMDIxJTJGMDIlMkYlRTUlOEUlOUElRTclOTQlOUYlRTUlOEElQjQlRTUlODMlOEQlRTclOUMlODFIUCVFMyU4MyVBRCVFMyU4MiVCNCVFRiVCQyU5MiVFMyU4MyVCQyVFMyU4MiVCNSVFMyU4MiVBNCVFMyU4MiVCQSVFNCVCOCVBRCVFMyU4MyVCQyVFMyU4MiVBMiVFMyU4MyU4MyVFMyU4MyU5Ny5qcGclMjIlM0UlMEElMDklMDklMDklMDklMDklM0NmaWdjYXB0aW9uJTIwY2xhc3MlM0QlMjJ0ZWFtLWNhcHRpb24lMjIlM0UlMEElMDklMDklMDklMDklMDklMDklM0NkaXYlMjBjbGFzcyUzRCUyMnRlYW0tbWV0YSUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUwOSUzQ3N0cm9uZyUyMGNsYXNzJTNEJTIydGVhbS1uYW1lJTIyJTNFJUU1JThFJTlBJUU3JTk0JTlGJUU1JThBJUI0JUU1JTgzJThEJUU3JTlDJTgxJTNDJTJGc3Ryb25nJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTA5JTNDc3BhbiUyMGNsYXNzJTNEJTIydGVhbS1zcGVjJTIyJTNFJUUzJTgzJTlCJUUzJTgzJUJDJUUzJTgzJUEwJUUzJTgzJTlBJUUzJTgzJUJDJUUzJTgyJUI4JTNDJTJGc3BhbiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUzQyUyRmRpdiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQyUyRmZpZ2NhcHRpb24lM0UlMEElMDklMDklMDklMDklM0MlMkZhJTNFJTBBJTA5JTA5JTA5JTNDJTJGZmlndXJlJTNFJTBBJTA5JTA5JTNDJTJGZGl2JTNFJTBBJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJUUzJTgwJTgwJTNDZGl2JTIwY2xhc3MlM0QlMjJjb2wtdGVhbSUyMGNvbC1zbS02JTIwY29sLWxnLTMlMjIlM0UlMEElMDklMDklMDklM0NmaWd1cmUlMjBjbGFzcyUzRCUyMnRlYW0tcHJvZmlsZSUyMiUzRSUwQSUwOSUwOSUwOSUwOSUzQ2ElMjBocmVmJTNEJTIyaHR0cHMlM0ElMkYlMkZ3d3cuam1hLmdvLmpwJTJGam1hJTJGJTIyJTIwdGl0bGUlM0QlMjIlRTYlQjAlOTclRTglQjElQTElRTUlQkElODElMjIlMjB0YXJnZXQlM0QlMjJfYmxhbmslMjIlM0UlMEElMDklMDklMDklMDklMDklM0NpbWclMjBhbHQlM0QlMjIlMjIlMjBzcmMlM0QlMjIlMkYlMkZqZHJzMjEuanAlMkZ3cC1jb250ZW50JTJGdXBsb2FkcyUyRjIwMjElMkYwNCUyRiVFNiVCMCU5NyVFOCVCMSVBMSVFNSVCQSU4MUhQJUUzJTgzJUFEJUUzJTgyJUI0JUUzJTgwJTgwJUU1JUE0JUE3JUU0JUI4JUFELmpwZyUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQ2ZpZ2NhcHRpb24lMjBjbGFzcyUzRCUyMnRlYW0tY2FwdGlvbiUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUzQ2RpdiUyMGNsYXNzJTNEJTIydGVhbS1tZXRhJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTA5JTNDc3Ryb25nJTIwY2xhc3MlM0QlMjJ0ZWFtLW5hbWUlMjIlM0UlRTYlQjAlOTclRTglQjElQTElRTUlQkElODElM0MlMkZzdHJvbmclM0UlMEElMDklMDklMDklMDklMDklMDklMDklM0NzcGFuJTIwY2xhc3MlM0QlMjJ0ZWFtLXNwZWMlMjIlM0UlRTMlODMlOUIlRTMlODMlQkMlRTMlODMlQTAlRTMlODMlOUElRTMlODMlQkMlRTMlODIlQjglM0MlMkZzcGFuJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTNDJTJGZGl2JTNFJTBBJTA5JTA5JTA5JTA5JTA5JTNDJTJGZmlnY2FwdGlvbiUzRSUwQSUwOSUwOSUwOSUwOSUzQyUyRmElM0UlMEElMDklMDklMDklM0MlMkZmaWd1cmUlM0UlMEElMDklMDklM0MlMkZkaXYlM0UlMEElMDklMDklM0NkaXYlMjBjbGFzcyUzRCUyMmNvbC10ZWFtJTIwY29sLXNtLTYlMjBjb2wtbGctMyUyMiUzRSUwQSUwOSUwOSUwOSUzQ2ZpZ3VyZSUyMGNsYXNzJTNEJTIydGVhbS1wcm9maWxlJTIyJTNFJTBBJTA5JTA5JTA5JTA5JTNDYSUyMGhyZWYlM0QlMjJodHRwcyUzQSUyRiUyRmRvZ28uanAlMkYlMjIlMjB0aXRsZSUzRCUyMiVFOSU4MSU5MyVFNSVCRSU4QyVFNiVCOCVBOSVFNiVCMyU4OSUyMiUyMHRhcmdldCUzRCUyMl9ibGFuayUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQ2ltZyUyMGFsdCUzRCUyMiUyMiUyMHNyYyUzRCUyMiUyRiUyRmpkcnMyMS5qcCUyRndwLWNvbnRlbnQlMkZ1cGxvYWRzJTJGMjAxOSUyRjA4JTJGZG91Z29vbnNlbi5qcGclMjIlM0UlMEElMDklMDklMDklMDklMDklM0NmaWdjYXB0aW9uJTIwY2xhc3MlM0QlMjJ0ZWFtLWNhcHRpb24lMjIlM0UlMEElMDklMDklMDklMDklMDklMDklM0NkaXYlMjBjbGFzcyUzRCUyMnRlYW0tbWV0YSUyMiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUwOSUzQ3N0cm9uZyUyMGNsYXNzJTNEJTIydGVhbS1uYW1lJTIyJTNFJUU5JTgxJTkzJUU1JUJFJThDJUU2JUI4JUE5JUU2JUIzJTg5JTNDJTJGc3Ryb25nJTNFJTBBJTA5JTA5JTA5JTA5JTA5JTA5JTA5JTNDc3BhbiUyMGNsYXNzJTNEJTIydGVhbS1zcGVjJTIyJTNFJUUzJTgzJTlCJUUzJTgzJUJDJUUzJTgzJUEwJUUzJTgzJTlBJUUzJTgzJUJDJUUzJTgyJUI4JTNDJTJGc3BhbiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUwOSUzQyUyRmRpdiUzRSUwQSUwOSUwOSUwOSUwOSUwOSUzQyUyRmZpZ2NhcHRpb24lM0UlMEElMDklMDklMDklMDklM0MlMkZhJTNFJTBBJTA5JTA5JTA5JTNDJTJGZmlndXJlJTNFJTBBJTA5JTA5JTNDJTJGZGl2JTNFJTBBJTA5JTNDJTJGZGl2JTNFJTBBJTNDJTJGZGl2JTNF[/vc_raw_html][/vc_column][/vc_row][vc_row][vc_column][mario_banner title="ＢＣＰオンライン教育受講料　お支払い方法" tb="お支払い方法はこちら" t_url="https://jdrs21.jp/portfolio/%ef%bd%82%ef%bd%83%ef%bd%90%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e6%95%99%e8%82%b2%e5%8f%97%e8%ac%9b%e6%96%99%e3%80%80%e3%81%8a%e6%94%af%e6%89%95%e3%81%84%e6%96%b9%e6%b3%95/" images="2810" css=".vc_custom_1698818953056{background-image: url(https://jdrs21.jp/wp-content/uploads/2022/04/logo-tate-A　ロゴのみ.jpg?id=4772) !important;}"][mario_banner title="ＢＣＰ策定講座（動画）　お支払い方法" tb="お支払い方法はこちら" t_url="https://jdrs21.jp/wp-content/uploads/2023/06/お支払いについて.jpg" images="2810" css=".vc_custom_1685933893245{background-image: url(https://jdrs21.jp/wp-content/uploads/2022/04/logo-tate-A　ロゴのみ.jpg?id=4772) !important;}"][/vc_column][/vc_row]
+
+
+
+￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥
+固定」「トップページ」「クラッシックモード」のコード
+
+[vc_row][vc_column css_animation="none"][mario_header_slider alias_slider="agency_classic" css=".vc_custom_1650496580280{background-color: #1e73be !important;}"][mario_banner title="法人向け　「ＢＣＰ策定・訓練・診断・強化」プラン　悩んだらまずこちら　→　「プランご紹介」" tb="プランこちらから" t_url="https://jdrs21.jp/portfolio/%e3%83%97%e3%83%a9%e3%83%b3%e7%b4%b9%e4%bb%8b/" images="2810" css=".vc_custom_1766550179128{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="研修担当者さま"][mario_banner title="行政・協議会・団体向け　「ＢＣＰ講演・訓練・策定支援」プラン　悩んだらまずこちら　→　「プランご紹介」" tb="プランこちらから" t_url="https://jdrs21.jp/portfolio/%e8%a1%8c%e6%94%bf%e3%83%bb%e5%8d%94%e8%ad%b0%e4%bc%9a%e3%83%bb%e5%9b%a3%e4%bd%93%e5%90%91%e3%81%91%e3%83%97%e3%83%a9%e3%83%b3%e7%b4%b9%e4%bb%8b/" images="2810" css=".vc_custom_1766550304058{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="研修担当者さま"][mario_banner title="【動画】ＢＣＰ訓練様子・参加者の声　　（保育・幼稚園・認定こども園向け）" tb="動画" t_url="https://youtu.be/gD2TIZl6KDY" images="2810" css=".vc_custom_1744267677977{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background: #eeee22 url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="経営者・園長様"][mario_banner title="【動画】ＢＣＰ（事業継続計画）訓練　　（協議会・協会等団体向け）" tb="ＢＣＰ訓練の様子" t_url="https://www.youtube.com/watch?v=aqBBBkP9l34&t=0s" images="2810" css=".vc_custom_1713421325207{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}" section_id="研修担当者さま"][mario_banner title="講演依頼実績" tb="講　演　実　績" t_url="https://jdrs21.jp/portfolio/%e9%81%8e%e5%8e%bb%e3%81%ae%e8%ac%9b%e6%bc%94%e4%be%9d%e9%a0%bc%e5%ae%9f%e7%b8%be/" images="2810" css=".vc_custom_1766558728108{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}"][mario_banner title="ご寄付による寄贈のご報告" tb="寄贈先こちら" t_url="https://jdrs21.jp/?post_type=portfolio&p=5058&preview=true" images="2810" css=".vc_custom_1688876908154{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;border-radius: 30px !important;}"][mario_banner title="２０２２年　実績　新聞各月号" tb="２０２２年１月～" t_url="https://jdrs21.jp/portfolio/%ef%bc%92%ef%bc%90%ef%bc%92%ef%bc%92%e5%b9%b4%ef%bc%91%e6%9c%88%e5%8f%b7%e3%80%80%e6%96%b0%e8%81%9e/" images="2810" css=".vc_custom_1680765847698{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background-image: url(https://jdrs21.jp/wp-content/uploads/2023/03/高知BCP訓練　座学-scaled.jpg?id=4952) !important;}"][news][seminarschedule][endseminar][impression][vc_column_text css_animation="fadeInDown" el_class="container"]
+[/vc_column_text][mario_banner title="行政・協議会・団体・法人向け　「ＢＣＰで悩んでいませんか？」" tb="「ＢＣＰで悩んでいませんか？」　お問い合わせ" t_url="https://jdrs21.jp/contact" images="2810" css=".vc_custom_1738915806429{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background: #dd9933 url(https://jdrs21.jp/wp-content/uploads/2022/04/logo-tate-A　ロゴのみ.jpg?id=4772) !important;border-radius: 30px !important;}"][vc_column_text css_animation="fadeInDown" el_class="container"]
+[/vc_column_text][mario_banner title="「ＢＣＰリーダー」・「ＢＣＰマネージャー」資格" tb="ＢＣＰ（Ｌ・Ｍ）お問い合わせ" t_url="https://jdrs21.jp/portfolio/%ef%bd%82%ef%bd%83%ef%bd%90%e3%83%aa%e3%83%bc%e3%83%80%e3%83%bc%e3%83%bb%ef%bd%82%ef%bd%83%ef%bd%90%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%83%bc%e8%b3%87%e6%a0%bc/" images="2810" css=".vc_custom_1681526436886{margin-top: 10px !important;margin-right: 10px !important;margin-bottom: 10px !important;margin-left: 10px !important;background: #dd9933 url(https://jdrs21.jp/wp-content/uploads/2022/04/logo-tate-A　ロゴのみ.jpg?id=4772) !important;border-radius: 30px !important;}"][vc_column_text css=".vc_custom_1651112461605{border-top-width: 20px !important;border-right-width: 20px !important;border-bottom-width: 20px !important;border-left-width: 20px !important;padding-top: 10px !important;padding-right: 10px !important;padding-bottom: 10px !important;padding-left: 10px !important;border-left-style: none !important;border-right-style: none !
+important;border-top-style: none !important;border-bottom-style: none !important;}"]
+
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+道後温泉の「HTML」コード　トップページ　
+
+[vc_raw_html]PHN0eWxlPi5tYXJpby1zbGlkZXIgLnNjcm9sbC1kb3duLC5tYXJpby1zbGlkZXIgLm1vdXNlLC5oZWFkZXItc2xpZGVyIC5zY3JvbGwtZG93biwuaGVhZGVyLXNsaWRlciAubW91c2UsLnNjcm9sbC1kb3duLXdyYXBwZXIsLnNjcm9sbGRvd24sLnNjcm9sbC10by1zZWN0aW9uLC5tb3VzZV9zY3JvbGx7ZGlzcGxheTpub25lICFpbXB

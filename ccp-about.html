@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コミュニティ継続計画（ＣＣＰ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0a1628;
+  --navy-mid:#1a2d50;
+  --gold:#c6993a;
+  --gold-light:#dbb35c;
+  --red:#c23a22;
+  --green:#20b278;
+  --green-dark:#0e8a5a;
+}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:var(--navy);
+  color:#fff;
+  min-height:100vh;
+}
+
+/* ヘッダー */
+.site-header{
+  display:flex;align-items:center;gap:16px;
+  padding:14px 24px;
+  background:rgba(10,22,40,0.95);
+  border-bottom:1px solid rgba(198,153,58,0.25);
+  position:sticky;top:0;z-index:100;
+}
+.back-link{
+  color:var(--gold-light);font-size:13px;font-weight:700;
+  text-decoration:none;padding:6px 14px;border:1px solid rgba(198,153,58,0.4);
+  border-radius:6px;white-space:nowrap;
+  transition:background .2s;
+}
+.back-link:hover{background:rgba(198,153,58,0.12);}
+.header-title{
+  font-family:'Noto Serif JP',serif;
+  font-size:15px;font-weight:700;color:rgba(255,255,255,0.85);
+}
+
+/* ヒーロー */
+.hero{
+  background:
+    linear-gradient(135deg,rgba(10,22,40,0.72) 0%,rgba(10,40,24,0.68) 100%),
+    url('https://jdrs21.jp/wp-content/uploads/2026/10/%E7%A2%BA%E8%AA%8D%E3%81%97%E5%90%88%E3%81%86-scaled.jpg') center/cover no-repeat;
+  border-bottom:2px solid rgba(32,178,120,0.3);
+  padding:60px 24px 52px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:320px;height:320px;
+  background:radial-gradient(circle,rgba(32,178,120,0.12),transparent 70%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(32,178,120,0.15);
+  border:1px solid rgba(32,178,120,0.4);
+  color:var(--green);
+  font-size:12px;font-weight:700;letter-spacing:0.1em;
+  padding:5px 18px;border-radius:20px;
+  margin-bottom:20px;
+}
+.hero h1{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(26px,5vw,40px);
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.hero h1 em{color:var(--green);font-style:normal;}
+.hero-sub{
+  font-size:clamp(13px,2vw,16px);
+  color:rgba(255,255,255,0.65);
+  line-height:1.8;
+  max-width:640px;
+  margin:0 auto;
+}
+.hero-icon{font-size:56px;margin-bottom:20px;display:block;}
+
+/* コンテンツ共通 */
+.content{max-width:860px;margin:0 auto;padding:0 20px 80px;}
+
+/* セクション */
+.section{margin-top:56px;}
+.section-eyebrow{
+  display:inline-block;
+  background:rgba(32,178,120,0.15);
+  border-left:3px solid var(--green);
+  color:var(--green);
+  font-size:11px;font-weight:700;letter-spacing:0.12em;
+  padding:4px 14px;margin-bottom:14px;
+}
+.section-title{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(19px,3vw,24px);
+  font-weight:700;
+  line-height:1.5;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+/* 定義カード */
+.definition-card{
+  background:rgba(32,178,120,0.07);
+  border:1px solid rgba(32,178,120,0.25);
+  border-radius:14px;
+  padding:32px 28px;
+  margin-bottom:24px;
+}
+.definition-card p{
+  font-size:15px;
+  color:rgba(255,255,255,0.85);
+  line-height:2;
+}
+.definition-card strong{color:#fff;font-weight:700;}
+
+/* 組織グリッド */
+.org-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+  margin:20px 0;
+}
+.org-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;
+  padding:16px 18px;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.org-card .org-icon{font-size:24px;flex-shrink:0;}
+.org-card .org-name{
+  font-size:13px;font-weight:700;color:#fff;line-height:1.4;
+}
+.org-card .org-note{
+  font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;line-height:1.4;
+}
+
+/* 注記ボックス */
+.notice-box{
+  background:rgba(198,153,58,0.08);
+  border:1px solid rgba(198,153,58,0.3);
+  border-radius:10px;
+  padding:16px 20px;
+  margin:16px 0;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.notice-box .notice-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.notice-box p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.8;}
+
+/* 流れ図 */
+.flow-wrap{
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:8px;margin:20px 0;
+}
+.flow-item{
+  background:rgba(32,178,120,0.1);
+  border:1px solid rgba(32,178,120,0.3);
+  border-radius:8px;
+  padding:10px 18px;
+  font-size:13px;font-weight:700;color:#fff;
+  text-align:center;
+  flex:1;min-width:120px;
+}
+.flow-arrow{color:var(--green);font-size:20px;font-weight:700;}
+
+/* JDRS実績 */
+.track-card{
+  background:linear-gradient(135deg,rgba(32,178,120,0.12),rgba(10,140,80,0.08));
+  border:1px solid rgba(32,178,120,0.3);
+  border-radius:14px;
+  padding:32px 28px;
+}
+.track-card h3{
+  font-family:'Noto Serif JP',serif;
+  font-size:18px;font-weight:700;
+  color:var(--green);margin-bottom:16px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(32,178,120,0.2);
+}
+.track-card p{
+  font-size:14px;color:rgba(255,255,255,0.82);
+  line-height:2;
+}
+
+/* CTA */
+.cta-box{
+  margin-top:56px;
+  background:linear-gradient(135deg,rgba(32,178,120,0.15),rgba(10,140,80,0.1));
+  border:2px solid rgba(32,178,120,0.35);
+  border-radius:16px;
+  padding:40px 28px;
+  text-align:center;
+}
+.cta-box h2{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(18px,3vw,22px);
+  font-weight:700;margin-bottom:10px;
+}
+.cta-box p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:24px;}
+.cta-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  color:#fff;text-decoration:none;
+  font-size:15px;font-weight:700;letter-spacing:0.05em;
+  padding:14px 40px;border-radius:8px;
+  box-shadow:0 4px 16px rgba(32,178,120,0.35);
+  transition:all .2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(32,178,120,0.5);}
+
+/* セクション写真 */
+.section-photo{
+  width:100%;max-height:320px;object-fit:cover;
+  border-radius:12px;margin:20px 0 0;
+  border:1px solid rgba(32,178,120,0.2);
+  display:block;
+}
+.photo-caption{
+  font-size:11px;color:rgba(255,255,255,0.4);
+  text-align:right;margin-top:6px;letter-spacing:0.05em;
+}
+/* 実績写真 */
+.track-photo{
+  width:100%;max-height:280px;object-fit:cover;
+  border-radius:10px;margin-top:20px;
+  border:1px solid rgba(32,178,120,0.15);
+  display:block;
+}
+
+/* 区切り線 */
+.divider{height:1px;background:rgba(255,255,255,0.08);margin:48px 0 0;}
+
+/* フッター */
+footer{
+  text-align:center;padding:28px 16px;
+  font-size:11px;color:rgba(255,255,255,0.3);
+  letter-spacing:0.05em;
+}
+
+@media(max-width:600px){
+  .hero{padding:44px 16px 36px;}
+  .content{padding:0 16px 60px;}
+  .definition-card{padding:24px 18px;}
+  .track-card{padding:24px 18px;}
+  .org-grid{grid-template-columns:1fr 1fr;}
+  .flow-wrap{flex-direction:column;}
+  .flow-arrow{transform:rotate(90deg);}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="back-link" href="jdrs-ko-do-v3.html">← トップページへ戻る</a>
+  <span class="header-title">コミュニティ継続計画（ＣＣＰ）</span>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <span class="hero-icon">📍</span>
+  <div class="hero-badge">Community Continuity Plan</div>
+  <h1>
+    <em>コミュニティ継続計画</em>（ＣＣＰ）とは
+  </h1>
+  <p class="hero-sub">
+    地域における災害対応のための計画書。<br>
+    地域コミュニティ全体が連携し、防災力・災害対応力を高めます。
+  </p>
+</div>
+
+<div class="content">
+
+  <!-- CCP定義 -->
+  <div class="section">
+    <div class="section-eyebrow">定　義</div>
+    <h2 class="section-title">ＣＣＰ（コミュニティ継続計画）とは</h2>
+    <div class="definition-card">
+      <p>
+        ＣＣＰ（コミュニティ継続計画）とは、<strong>地域における災害対応計画</strong>です。<br><br>
+        地域内のさまざまなコミュニティ組織が互いに協力し、<strong>地域の防災力・災害対応力を高めていくための計画書</strong>を指します。<br><br>
+        企業向けのＢＣＰ（事業継続計画）が事業の継続を目的とするのに対し、ＣＣＰは<strong>地域コミュニティそのものの継続と機能維持</strong>を目的としています。
+      </p>
+    </div>
+  </div>
+
+  <!-- 対象組織 -->
+  <div class="section">
+    <div class="section-eyebrow">対象となる組織</div>
+    <h2 class="section-title">ＣＣＰに関わる地域のコミュニティ</h2>
+
+    <div class="org-grid">
+      <div class="org-card">
+        <span class="org-icon">🏘️</span>
+        <div>
+          <div class="org-name">住民自主防災組織</div>
+          <div class="org-note">地域住民が自主的に組織</div>
+        </div>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🚒</span>
+        <div>
+          <div class="org-name">消防団</div>
+          <div class="org-note">※住民自主防災組織とは別組織</div>
+        </div>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">👴</span>
+        <div>
+          <div class="org-name">老人会</div>
+          <div class="org-note">高齢者コミュニティ</div>
+        </div>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🤝</span>
+        <div>
+          <div class="org-name">福祉会</div>
+          <div class="org-note">地域福祉活動組織</div>
+        </div>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">👧</span>
+        <div>
+          <div class="org-name">子ども会</div>
+          <div class="org-note">子ども・保護者コミュニティ</div>
+        </div>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🛡️</span>
+        <div>
+          <div class="org-name">防災士会</div>
+          <div class="org-note">防災士が集まる専門組織</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice-box">
+      <span class="notice-icon">⚠️</span>
+      <p>
+        <strong>住民自主防災組織</strong>と<strong>消防団</strong>は名称が似ていますが、<strong>別々の独立した組織</strong>です。
+        それぞれが独自の役割を持ちながら連携することで、地域全体の防災力が高まります。
+      </p>
+    </div>
+    <img class="section-photo" src="img_cache/DSC_2766-scaled.jpg" alt="地域コミュニティの連携">
+    <p class="photo-caption">地域のコミュニティが連携して取り組む防災活動</p>
+  </div>
+
+  <!-- CCPの目的 -->
+  <div class="section">
+    <div class="section-eyebrow">目　的</div>
+    <h2 class="section-title">各コミュニティが連携して地域を守る</h2>
+    <div class="flow-wrap">
+      <div class="flow-item">各コミュニティが<br>計画を策定</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">組織間の<br>役割を明確化</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">合同訓練・<br>連携体制の構築</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">地域防災力・<br>災害対応力の向上</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- JDRS実績 -->
+  <div class="section">
+    <div class="section-eyebrow">JDRS の実績</div>
+    <h2 class="section-title">ＪＤＲＳのＣＣＰ支援実績</h2>
+    <div class="track-card">
+      <h3>📍 各自治体からのご依頼による訓練実績</h3>
+      <p>
+        JDRS（一般社団法人 日本災害救助支援機構）は、元自衛官（危機管理専門）で組織する団体として、
+        これまで<strong>複数の自治体からＣＣＰに関する訓練のご依頼を受け、実績を重ねてまいりました。</strong><br><br>
+        地域の特性や各コミュニティの実情に合わせた訓練設計を行い、
+        住民自主防災組織・消防団・各福祉団体など複数の組織が連携して取り組む
+        <strong>実践的な地域防災訓練</strong>を提供しています。<br><br>
+        ＣＣＰ策定のご支援から訓練の実施まで、地域の防災力強化を
+        トータルにサポートいたします。
+      </p>
+      <img class="track-photo" src="img_cache/DSC_2733-scaled.jpg" alt="JDRS CCP訓練の様子">
+      <p class="photo-caption" style="color:rgba(255,255,255,0.4);">JDRS による地域防災訓練の様子</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>ＣＣＰ策定・訓練のご相談はこちら</h2>
+    <p>
+      自治体・地域組織・協議会からのご依頼を承っております。<br>
+      まずはお気軽にお問い合わせください。
+    </p>
+    <a class="cta-btn" href="jdrs-ko-do-v3.html#contact" onclick="sessionStorage.setItem('page','contact')">お問い合わせ・ご相談はこちら →</a>
+  </div>
+
+</div>
+
+<footer>
+  一般社団法人 日本災害救助支援機構（JDRS）© 2026
+</footer>
+
+</body>
+</html>
