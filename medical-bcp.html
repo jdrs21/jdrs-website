@@ -312,24 +312,9 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text
 
 <script>
 (function(){
-  var base = 'https://jdrs21.jp/wp-content/uploads/';
-
-  // ヒーロー背景: IMG_20200715_153639
-  loadBg('heroBg', [
-    base + '2020/08/IMG_20200715_153639-scaled.jpg'
-  ]);
-
-  // 写真1（カード後）: HP用　2336.jpg
-  loadImg('photo1img', [
-    base + '2020/09/HP用　2336.jpg',
-    base + '2020/09/HP%E7%94%A8%E3%80%802336.jpg'
-  ]);
-
-  // 写真2（CTA前）: ＨＰ20201016ゾーニング3.jpg
-  loadImg('photo2img', [
-    base + '2020/10/ＨＰ20201016ゾーニング3.jpg',
-    base + '2020/10/%EF%BC%A8%EF%BC%B020201016%E3%82%BE%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B03.jpg'
-  ]);
+  loadBg('heroBg', ['img_cache/IMG_20200715_153639-scaled.jpg']);
+  loadImg('photo1img', ['img_cache/hp-2336.jpg']);
+  loadImg('photo2img', ['img_cache/hp-zoning3.jpg']);
 
   function loadBg(id, urls) {
     var i = 0;

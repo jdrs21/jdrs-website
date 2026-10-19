@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -69,7 +69,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://jdrs21.jp/wp-content/uploads/2026/10/スライド2-1.jpg');
+      background-image: url('img_cache/slide2-1.jpg');
       background-size: cover;
       background-position: center center;
       opacity: .55;
@@ -436,7 +436,7 @@
 
   <!-- 写真①：スライド2-1 -->
   <div class="photo-wrap">
-    <img src="https://jdrs21.jp/wp-content/uploads/2026/10/スライド2-1.jpg" alt="製造・物流系BCP資料" loading="lazy">
+    <img src="img_cache/slide2-1.jpg" alt="製造・物流系BCP資料" loading="lazy">
   </div>
 
   <!-- セクション：共通課題 -->
@@ -509,7 +509,7 @@
 
   <!-- 写真②：スライド3 -->
   <div class="photo-wrap">
-    <img src="https://jdrs21.jp/wp-content/uploads/2026/10/スライド3.jpg" alt="製造・物流系BCP訓練資料" loading="lazy">
+    <img src="img_cache/slide3.jpg" alt="製造・物流系BCP訓練資料" loading="lazy">
   </div>
 
   <!-- 実績バナー -->
@@ -557,10 +557,8 @@
 
 <script>
 (function(){
-  var base = 'https://jdrs21.jp/wp-content/uploads/2026/10/';
   var urls = [
-    base + 'スライド2-1.jpg',
-    base + '%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%892-1.jpg'
+    'img_cache/slide2-1.jpg'
   ];
   var bg = document.getElementById('hero-bg');
   if (!bg) return;

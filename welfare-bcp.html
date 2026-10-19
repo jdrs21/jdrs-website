@@ -311,24 +311,9 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text
 
 <script>
 (function(){
-  var base = 'https://jdrs21.jp/wp-content/uploads/';
-
-  // ヒーロー背景（模擬訓練写真）
-  loadBg('heroBg', [
-    base + '2025/07/★模擬訓練-27-HP-scaled.jpg',
-    base + '2025/07/%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-27-HP-scaled.jpg'
-  ]);
-
-  // 写真1: １　HP-全体風景-scaled.jpg
-  loadImg('photo1img', [
-    base + '2021/12/１　HP-全体風景-scaled.jpg',
-    base + '2021/12/%EF%BC%91%E3%80%80HP-%E5%85%A8%E4%BD%93%E9%A2%A8%E6%99%AF-scaled.jpg'
-  ]);
-
-  // 写真2: 7.jpg
-  loadImg('photo2img', [
-    base + '2020/02/7.jpg'
-  ]);
+  loadBg('heroBg', ['img_cache/mogi27-hp-scaled.jpg']);
+  loadImg('photo1img', ['img_cache/hp-zentai-kaze-scaled.jpg']);
+  loadImg('photo2img', ['img_cache/welfare-7.jpg']);
 
   function loadBg(id, urls) {
     var i = 0;

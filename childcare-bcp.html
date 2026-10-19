@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -303,7 +303,7 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text
 <!-- PHOTO 2b -->
 <div style="background:var(--bg);padding:0 24px 40px;">
   <div class="photo-wrap" id="photo2bwrap">
-    <img id="photo2bimg" src="https://jdrs21.jp/wp-content/uploads/2020/02/IMG_20191103_153944.jpg" alt="保育施設BCP訓練の様子" style="width:100%;height:auto;display:block;">
+    <img id="photo2bimg" src="" alt="保育施設BCP訓練の様子" style="width:100%;height:auto;display:block;">
   </div>
 </div>
 
@@ -386,30 +386,10 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text
 
 <script>
 (function(){
-  var base = 'https://jdrs21.jp/wp-content/uploads/';
-
-  // ヒーロー背景: PXL_20260524_011225297
-  loadBg('heroBg', [
-    base + '2026/05/PXL_20260524_011225297-scaled.jpg'
-  ]);
-
-  // 写真1（模擬訓練セクション後）: ＨＰ模擬訓練③
-  loadImg('photo1img', [
-    base + '2024/11/ＨＰ模擬訓練③-scaled.jpg',
-    base + '2024/11/%EF%BC%A8%EF%BC%B0%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4%E2%91%A2-scaled.jpg'
-  ]);
-
-  // 写真2（BCP5つのポイント後）: ＨＰ代表→先生⑤
-  loadImg('photo2img', [
-    base + '2024/11/ＨＰ代表→先生⑤-scaled.jpg',
-    base + '2024/11/%EF%BC%A8%EF%BC%B0%E4%BB%A3%E8%A1%A8%E2%86%92%E5%85%88%E7%94%9F%E2%91%A4-scaled.jpg'
-  ]);
-
-  // 写真3（CTA前）: ★大阪開催_231205_12
-  loadImg('photo3img', [
-    base + '2023/12/★大阪開催_231205_12.jpg',
-    base + '2023/12/%E2%98%85%E5%A4%A7%E9%98%AA%E9%96%8B%E5%82%AC_231205_12.jpg'
-  ]);
+  loadBg('heroBg', ['img_cache/PXL_20260524_011225297-scaled.jpg']);
+  loadImg('photo1img', ['img_cache/hp-mogi3-scaled.jpg']);
+  loadImg('photo2img', ['img_cache/daihyo-sensei5-scaled.jpg']);
+  loadImg('photo3img', ['img_cache/osaka-231205-12.jpg']);
 
   function loadBg(id, urls) {
     var i = 0;

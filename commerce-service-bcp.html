@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -74,7 +74,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://jdrs21.jp/wp-content/uploads/2026/10/ホームページ素材-ショッピングモール等写真.jpg');
+      background-image: url('img_cache/shopping-mall.jpg');
       background-size: cover;
       background-position: center center;
       opacity: .6;
@@ -484,7 +484,7 @@
 
   <!-- 写真：ショッピングモール等 -->
   <div class="photo-wrap">
-    <img src="https://jdrs21.jp/wp-content/uploads/2026/10/ホームページ素材-ショッピングモール等写真-1.jpg" alt="商業施設でのBCP対応イメージ" loading="lazy">
+    <img src="img_cache/shopping-mall-1.jpg" alt="商業施設でのBCP対応イメージ" loading="lazy">
   </div>
 
   <!-- セクション：商業サービス業が直面する課題 -->
@@ -579,7 +579,7 @@
 
   <!-- 写真：模擬訓練の様子 -->
   <div class="photo-wrap">
-    <img src="https://jdrs21.jp/wp-content/uploads/2025/07/%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-27-HP-scaled.jpg" alt="商業・サービス系BCP模擬訓練の様子" loading="lazy">
+    <img src="img_cache/mogi27-hp-scaled.jpg" alt="商業・サービス系BCP模擬訓練の様子" loading="lazy">
   </div>
 
   <!-- 宿泊業ハイライト -->
@@ -647,16 +647,9 @@
 <script>
 // ヒーロー背景：PDFからWordPressが生成したサムネイル画像を複数パターンで試みる
 (function(){
-  var base = 'https://jdrs21.jp/wp-content/uploads/2026/10/';
-  var name = 'ホームページ素材-ショッピングモール等写真';
-  var encName = '%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E7%B4%A0%E6%9D%90-%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%A2%E3%83%BC%E3%83%AB%E7%AD%89%E5%86%99%E7%9C%9F';
   var urls = [
-    base + name + '.jpg',
-    base + name + '-scaled.jpg',
-    base + name + '-1024x576.jpg',
-    base + encName + '.jpg',
-    base + encName + '-scaled.jpg',
-    base + encName + '-1.jpg'
+    'img_cache/shopping-mall.jpg',
+    'img_cache/shopping-mall-1.jpg'
   ];
   var bg = document.getElementById('hero-bg');
   if (!bg) return;

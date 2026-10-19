@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -69,7 +69,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://jdrs21.jp/wp-content/uploads/2026/10/ＨＰ-模擬訓練-4-scaled.jpg');
+      background-image: url('img_cache/mogi4-scaled.jpg');
       background-size: cover;
       background-position: center center;
       opacity: .65;
@@ -356,7 +356,7 @@
 
   <!-- 写真① -->
   <div class="photo-wrap">
-    <img src="https://jdrs21.jp/wp-content/uploads/2026/10/%EF%BC%A8%EF%BC%B0-%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-4-scaled.jpg" alt="学校BCP訓練の様子①" loading="lazy">
+    <img src="img_cache/mogi4-scaled.jpg" alt="学校BCP訓練の様子①" loading="lazy">
     <div class="photo-caption">実際の学校向けＢＣＰ模擬訓練の様子</div>
   </div>
 
@@ -425,11 +425,11 @@
   <!-- 写真② ③ 横2列 -->
   <div class="photo-grid">
     <div class="photo-wrap">
-      <img src="https://jdrs21.jp/wp-content/uploads/2026/10/%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-3-scaled.jpg" alt="学校BCP訓練の様子②" loading="lazy">
+      <img src="img_cache/mogi3-2026-scaled.jpg" alt="学校BCP訓練の様子②" loading="lazy">
       <div class="photo-caption">グループで取り組む模擬訓練</div>
     </div>
     <div class="photo-wrap">
-      <img src="https://jdrs21.jp/wp-content/uploads/2026/10/%EF%BC%A8%EF%BC%B0-%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-scaled.jpg" alt="学校BCP訓練の様子③" loading="lazy">
+      <img src="img_cache/mogi-hp-star-scaled.jpg" alt="学校BCP訓練の様子③" loading="lazy">
       <div class="photo-caption">実践形式のＢＣＰ教育</div>
     </div>
   </div>
@@ -478,12 +478,9 @@
 
 <script>
 (function(){
-  var base = 'https://jdrs21.jp/wp-content/uploads/2026/10/';
   var urls = [
-    base + '%EF%BC%A8%EF%BC%B0-%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-4-scaled.jpg',
-    base + 'ＨＰ-模擬訓練-4-scaled.jpg',
-    base + '%E2%98%85%E6%A8%A1%E6%93%AC%E8%A8%93%E7%B7%B4-3-scaled.jpg',
-    base + '★模擬訓練-3-scaled.jpg'
+    'img_cache/mogi4-scaled.jpg',
+    'img_cache/mogi3-2026-scaled.jpg'
   ];
   var bg = document.querySelector('.hero-bg');
   if (!bg) return;
