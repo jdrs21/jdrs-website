@@ -1799,24 +1799,22 @@ const observer = new IntersectionObserver((entries) => {
 const statsGrid = document.getElementById('stats-grid');
 if (statsGrid) observer.observe(statsGrid);
 // 外部ページからのハッシュ・sessionStorage経由でタブ切替
-// URLパラメータからイベントを自動選択
+// URLパラメータからイベントを自動選択（body末尾のためDOMはすでに存在）
 (function(){
   var params = new URLSearchParams(window.location.search);
   var event = params.get('event');
   if (!event) return;
-  window.addEventListener('DOMContentLoaded', function(){
-    if (typeof showPage === 'function') showPage('contact');
-    var sel = document.querySelector('select[name="type"]');
-    if (sel) {
-      for (var i = 0; i < sel.options.length; i++) {
-        if (sel.options[i].text === event) { sel.selectedIndex = i; break; }
-      }
+  if (typeof showPage === 'function') showPage('contact');
+  var sel = document.querySelector('select[name="type"]');
+  if (sel) {
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text === event) { sel.selectedIndex = i; break; }
     }
-    setTimeout(function(){
-      var form = document.querySelector('form');
-      if (form) form.scrollIntoView({ behavior:'smooth', block:'start' });
-    }, 400);
-  });
+  }
+  setTimeout(function(){
+    var form = document.querySelector('form');
+    if (form) form.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 300);
 })();
 
 window.addEventListener('DOMContentLoaded', function() {
