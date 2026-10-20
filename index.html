@@ -1807,10 +1807,12 @@ const observer = new IntersectionObserver((entries) => {
 const statsGrid = document.getElementById('stats-grid');
 if (statsGrid) observer.observe(statsGrid);
 // 外部ページからのハッシュ・sessionStorage経由でタブ切替
-// URLパラメータからイベントを自動選択（body末尾のためDOMはすでに存在）
+// URLパラメータからページ・イベントを自動選択（body末尾のためDOMはすでに存在）
 (function(){
   var params = new URLSearchParams(window.location.search);
+  var page  = params.get('page');
   var event = params.get('event');
+  if (page && typeof showPage === 'function') { showPage(page); return; }
   if (!event) return;
   if (typeof showPage === 'function') showPage('contact');
   var sel = document.querySelector('select[name="type"]');
