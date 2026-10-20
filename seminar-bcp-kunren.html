@@ -487,6 +487,24 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
   loadImg('photo1img', ['img_cache/hp-bcp-kunren6-scaled.jpg']);
   loadImg('photo2img', ['img_cache/kouwa-7.jpg']);
 })();
+
+// スケジュールカードをクリックで申し込みフォームへ
+(function(){
+  var monthMap = {'10':'１０月','11':'１１月','12':'１２月','1':'１月','2':'２月','3':'３月'};
+  document.querySelectorAll('.schedule-card').forEach(function(card){
+    var monthEl = card.querySelector('.schedule-month');
+    var cityEl  = card.querySelector('.schedule-venue-name');
+    if (!monthEl || !cityEl) return;
+    var mJp = monthMap[monthEl.textContent.trim()] || monthEl.textContent.trim() + '月';
+    var city = cityEl.textContent.trim();
+    var eventName = 'ＢＣＰ訓練　' + mJp + '　' + city + '開催';
+    card.style.cursor = 'pointer';
+    card.title = eventName + 'へお申し込み';
+    card.addEventListener('click', function(){
+      location.href = 'index.html?event=' + encodeURIComponent(eventName);
+    });
+  });
+})();
 </script>
 </body>
 </html>
