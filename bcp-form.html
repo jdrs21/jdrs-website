@@ -834,12 +834,7 @@ body {
 
     <!-- 入力フォーム -->
     <div class="form-body" id="formPanel">
-      <div style="text-align:center;padding:40px 20px;background:#fff3cd;border:2px solid #e67e22;border-radius:12px;margin:20px 0;">
-        <p style="font-size:22px;font-weight:700;color:#c0392b;margin-bottom:12px;">現在メンテナンス中です</p>
-        <p style="font-size:15px;color:#555;line-height:1.8;">ただいまフォームのメンテナンスを行っております。<br>お申し込みは下記メールアドレスまで直接ご連絡ください。</p>
-        <p style="font-size:18px;font-weight:700;margin-top:20px;"><a href="mailto:info@jdrs21.jp" style="color:#c0392b;">info@jdrs21.jp</a></p>
-      </div>
-      <form id="applyForm" novalidate style="display:none;">
+      <form id="applyForm" action="https://9735d088cad1dee7.main.jp/bcp-contact.php" method="POST" accept-charset="UTF-8" novalidate>
 
         <!-- ご担当者情報 -->
         <div class="form-section">
@@ -954,7 +949,7 @@ body {
                   <span class="date-badge badge-full">満席</span>
                 </div>
                 <label class="date-card">
-                  <input type="checkbox" name="session-dates" value="１１月５日（木）13:30〜 テーマ①「園が必要な備蓄とは」">
+                  <input type="checkbox" name="session-dates[]" value="１１月５日（木）13:30〜 テーマ①「園が必要な備蓄とは」">
                   <div class="date-info">
                     <p class="date-main">１１月　５日（木）<span class="date-add-tag tag-readded">再追加開催</span></p>
                     <p class="date-time">13:30〜15:00</p>
@@ -993,7 +988,7 @@ body {
                   <span class="date-badge badge-full">満席</span>
                 </div>
                 <label class="date-card">
-                  <input type="checkbox" name="session-dates" value="１２月２２日（火）13:30〜 テーマ②「発災直後のリスクを知るための情報収集とは」">
+                  <input type="checkbox" name="session-dates[]" value="１２月２２日（火）13:30〜 テーマ②「発災直後のリスクを知るための情報収集とは」">
                   <div class="date-info">
                     <p class="date-main">１２月２２日（火）<span class="date-add-tag tag-readded">再追加開催</span></p>
                     <p class="date-time">13:30〜15:00</p>
@@ -1121,7 +1116,7 @@ body {
       document.getElementById('field-type').classList.remove('has-error');
     }
 
-    const selectedDates = Array.from(document.querySelectorAll('input[name="session-dates"]:checked')).map(c=>c.value);
+    const selectedDates = Array.from(document.querySelectorAll('input[name="session-dates[]"]:checked')).map(c=>c.value);
     const monthErr = document.getElementById('months-error');
     if(selectedDates.length === 0){
       monthErr.style.display = 'block'; ok = false;
@@ -1147,54 +1142,8 @@ body {
 
     if(!ok) return;
 
-    // メール本文を構築して mailto: で送信
-    const name      = document.getElementById('name').value;
-    const kana      = document.getElementById('kana').value;
-    const email     = emailVal;
-    const tel       = document.getElementById('tel').value;
-    const facility  = document.getElementById('facility').value;
-    const type      = document.getElementById('type').value;
-    const dept      = document.getElementById('dept').value;
-    const pref      = document.getElementById('address').value;
-    const terminals = document.getElementById('terminals').value;
-    const attendance= document.querySelector('input[name="attendance"]:checked');
-    const note      = document.getElementById('note').value;
-
-    const body = [
-      '【２０２６下半期 BCP無料オンライン教育　お申し込み】',
-      '',
-      '■ ご担当者情報',
-      'お名前：' + name,
-      'フリガナ：' + (kana||'―'),
-      'メールアドレス：' + email,
-      '電話番号：' + (tel||'―'),
-      '',
-      '■ 所属先情報',
-      '施設名・団体名：' + facility,
-      '業種：' + type,
-      '部署・役職：' + (dept||'―'),
-      '所在地（都道府県）：' + (pref||'―'),
-      '',
-      '■ 参加希望日程',
-      selectedDates.length ? selectedDates.map(function(d){ return '・' + d; }).join('\n') : '（未選択）',
-      '',
-      '接続端末数：' + (terminals ? terminals+'台' : '―'),
-      '参加形式：' + (attendance ? attendance.value : '―'),
-      '',
-      '■ ご質問・備考',
-      note || '特になし',
-    ].join('\n');
-
-    const subject = encodeURIComponent('【お申し込み】２０２６下半期 BCP無料オンライン教育　' + name + '様');
-    const mailBody = encodeURIComponent(body);
-    window.location.href = 'mailto:takasuka@jdrs21.jp?subject=' + subject + '&body=' + mailBody;
-
-    // 完了画面に切り替え
-    setTimeout(function(){
-      formPanel.style.display = 'none';
-      donePanel.classList.add('visible');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 600);
+    // PHPバックエンドに送信
+    form.submit();
   });
 })();
 </script>
