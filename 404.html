@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ページ移動中 | JDRS</title>
+<script>
+(function(){
+  var path = window.location.pathname.toLowerCase();
+  var dest = '/';
+  if (/contact|申込|inquiry|form/.test(path)) {
+    dest = '/?page=contact';
+  } else if (/company|about|概要|機構/.test(path)) {
+    dest = '/?page=company';
+  } else if (/torikumi|activities|initiative|取組/.test(path)) {
+    dest = '/?page=torikumi';
+  } else if (/portfolio|voice|testimonial|依頼/.test(path)) {
+    dest = '/?page=company';
+  } else if (/seminar|training|bcp|kunren|訓練|セミナー/.test(path)) {
+    dest = '/seminar-bcp-kunren.html';
+  } else if (/jisseki|result|実績|training/.test(path)) {
+    dest = '/?page=jisseki';
+  }
+  window.location.replace(dest);
+})();
+</script>
+</head>
+<body>
+<p>ページを移動しています…しばらくお待ちください。</p>
+</body>
+</html>
