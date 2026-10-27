@@ -488,33 +488,20 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
   loadImg('photo2img', ['img_cache/kouwa-7.jpg']);
 })();
 
-// スケジュールカードをクリックでチラシを表示
+// スケジュールカードをクリックで申し込みフォームへ
 (function(){
-  var flyerMap = {
-    '10大阪':  'flyers/スライド1.JPG',
-    '11金沢':  'flyers/スライド2.JPG',
-    '11愛媛':  'flyers/スライド3.JPG',
-    '11千葉':  'flyers/スライド4.JPG',
-    '12高知':  'flyers/スライド5.JPG',
-    '1宮崎':   'flyers/スライド6.JPG',
-    '1熊本':   'flyers/スライド7.JPG',
-    '1仙台':   'flyers/スライド8.JPG',
-    '1青森':   'flyers/スライド9.JPG',
-    '1函館':   'flyers/スライド10.JPG',
-    '2岡山':   'flyers/スライド11.JPG',
-    '2広島':   'flyers/スライド12.JPG',
-  };
+  var monthMap = {'10':'１０月','11':'１１月','12':'１２月','1':'１月','2':'２月','3':'３月'};
   document.querySelectorAll('.schedule-card').forEach(function(card){
     var monthEl = card.querySelector('.schedule-month');
     var cityEl  = card.querySelector('.schedule-venue-name');
     if (!monthEl || !cityEl) return;
-    var month = monthEl.textContent.trim();
-    var city  = cityEl.textContent.trim();
-    var flyer = flyerMap[month + city];
+    var mJp = monthMap[monthEl.textContent.trim()] || monthEl.textContent.trim() + '月';
+    var city = cityEl.textContent.trim();
+    var eventName = 'ＢＣＰ訓練　' + mJp + '　' + city + '開催';
     card.style.cursor = 'pointer';
-    card.title = city + 'のチラシを見る';
+    card.title = eventName + 'へお申し込み';
     card.addEventListener('click', function(){
-      if (flyer) { window.open(flyer, '_blank'); }
+      location.href = 'index.html?event=' + encodeURIComponent(eventName);
     });
   });
 })();
