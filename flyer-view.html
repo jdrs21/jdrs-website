@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -52,10 +52,10 @@ body { background: #1a1a2e; min-height: 100vh; padding: 20px; }
   if (!n) { document.getElementById('wrap').innerHTML = '<p style="color:white;text-align:center;">チラシが見つかりません</p>'; return; }
   var wrap = document.getElementById('wrap');
   var sanka = document.createElement('div');
-  sanka.innerHTML = '<div class="label">▼ 参加募集チラシ</div><img src="flyers-sanka/スライド' + n + '.JPG" alt="参加募集チラシ">';
+  sanka.innerHTML = '<div class="label">▼ 参加募集チラシ</div><img src="flyers-sanka/スライド' + n + '.JPG" alt="参加募集チラシ" loading="lazy">';
   wrap.appendChild(sanka);
   var kenngaku = document.createElement('div');
-  kenngaku.innerHTML = '<div class="label">▼ 見学案内チラシ</div><img src="flyers/スライド' + n + '.JPG" alt="見学案内チラシ">';
+  kenngaku.innerHTML = '<div class="label">▼ 見学案内チラシ</div><img src="flyers/スライド' + n + '.JPG" alt="見学案内チラシ" loading="lazy">';
   wrap.appendChild(kenngaku);
 })();
 </script>
