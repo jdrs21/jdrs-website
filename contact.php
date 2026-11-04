@@ -30,7 +30,7 @@ $media         = !empty($media_arr) ? implode('、', $media_arr) : '';
 $reason        = isset($_POST['reason'])        ? clean($_POST['reason'])        : '';
 $other         = isset($_POST['other'])         ? clean($_POST['other'])         : '';
 
-if (empty($company) || empty($name) || empty($email) || empty($phone) || empty($type) || empty($month)) {
+if (empty($company) || empty($name) || empty($email) || empty($phone) || empty($type) || empty($month) || empty($day)) {
     header('Location: https://jdrs21.jp/?error=1');
     exit;
 }
