@@ -1,5 +1,9 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
+// セキュリティヘッダー
+header('X-Frame-Options: DENY');
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: strict-origin-when-cross-origin');
 
 $to = 'info@jdrs21.jp';
 
@@ -8,8 +12,24 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// リクエスト元チェック（自サイトからのみ受付）
+$origin = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+if (!preg_match('#^https://(jdrs21\.jp|9735d088cad1dee7\.main\.jp)#', $origin)) {
+    header('Location: https://jdrs21.jp/');
+    exit;
+}
+
 function clean($val) {
+    // ヘッダーインジェクション対策：改行コードを除去
+    $val = str_replace(["\r", "\n", "%0a", "%0d"], '', $val);
     return mb_convert_encoding(trim($val), 'UTF-8', 'auto');
+}
+
+// ハニーポットチェック（ボットが入力した場合は無効）
+$honeypot = isset($_POST['website']) ? trim($_POST['website']) : '';
+if (!empty($honeypot)) {
+    header('Location: https://jdrs21.jp/');
+    exit;
 }
 
 $company       = isset($_POST['company'])       ? clean($_POST['company'])       : '';
@@ -30,6 +50,13 @@ $media         = !empty($media_arr) ? implode('、', $media_arr) : '';
 $reason        = isset($_POST['reason'])        ? clean($_POST['reason'])        : '';
 $other         = isset($_POST['other'])         ? clean($_POST['other'])         : '';
 
+// メール形式チェック
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: https://jdrs21.jp/?error=1');
+    exit;
+}
+
+// 必須項目チェック
 if (empty($company) || empty($name) || empty($email) || empty($phone) || empty($type) || empty($month) || empty($day)) {
     header('Location: https://jdrs21.jp/?error=1');
     exit;
