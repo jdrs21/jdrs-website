@@ -251,6 +251,15 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
       </div>
       <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">高知</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">県立青少年センター</div></div>
     </div>    <div class="schedule-card">
+      <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
+        <div class="schedule-day-info">
+          <div class="schedule-day"><span class="schedule-month">12</span>月18日</div>
+          <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜16:30</span></div>
+        </div>
+        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">静岡開催</span>
+      </div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">浜松</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">浜松市市民音楽ホール　多目的室</div></div>
+    </div>    <div class="schedule-card">
       <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
         <div class="schedule-day-info">
           <div class="schedule-day"><span class="schedule-month">1</span>月14日</div>
@@ -505,6 +514,9 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
     '2岡山':   'flyer-view.html?v=11',
     '2広島':   'flyer-view.html?v=12',
   };
+  var eventOverride = {
+    '12浜松': 'ＢＣＰ訓練　１２月　浜松開催（緊急開催）',
+  };
   document.querySelectorAll('.schedule-card').forEach(function(card){
     var monthEl = card.querySelector('.schedule-month');
     var cityEl  = card.querySelector('.schedule-venue-name');
@@ -513,7 +525,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
     var city  = cityEl.textContent.trim();
     var mJp   = monthMap[month] || month + '月';
     var flyer = flyerMap[month + city];
-    var eventName = 'ＢＣＰ訓練　' + mJp + '　' + city + '開催';
+    var eventName = eventOverride[month + city] || 'ＢＣＰ訓練　' + mJp + '　' + city + '開催';
     card.style.cursor = 'pointer';
     card.title = flyer ? city + 'のチラシを見る' : eventName + 'へお申し込み';
     card.addEventListener('click', function(){
