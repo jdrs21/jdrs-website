@@ -1755,9 +1755,9 @@ body {
   form.addEventListener('submit', function(e){
     var missing = [];
     Object.keys(labels).forEach(function(n){
-      var el = form.elements[n];
+      var el = form.querySelector('[name="' + n + '"]') || form.elements[n];
       if (!el) return;
-      var val = el.value ? el.value.trim() : '';
+      var val = (el.value || '').trim();
       if (!val) missing.push('【' + labels[n] + '】');
     });
     if (missing.length > 0) {
