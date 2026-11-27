@@ -514,7 +514,10 @@ body {
   transition: background 0.15s;
 }
 .date-card:last-child { border-bottom: none; }
-.date-card.sold-out { opacity: 0.55; cursor: not-allowed; background: rgba(0,0,0,0.015); }
+.date-card.sold-out { cursor: not-allowed; background: rgba(0,0,0,0.015); }
+.date-card.sold-out input,
+.date-card.sold-out .date-info { opacity: 0.45; }
+.date-card.sold-out .badge-full { background: var(--red,#c23a22); color: #fff; opacity: 1; }
 .date-card:not(.sold-out) { cursor: pointer; }
 .date-card:not(.sold-out):hover { background: rgba(198,153,58,0.06); }
 .date-card:not(.sold-out):has(input:checked) { background: rgba(198,153,58,0.1); border-left: 3px solid var(--gold); }
