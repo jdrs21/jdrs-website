@@ -59,6 +59,8 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--navy);color:var(--wh
 .schedule-venue-icon{font-size:16px;}
 .schedule-venue-name{font-size:14px;font-weight:700;color:rgba(255,255,255,0.9);}
 .schedule-status{margin-left:auto;font-size:10px;background:rgba(34,168,96,0.2);border:1px solid rgba(34,168,96,0.4);color:#5de08a;padding:2px 8px;border-radius:10px;font-weight:700;}
+.schedule-card.ended{opacity:0.6;}
+.schedule-card.ended .schedule-status-ended{margin-left:auto;font-size:10px;background:rgba(120,120,120,0.3);border:1px solid rgba(180,180,180,0.4);color:#ccc;padding:2px 8px;border-radius:10px;font-weight:700;}
 
 /* Programs */
 .program-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
@@ -205,7 +207,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
 <div style="max-width:960px;margin:0 auto;">
   <div class="sec-title">2026〜2027年 開催スケジュール</div>
   <div class="schedule-grid">
-    <div class="schedule-card">
+    <div class="schedule-card ended">
       <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
         <div class="schedule-day-info">
           <div class="schedule-day"><span class="schedule-month">10</span>月30日</div>
@@ -213,8 +215,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
         </div>
         <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">大阪開催</span>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">大阪</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">福島区民センター</div></div>
-    </div>    <div class="schedule-card">
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">大阪</span><span class="schedule-status-ended">終了</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">福島区民センター</div></div>
+    </div>    <div class="schedule-card ended">
       <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
         <div class="schedule-day-info">
           <div class="schedule-day"><span class="schedule-month">11</span>月12日</div>
@@ -222,8 +224,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
         </div>
         <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">金沢開催</span>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">金沢</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">金沢市異業種研修センター</div></div>
-    </div>    <div class="schedule-card">
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">金沢</span><span class="schedule-status-ended">終了</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">金沢市異業種研修センター</div></div>
+    </div>    <div class="schedule-card ended">
       <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
         <div class="schedule-day-info">
           <div class="schedule-day"><span class="schedule-month">11</span>月20日</div>
@@ -231,8 +233,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
         </div>
         <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">愛媛開催</span>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">愛媛</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">県男女共同参画センター</div></div>
-    </div>    <div class="schedule-card">
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">愛媛</span><span class="schedule-status-ended">終了</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">県男女共同参画センター</div></div>
+    </div>    <div class="schedule-card ended">
       <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
         <div class="schedule-day-info">
           <div class="schedule-day"><span class="schedule-month">11</span>月25日</div>
@@ -240,7 +242,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
         </div>
         <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">千葉開催</span>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">千葉</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">長沼原勤労市民プラザ</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">千葉</span><span class="schedule-status-ended">終了</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">長沼原勤労市民プラザ</div></div>
     </div>    <div class="schedule-card">
       <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
         <div class="schedule-day-info">
