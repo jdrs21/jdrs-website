@@ -51,6 +51,9 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--navy);color:var(--wh
 .schedule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
 .schedule-card{border-radius:10px;overflow:hidden;border:1px solid rgba(232,152,48,0.25);}
 .schedule-date{background:linear-gradient(135deg,var(--amber),var(--amber-dark));padding:10px 16px;display:flex;align-items:center;gap:10px;justify-content:space-between;}
+.schedule-date.has-sub{flex-direction:column;align-items:stretch;gap:4px;}
+.schedule-date.has-sub .schedule-date-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.schedule-sub{font-size:10px;color:rgba(255,255,255,0.92);font-weight:700;letter-spacing:0.04em;margin-top:2px;}
 .schedule-month{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:var(--white);display:inline;}
 .schedule-day-info{display:flex;flex-direction:column;}
 .schedule-day{font-size:18px;font-weight:900;color:var(--white);font-family:'Noto Serif JP',serif;line-height:1.2;}
@@ -245,95 +248,125 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3);}
       </div>
       <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">千葉</span><span class="schedule-status-ended">終了</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">長沼原勤労市民プラザ</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">12</span>月11日</div>
-          <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#c87a18,#a86010);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">12</span>月11日</div>
+            <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">高知開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">高知開催</span>
+        <div class="schedule-sub">南海トラフ巨大地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">高知</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">県立青少年センター</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">南海トラフ巨大地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">高知</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">県立青少年センター</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#c87a18,#a86010);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">12</span>月18日 <span style="display:inline-block;font-size:14px;font-weight:900;color:#cc0000;background:#fff;padding:2px 8px;border-radius:6px;margin-left:4px;letter-spacing:0.06em;">⚡ 緊急開催</span></div>
-          <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜16:30</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#c87a18,#a86010);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">12</span>月18日 <span style="display:inline-block;font-size:14px;font-weight:900;color:#cc0000;background:#fff;padding:2px 8px;border-radius:6px;margin-left:4px;letter-spacing:0.06em;">⚡ 緊急開催</span></div>
+            <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜16:30</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">浜松開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">浜松開催</span>
+        <div class="schedule-sub">南海トラフ巨大地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">静岡</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">浜松市市民音楽ホール　多目的室</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">南海トラフ巨大地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">静岡</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">浜松市市民音楽ホール　多目的室</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">1</span>月14日</div>
-          <div class="schedule-weekday">（木曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">1</span>月14日</div>
+            <div class="schedule-weekday">（木曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">宮崎開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">宮崎開催</span>
+        <div class="schedule-sub">南海トラフ巨大地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">宮崎</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">宮崎市清武文化会館</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">南海トラフ巨大地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">宮崎</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">宮崎市清武文化会館</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">1</span>月15日</div>
-          <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">1</span>月15日</div>
+            <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">熊本開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">熊本開催</span>
+        <div class="schedule-sub">直下型地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">熊本</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">グランメッセ熊本</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">直下型地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">熊本</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">グランメッセ熊本</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">1</span>月20日</div>
-          <div class="schedule-weekday">（水曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">1</span>月20日</div>
+            <div class="schedule-weekday">（水曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">仙台開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">仙台開催</span>
+        <div class="schedule-sub">三陸沖地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">仙台</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">仙台市中小企業活性化センター</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">三陸沖地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">仙台</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">仙台市中小企業活性化センター</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">1</span>月21日</div>
-          <div class="schedule-weekday">（木曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:00〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">1</span>月21日</div>
+            <div class="schedule-weekday">（木曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:00〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">青森開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">青森開催</span>
+        <div class="schedule-sub">日本・千島海溝地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">青森</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">アピオあおもり</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">日本・千島海溝地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">青森</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">アピオあおもり</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">1</span>月22日</div>
-          <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:00〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">1</span>月22日</div>
+            <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:00〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">函館開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">函館開催</span>
+        <div class="schedule-sub">日本・千島海溝地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">函館</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">サンリフレ函館</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">日本・千島海溝地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">函館</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">サンリフレ函館</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">2</span>月16日</div>
-          <div class="schedule-weekday">（火曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">2</span>月16日</div>
+            <div class="schedule-weekday">（火曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">12:30〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">岡山開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">岡山開催</span>
+        <div class="schedule-sub">瀬戸内海（燧灘断層）津波対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">岡山</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">岡山市勤労福祉センター</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">瀬戸内海（燧灘断層）津波対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">岡山</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">岡山市勤労福祉センター</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">2</span>月17日</div>
-          <div class="schedule-weekday">（水曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">2</span>月17日</div>
+            <div class="schedule-weekday">（水曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">広島開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">広島開催</span>
+        <div class="schedule-sub">瀬戸内海（燧灘断層）津波対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">広島</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">広島市内（予定）</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">瀬戸内海（燧灘断層）津波対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">広島</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">広島市内（予定）</div></div>
     </div>    <div class="schedule-card">
-      <div class="schedule-date" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
-        <div class="schedule-day-info">
-          <div class="schedule-day"><span class="schedule-month">3</span>月5日</div>
-          <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜</span></div>
+      <div class="schedule-date has-sub" style="background:linear-gradient(135deg,#1a7a40,#15602e);">
+        <div class="schedule-date-top">
+          <div class="schedule-day-info">
+            <div class="schedule-day"><span class="schedule-month">3</span>月5日</div>
+            <div class="schedule-weekday">（金曜日） <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.95);margin-left:5px;letter-spacing:0.02em;">13:00〜</span></div>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">高知開催</span>
         </div>
-        <span style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.95);white-space:nowrap;background:rgba(0,0,0,0.18);padding:3px 9px;border-radius:12px;letter-spacing:0.03em;">高知開催</span>
+        <div class="schedule-sub">南海トラフ巨大地震初動対応版</div>
       </div>
-      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">高知</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">高知市内（予定）</div><div style="font-size:9px;color:rgba(255,220,100,0.85);margin-top:3px;font-weight:700;">南海トラフ巨大地震初動対応版</div></div>
+      <div class="schedule-venue"><span class="schedule-venue-icon">📍</span><span class="schedule-venue-name">高知</span><span class="schedule-status">受付中</span><div style="font-size:10px;color:rgba(255,255,255,0.55);margin-top:4px;">高知市内（予定）</div></div>
     </div>  </div>
 </div>
     </div>
